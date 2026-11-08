@@ -1,3 +1,3 @@
+export { type MatchTarget, normalizeTitle, type TitleMatch, titleMatch } from "./normalize";
 export { parseRelease } from "./parse";
-export { normalizeTitle, titleMatch, type MatchTarget, type TitleMatch } from "./normalize";
-export type { ParsedRelease, ReleaseSource, ContentHint } from "./types";
+export type { ContentHint, ParsedRelease, ReleaseSource } from "./types";

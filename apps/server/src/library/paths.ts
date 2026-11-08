@@ -13,6 +13,9 @@ export function normalizePath(path: string): string {
   return path.replace(/[\\/]+/g, "/").replace(/([^:/])\/$/, "$1");
 }
 
+// biome-ignore lint/suspicious/noControlCharactersInRegex: matching control characters is the point.
+const CONTROL_CHARS_RE = /[\u0000-\u001f\u007f]/g;
+
 /**
  * Makes a display title safe as a folder or file name on every OS: drops control characters,
  * turns `:` into ` - ` and slashes and pipes into `-`, drops `<>"?*`, and trims trailing dots
@@ -21,7 +24,7 @@ export function normalizePath(path: string): string {
 export function sanitizeName(name: string): string {
   return name
     .normalize("NFC")
-    .replace(/[\u0000-\u001f\u007f]/g, "")
+    .replace(CONTROL_CHARS_RE, "")
     .replace(/\s*:\s*/g, " - ")
     .replace(/[\\/|]/g, "-")
     .replace(/[<>"?*]/g, "")

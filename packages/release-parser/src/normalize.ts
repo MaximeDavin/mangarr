@@ -13,9 +13,29 @@ export function normalizeTitle(s: string): string {
 
 /** French manga publishers, normalized. French scene names often put one after the title. */
 const PUBLISHERS = [
-  "akata", "ankama", "black box", "casterman", "delcourt", "doki doki", "glenat", "hikari", "kana",
-  "kaze", "ki oon", "kurokawa", "mangetsu", "meian", "nazca", "noeve", "ototo", "panini",
-  "pika", "soleil", "taifu", "tonkam", "vega",
+  "akata",
+  "ankama",
+  "black box",
+  "casterman",
+  "delcourt",
+  "doki doki",
+  "glenat",
+  "hikari",
+  "kana",
+  "kaze",
+  "ki oon",
+  "kurokawa",
+  "mangetsu",
+  "meian",
+  "nazca",
+  "noeve",
+  "ototo",
+  "panini",
+  "pika",
+  "soleil",
+  "taifu",
+  "tonkam",
+  "vega",
 ];
 const PUBLISHER_KEYS = PUBLISHERS.map((p) => p.replaceAll(" ", ""));
 

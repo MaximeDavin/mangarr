@@ -28,7 +28,6 @@ export interface FolderScan {
   warnings: ScanWarning[];
 }
 
-
 /** Reads a series folder. Never throws for filesystem problems: they become warnings. */
 export async function scanFolder(folder: string): Promise<FolderScan> {
   let names: string[];
@@ -40,7 +39,11 @@ export async function scanFolder(folder: string): Promise<FolderScan> {
     if (code === "ENOTDIR") {
       return { folderExists: true, volumes: [], warnings: [{ message: "The series path is a file, not a folder" }] };
     }
-    return { folderExists: true, volumes: [], warnings: [{ message: `Could not read the folder: ${errorMessage(error)}` }] };
+    return {
+      folderExists: true,
+      volumes: [],
+      warnings: [{ message: `Could not read the folder: ${errorMessage(error)}` }],
+    };
   }
 
   // Plain code-unit order, so which duplicate wins doesn't depend on the locale.
@@ -108,7 +111,10 @@ export async function scanSeries(db: Db, seriesId: number): Promise<FolderScan> 
         .values(scan.volumes.map((v) => ({ ...v, seriesId, source: previous.get(v.filePath) ?? "scan" })))
         .run();
     }
-    tx.update(series).set({ lastScannedAt: new Date(), scanWarnings: scan.warnings }).where(eq(series.id, seriesId)).run();
+    tx.update(series)
+      .set({ lastScannedAt: new Date(), scanWarnings: scan.warnings })
+      .where(eq(series.id, seriesId))
+      .run();
   });
 
   return scan;

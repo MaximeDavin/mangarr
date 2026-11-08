@@ -12,7 +12,6 @@
 import { parseArgs } from "node:util";
 import { createKomgaClient } from "../src/integrations/komga";
 import { replaceFixtures } from "../test/fixtures";
-import { recordedOn } from "./anonymize";
 import {
   asStored,
   type KomgaCall,
@@ -21,6 +20,7 @@ import {
   komgaScenarios,
   recordedKomgaUrl,
 } from "../test/komga-scenarios";
+import { recordedOn } from "./anonymize";
 
 const { values } = parseArgs({ options: { library: { type: "string" } } });
 
@@ -77,7 +77,11 @@ const recordingFetch = async (request: Request): Promise<Response> => {
       path: target.pathname.slice(new URL(url).pathname.replace(/\/$/, "").length),
       query: [...target.searchParams],
     },
-    response: { status: response.status, contentType: response.headers.get("content-type"), ...(body === undefined ? {} : { body: scrub(body) }) },
+    response: {
+      status: response.status,
+      contentType: response.headers.get("content-type"),
+      ...(body === undefined ? {} : { body: scrub(body) }),
+    },
   });
   return response;
 };

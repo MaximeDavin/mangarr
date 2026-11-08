@@ -39,7 +39,10 @@ export function SearchTermsForm({ series }: { series: Series }) {
         event.preventDefault();
         save.mutate({
           id: series.id,
-          terms: [...search.map((term) => ({ term, kind: "search" as const })), ...aliases.map((term) => ({ term, kind: "alias" as const }))],
+          terms: [
+            ...search.map((term) => ({ term, kind: "search" as const })),
+            ...aliases.map((term) => ({ term, kind: "alias" as const })),
+          ],
         });
       }}
     >
@@ -51,7 +54,12 @@ export function SearchTermsForm({ series }: { series: Series }) {
           onChange={setSearch}
           error={search.length === 0 ? "Give at least one search term" : undefined}
         />
-        <TagsInput label="Aliases" description="Accepted when matching results, never searched." value={aliases} onChange={setAliases} />
+        <TagsInput
+          label="Aliases"
+          description="Accepted when matching results, never searched."
+          value={aliases}
+          onChange={setAliases}
+        />
         {save.error && (
           <Alert color="red" variant="light">
             {save.error.message}

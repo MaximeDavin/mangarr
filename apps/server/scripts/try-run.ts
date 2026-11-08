@@ -89,7 +89,8 @@ if (values.help) {
 const query = positionals.join(" ").trim();
 if (!query) fail("Give a search query.");
 const indexerIds = values.indexer.map((v) => positive(v, "--indexer"));
-if (indexerIds.length === 0) fail("Give at least one --indexer. List them with: bun run prowlarr:search --list-indexers");
+if (indexerIds.length === 0)
+  fail("Give at least one --indexer. List them with: bun run prowlarr:search --list-indexers");
 const categories = values.category.map((v) => positive(v, "--category"));
 const intervalSeconds = positive(values.interval, "--interval");
 const volumeCount = values["volume-count"] ? positive(values["volume-count"], "--volume-count") : null;
@@ -119,7 +120,8 @@ if (values["path-map"]) {
 const library = normalizePath(resolve(values.library ?? join(tmpdir(), `mangarr-try-${Date.now()}`)));
 mkdirSync(library, { recursive: true });
 
-if (values.record !== undefined && !/^[a-z0-9-]+$/.test(values.record)) fail("--record expects a name made of a-z, 0-9 and -");
+if (values.record !== undefined && !/^[a-z0-9-]+$/.test(values.record))
+  fail("--record expects a name made of a-z, 0-9 and -");
 const recorder = values.record === undefined ? undefined : createRunRecorder(services);
 // The clients call the global fetch, so this sees every call.
 if (recorder) globalThis.fetch = recorder.fetch;
@@ -182,7 +184,9 @@ const shown = found.results.slice(0, 40);
 const width = String(shown.length).length;
 shown.forEach((r, i) => {
   const volumes = r.volumes.length > 0 ? `v${formatVolumes(r.volumes)}` : r.isComplete ? "complete" : "-";
-  const notes = [r.coversMissing && "covers missing", r.grabbed && "grabbed", r.contentHint, r.editionHint].filter(Boolean);
+  const notes = [r.coversMissing && "covers missing", r.grabbed && "grabbed", r.contentHint, r.editionHint].filter(
+    Boolean,
+  );
   console.log(
     `${String(i + 1).padStart(width)}. ${r.match.padEnd(7)} ${String(r.seeders ?? "?").padStart(4)}s ${formatSize(r.size).padStart(9)}  ${r.indexer}  ${volumes}` +
       (notes.length > 0 ? `  (${notes.join(", ")})` : ""),
@@ -200,15 +204,20 @@ const answer = (values.pick ?? prompt(`\nGrab which one? (1-${shown.length}, emp
 if (!answer) process.exit(0);
 // A number, or an exact release title (stable across searches, unlike the order).
 const choice = /^\d+$/.test(answer) ? shown[Number(answer) - 1] : found.results.find((r) => r.title === answer);
-if (!choice) fail(/^\d+$/.test(answer) ? `Pick a number from 1 to ${shown.length}.` : `No result is titled "${answer}".`);
+if (!choice)
+  fail(/^\d+$/.test(answer) ? `Pick a number from 1 to ${shown.length}.` : `No result is titled "${answer}".`);
 
 if (!values.yes) {
-  const ok = prompt(`This adds "${choice.title}" (${formatSize(choice.size)}) to qBittorrent, which starts downloading it. Go on? [y/N]`);
+  const ok = prompt(
+    `This adds "${choice.title}" (${formatSize(choice.size)}) to qBittorrent, which starts downloading it. Go on? [y/N]`,
+  );
   if (!/^y(es)?$/i.test(ok?.trim() ?? "")) process.exit(0);
 }
 
 const download = await orExit(api.releases.grab({ id: target.id, guid: choice.guid }));
-console.log(`\nGrabbed. Info-hash ${download.infoHash}, expecting volume(s) ${formatVolumes(download.expectedVolumes) || "from the files"}.`);
+console.log(
+  `\nGrabbed. Info-hash ${download.infoHash}, expecting volume(s) ${formatVolumes(download.expectedVolumes) || "from the files"}.`,
+);
 
 // ---- 3. Wait for the download and the import ----
 
@@ -217,15 +226,24 @@ poller.start();
 
 let last = "";
 for (;;) {
-  const { downloads: [current], clientError } = await orExit(api.downloads.list({}));
+  const {
+    downloads: [current],
+    clientError,
+  } = await orExit(api.downloads.list({}));
   if (!current) fail("The download disappeared from the database.");
   const client = current.client;
   const progress = client
     ? `${(client.progress * 100).toFixed(1)}%, ${client.state}, ${formatSize(client.downloadSpeed)}/s${
-        client.eta === undefined ? "" : client.eta < 60 ? `, ${client.eta} s left` : `, ${Math.round(client.eta / 60)} min left`
+        client.eta === undefined
+          ? ""
+          : client.eta < 60
+            ? `, ${client.eta} s left`
+            : `, ${Math.round(client.eta / 60)} min left`
       }`
     : "";
-  const line = [current.status, progress, clientError && `qBittorrent: ${clientError}`, current.statusMessage].filter(Boolean).join(" · ");
+  const line = [current.status, progress, clientError && `qBittorrent: ${clientError}`, current.statusMessage]
+    .filter(Boolean)
+    .join(" · ");
   if (line !== last) console.log(`${new Date().toLocaleTimeString()}  ${line}`);
   last = line;
   if (current.status === "imported" || current.status === "needs_attention") break;
@@ -236,10 +254,14 @@ poller.stop();
 // ---- 4. What happened ----
 
 const detail = await orExit(api.downloads.get({ id: download.id }));
-console.log(`\n${detail.status === "imported" ? "Imported" : "Needs attention"}${detail.statusMessage ? `: ${detail.statusMessage}` : ""}\n`);
+console.log(
+  `\n${detail.status === "imported" ? "Imported" : "Needs attention"}${detail.statusMessage ? `: ${detail.statusMessage}` : ""}\n`,
+);
 for (const entry of detail.importLog) {
   const volume = entry.volumeNumber === null ? "" : ` v${entry.volumeNumber}`;
-  console.log(`  ${entry.action.padEnd(19)}${volume.padEnd(6)} ${entry.sourceFile}${entry.message ? `  (${entry.message})` : ""}`);
+  console.log(
+    `  ${entry.action.padEnd(19)}${volume.padEnd(6)} ${entry.sourceFile}${entry.message ? `  (${entry.message})` : ""}`,
+  );
 }
 
 const folder = target.folderPath;
@@ -258,7 +280,9 @@ if (!values["path-map"] && detail.importLog.some((e) => e.action === "error" && 
       "--path-map with its download folder and where this computer can read it, e.g. --path-map /data=//server/data",
   );
 }
-console.log(`\nThe torrent stays in qBittorrent (category "${values["qbit-category"]}"). Remove it there when you're done.`);
+console.log(
+  `\nThe torrent stays in qBittorrent (category "${values["qbit-category"]}"). Remove it there when you're done.`,
+);
 
 // ---- 5. The recording ----
 

@@ -16,7 +16,9 @@ export const qbittorrentRouter = {
         "Logs in and reads the version. Uses the given values, or the saved ones for fields left out, so the Settings form can be tested before saving. The saved password is only sent to the saved URL.",
       tags: ["qBittorrent"],
     })
-    .input(z.object({ url: serviceUrl.optional(), username: z.string().trim().optional(), password: z.string().optional() }))
+    .input(
+      z.object({ url: serviceUrl.optional(), username: z.string().trim().optional(), password: z.string().optional() }),
+    )
     .output(z.object({ version: z.string() }))
     .handler(async ({ context, input }) => {
       const saved = getSettings(context.db);

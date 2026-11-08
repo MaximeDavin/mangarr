@@ -15,7 +15,12 @@ function release(title: string, extra: Partial<ProwlarrRelease> = {}): ProwlarrR
   return { guid: `g${guid}`, title, size: 1, indexerId: 1, indexer: "Nyaa", protocol: "torrent", ...extra };
 }
 
-const berserk = { names: ["Berserk"], authors: ["Kentaro Miura"], owned: [] as number[], volumeCount: 42 as number | null };
+const berserk = {
+  names: ["Berserk"],
+  authors: ["Kentaro Miura"],
+  owned: [] as number[],
+  volumeCount: 42 as number | null,
+};
 const titles = (outcome: ReturnType<typeof rankReleases>) => outcome.results.map((r) => r.release.title);
 
 describe("rankReleases", () => {
@@ -101,7 +106,13 @@ function setup({ indexerIds = [2], configured = true } = {}) {
   }
   const fr = db
     .insert(languages)
-    .values({ code: "fr", name: "Français", rootFolder: "/data/fr", prowlarrIndexerIds: indexerIds, prowlarrCategories: [7000] })
+    .values({
+      code: "fr",
+      name: "Français",
+      rootFolder: "/data/fr",
+      prowlarrIndexerIds: indexerIds,
+      prowlarrCategories: [7000],
+    })
     .returning()
     .get();
   const row = db
@@ -125,7 +136,16 @@ function setup({ indexerIds = [2], configured = true } = {}) {
     .run();
   const owned = [1, 2, 3, 41];
   db.insert(volumes)
-    .values(owned.map((number) => ({ seriesId: row.id, number, filePath: `/data/fr/Berserk/v${number}.cbz`, fileSize: 1, format: "cbz" as const, source: "scan" as const })))
+    .values(
+      owned.map((number) => ({
+        seriesId: row.id,
+        number,
+        filePath: `/data/fr/Berserk/v${number}.cbz`,
+        fileSize: 1,
+        format: "cbz" as const,
+        source: "scan" as const,
+      })),
+    )
     .run();
   return { db, api, seriesId: row.id };
 }
@@ -139,7 +159,12 @@ describe("releases.search", () => {
     expect(requests).toHaveLength(1);
     expect(out).toMatchObject({ queries: ["berserk"], received: 59, chapterReleases: 1, usenetReleases: 0 });
     expect(out.results).toHaveLength(58);
-    expect(out.results[0]).toMatchObject({ title: "Berserk_FR_01-42", match: "exact", coversMissing: true, indexer: "Private Tracker 2" });
+    expect(out.results[0]).toMatchObject({
+      title: "Berserk_FR_01-42",
+      match: "exact",
+      coversMissing: true,
+      indexer: "Private Tracker 2",
+    });
     expect(out.results[0]!.newVolumes).toHaveLength(42 - 4);
     expect(out.results.find((r) => r.title.startsWith("Kentaro.Miura.Berserk.T43"))).toMatchObject({
       match: "partial",
@@ -165,7 +190,9 @@ describe("releases.search", () => {
     const noIndexers = setup({ indexerIds: [] });
     expect(await errorCode(noIndexers.api.releases.search({ id: noIndexers.seriesId }))).toBe("PRECONDITION_FAILED");
     const unconfigured = setup({ configured: false });
-    expect(await errorCode(unconfigured.api.releases.search({ id: unconfigured.seriesId }))).toBe("PRECONDITION_FAILED");
+    expect(await errorCode(unconfigured.api.releases.search({ id: unconfigured.seriesId }))).toBe(
+      "PRECONDITION_FAILED",
+    );
     expect(await errorCode(unconfigured.api.releases.search({ id: 999 }))).toBe("NOT_FOUND");
     expect(requests).toHaveLength(0);
   });

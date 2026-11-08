@@ -3,7 +3,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import type { ReactNode } from "react";
 import { orpc } from "../api";
 import { CardLink } from "../components/links";
-import { settingsCategories, type SettingsPath } from "./settings/categories";
+import { type SettingsPath, settingsCategories } from "./settings/categories";
 import { LanguagesSection } from "./settings/Languages";
 import { ApiKeySection, MangaNewsSection, PasswordSection } from "./settings/Other";
 import { KomgaSection, ProwlarrSection, QBittorrentSection } from "./settings/Services";

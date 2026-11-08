@@ -103,7 +103,11 @@ export function replayKomga(calls: KomgaCall[]) {
     requests.push(request);
     const url = new URL(request.url);
     const call = calls[next++];
-    if (!call || call.request.method !== request.method || `${recordedKomgaUrl}${call.request.path}` !== `${url.origin}${url.pathname}`) {
+    if (
+      !call ||
+      call.request.method !== request.method ||
+      `${recordedKomgaUrl}${call.request.path}` !== `${url.origin}${url.pathname}`
+    ) {
       throw new Error(`No recording for ${request.method} ${url.pathname} (call ${next})`);
     }
     const { status, contentType, body } = call.response;

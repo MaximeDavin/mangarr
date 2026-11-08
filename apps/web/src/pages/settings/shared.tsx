@@ -24,7 +24,15 @@ export function useSaveSettings() {
   );
 }
 
-export function Section({ title, description, children }: { title: string; description?: ReactNode; children: ReactNode }) {
+export function Section({
+  title,
+  description,
+  children,
+}: {
+  title: string;
+  description?: ReactNode;
+  children: ReactNode;
+}) {
   return (
     <Card withBorder padding="lg">
       <Stack>

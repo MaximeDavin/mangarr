@@ -85,7 +85,13 @@ export function seedRun(db: Db, library: string, services: RunServices, run: Run
   setSetting(db, "qbittorrentCategory", run.qbittorrentCategory);
   const language = db
     .insert(languages)
-    .values({ code: "try", name: "Try run", rootFolder: library, prowlarrIndexerIds: run.indexerIds, prowlarrCategories: run.categories })
+    .values({
+      code: "try",
+      name: "Try run",
+      rootFolder: library,
+      prowlarrIndexerIds: run.indexerIds,
+      prowlarrCategories: run.categories,
+    })
     .returning()
     .get();
   const target = db
@@ -115,7 +121,10 @@ export const loadRun = (name: string) => loadFixture<RunRecording>(runsDir, name
 export const recordedRuns = () => fixtureNames(runsDir);
 
 const callKey = (method: string, path: string, query: Iterable<[string, string]>) =>
-  `${method} ${path}?${[...query].map(([k, v]) => `${k}=${v}`).sort().join("&")}`;
+  `${method} ${path}?${[...query]
+    .map(([k, v]) => `${k}=${v}`)
+    .sort()
+    .join("&")}`;
 
 /**
  * A fetch that answers from the recording. Calls with the same method, path and query are answered
@@ -134,7 +143,9 @@ export function replayRun(recording: { calls: RunCall[] }): Fetch & { requests: 
   const fetch = async (request: Request) => {
     requests.push(request);
     const url = new URL(request.url);
-    const service = (Object.keys(recordedServices) as Service[]).find((s) => url.origin === new URL(recordedServices[s]).origin);
+    const service = (Object.keys(recordedServices) as Service[]).find(
+      (s) => url.origin === new URL(recordedServices[s]).origin,
+    );
     if (!service) throw new Error(`No recorded service at ${url.origin}`);
     const key = `${service} ${callKey(request.method, url.pathname, url.searchParams)}`;
     const list = answers.get(key);
@@ -155,7 +166,10 @@ export function replayRun(recording: { calls: RunCall[] }): Fetch & { requests: 
           : typeof response.body === "string"
             ? response.body
             : JSON.stringify(response.body);
-    return new Response(response.status === 204 || response.status === 304 ? null : body, { status: response.status, headers });
+    return new Response(response.status === 204 || response.status === 304 ? null : body, {
+      status: response.status,
+      headers,
+    });
   };
   return Object.assign(fetch, { requests });
 }

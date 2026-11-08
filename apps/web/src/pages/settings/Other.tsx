@@ -13,7 +13,9 @@ export function MangaNewsSection({ settings }: { settings: Settings }) {
   const status = useQuery(orpc.mangaNews.status.queryOptions());
   const save = useSaveSettings();
   const refresh = useMutation(
-    orpc.mangaNews.refresh.mutationOptions({ onSuccess: () => queryClient.invalidateQueries({ queryKey: orpc.mangaNews.key() }) }),
+    orpc.mangaNews.refresh.mutationOptions({
+      onSuccess: () => queryClient.invalidateQueries({ queryKey: orpc.mangaNews.key() }),
+    }),
   );
   const r = refresh.data;
 
@@ -70,7 +72,8 @@ export function ApiKeySection({ settings }: { settings: Settings }) {
       title="API key"
       description={
         <>
-          For scripts and dashboards: send it as the <code>X-Api-Key</code> header. The REST API is documented at <code>/api/v1/openapi.json</code>.
+          For scripts and dashboards: send it as the <code>X-Api-Key</code> header. The REST API is documented at{" "}
+          <code>/api/v1/openapi.json</code>.
         </>
       }
     >
@@ -87,7 +90,9 @@ export function ApiKeySection({ settings }: { settings: Settings }) {
           variant="light"
           color="red"
           loading={regenerate.isPending}
-          onClick={() => window.confirm("Replace the API key? The old one stops working immediately.") && regenerate.mutate({})}
+          onClick={() =>
+            window.confirm("Replace the API key? The old one stops working immediately.") && regenerate.mutate({})
+          }
         >
           Regenerate
         </Button>
@@ -122,9 +127,28 @@ export function PasswordSection() {
         onSubmit={() => !mismatch && change.mutate({ currentPassword: current, newPassword: next })}
       >
         <Stack gap="sm">
-          <PasswordInput label="Current password" autoComplete="current-password" required value={current} onChange={(e) => setCurrent(e.currentTarget.value)} />
-          <PasswordInput label="New password" autoComplete="new-password" required minLength={8} value={next} onChange={(e) => setNext(e.currentTarget.value)} />
-          <PasswordInput label="Repeat the new password" autoComplete="new-password" required value={confirm} onChange={(e) => setConfirm(e.currentTarget.value)} />
+          <PasswordInput
+            label="Current password"
+            autoComplete="current-password"
+            required
+            value={current}
+            onChange={(e) => setCurrent(e.currentTarget.value)}
+          />
+          <PasswordInput
+            label="New password"
+            autoComplete="new-password"
+            required
+            minLength={8}
+            value={next}
+            onChange={(e) => setNext(e.currentTarget.value)}
+          />
+          <PasswordInput
+            label="Repeat the new password"
+            autoComplete="new-password"
+            required
+            value={confirm}
+            onChange={(e) => setConfirm(e.currentTarget.value)}
+          />
         </Stack>
       </SectionForm>
     </Section>

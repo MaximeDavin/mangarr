@@ -5,7 +5,13 @@ import { ORPCError } from "@orpc/server";
 import { z } from "zod";
 import { downloadMangaNewsCsv, parseMangaNewsCsv } from "../integrations/manganews";
 import { UpstreamError } from "../integrations/upstream";
-import { datasetStatus, mangaNewsDisplayTitle, type MangaNewsSeriesRow, searchMangaNews, storeMangaNewsDataset } from "../library/manganews";
+import {
+  datasetStatus,
+  type MangaNewsSeriesRow,
+  mangaNewsDisplayTitle,
+  searchMangaNews,
+  storeMangaNewsDataset,
+} from "../library/manganews";
 import { getSetting } from "../settings";
 import { authed } from "./base";
 
@@ -68,10 +74,15 @@ export const mangaNewsRouter = {
       if (!url) throw new UpstreamError("not_configured", "Set the Manga-News CSV URL in Settings first");
       const parsed = parseMangaNewsCsv(await downloadMangaNewsCsv(url, { signal }));
       if (parsed.rows.length === 0) {
-        throw new UpstreamError("invalid_response", "The Manga-News CSV has no usable rows; the current dataset is kept");
+        throw new UpstreamError(
+          "invalid_response",
+          "The Manga-News CSV has no usable rows; the current dataset is kept",
+        );
       }
       const result = storeMangaNewsDataset(db, parsed);
-      console.log(`manga-news: dataset refreshed, ${result.rowCount} series (${result.added} new, ${result.removed} removed)`);
+      console.log(
+        `manga-news: dataset refreshed, ${result.rowCount} series (${result.added} new, ${result.removed} removed)`,
+      );
       return result;
     }),
 
@@ -80,14 +91,17 @@ export const mangaNewsRouter = {
       method: "GET",
       path: "/manga-news/search",
       summary: "Search the Manga-News dataset by title",
-      description: "Every word must appear in the title. The same title first, then titles starting with the query, then the most volumes.",
+      description:
+        "Every word must appear in the title. The same title first, then titles starting with the query, then the most volumes.",
       tags,
     })
     .input(z.object({ query: z.string().trim().min(1), limit: z.int().min(1).max(100).default(20) }))
     .output(z.array(mangaNewsRowOutput))
     .handler(({ context: { db }, input }) => {
       if (datasetStatus(db).rowCount === 0) {
-        throw new ORPCError("PRECONDITION_FAILED", { message: "The Manga-News dataset is empty: refresh it in Settings first" });
+        throw new ORPCError("PRECONDITION_FAILED", {
+          message: "The Manga-News dataset is empty: refresh it in Settings first",
+        });
       }
       return searchMangaNews(db, input.query, input.limit).map(toMangaNewsOutput);
     }),

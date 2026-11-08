@@ -17,7 +17,13 @@ export interface QBittorrentOptions {
   timeoutMs?: number;
 }
 
-export type QBittorrentErrorKind = "not_configured" | "unreachable" | "timeout" | "unauthorized" | "http" | "invalid_response";
+export type QBittorrentErrorKind =
+  | "not_configured"
+  | "unreachable"
+  | "timeout"
+  | "unauthorized"
+  | "http"
+  | "invalid_response";
 
 export class QBittorrentError extends UpstreamError {
   declare readonly kind: QBittorrentErrorKind;
@@ -130,9 +136,13 @@ export function createQBittorrentClient(options: QBittorrentOptions) {
       return await fetchImpl(new Request(url, { method, headers, body, signal: AbortSignal.timeout(timeoutMs) }));
     } catch (error) {
       if (isTimeout(error)) {
-        throw new QBittorrentError("timeout", `qBittorrent at ${baseUrl} did not answer within ${timeoutMs / 1000} s`, { cause: error });
+        throw new QBittorrentError("timeout", `qBittorrent at ${baseUrl} did not answer within ${timeoutMs / 1000} s`, {
+          cause: error,
+        });
       }
-      throw new QBittorrentError("unreachable", `Could not reach qBittorrent at ${baseUrl}: ${errorMessage(error)}`, { cause: error });
+      throw new QBittorrentError("unreachable", `Could not reach qBittorrent at ${baseUrl}: ${errorMessage(error)}`, {
+        cause: error,
+      });
     }
   }
 
@@ -143,10 +153,14 @@ export function createQBittorrentClient(options: QBittorrentOptions) {
     const response = await send("auth/login", { method: "POST", body });
     const text = (await response.text()).trim();
     if (response.status === 403) {
-      throw new QBittorrentError("unauthorized", "qBittorrent has banned this IP after too many failed logins", { status: 403 });
+      throw new QBittorrentError("unauthorized", "qBittorrent has banned this IP after too many failed logins", {
+        status: 403,
+      });
     }
     if (text === "Fails.") {
-      throw new QBittorrentError("unauthorized", "qBittorrent rejected the username or password", { status: response.status });
+      throw new QBittorrentError("unauthorized", "qBittorrent rejected the username or password", {
+        status: response.status,
+      });
     }
     // Newer versions answer bad credentials with 401, but so do its CSRF and Host header checks.
     if (response.status === 401) {
@@ -156,9 +170,15 @@ export function createQBittorrentClient(options: QBittorrentOptions) {
         { status: 401 },
       );
     }
-    if (!response.ok) throw new QBittorrentError("http", `qBittorrent answered ${response.status} to the login`, { status: response.status });
+    if (!response.ok)
+      throw new QBittorrentError("http", `qBittorrent answered ${response.status} to the login`, {
+        status: response.status,
+      });
     // No cookie happens when qBittorrent skips authentication for this client's subnet.
-    const cookies = response.headers.getSetCookie().map((c) => c.split(";")[0]!.trim()).filter(Boolean);
+    const cookies = response.headers
+      .getSetCookie()
+      .map((c) => c.split(";")[0]!.trim())
+      .filter(Boolean);
     cookie = cookies.length > 0 ? cookies.join("; ") : undefined;
     loggedIn = true;
   }
@@ -171,16 +191,21 @@ export function createQBittorrentClient(options: QBittorrentOptions) {
       await login();
       response = await send(path, init);
     }
-    if (response.status === 403) throw new QBittorrentError("unauthorized", "qBittorrent refused the session after logging in", { status: 403 });
+    if (response.status === 403)
+      throw new QBittorrentError("unauthorized", "qBittorrent refused the session after logging in", { status: 403 });
     return response;
   }
 
   async function text(response: Response, what: string): Promise<string> {
     const body = (await response.text()).trim();
     if (!response.ok) {
-      throw new QBittorrentError("http", `qBittorrent answered ${response.status} to ${what}${body ? `: ${body.slice(0, 200)}` : ""}`, {
-        status: response.status,
-      });
+      throw new QBittorrentError(
+        "http",
+        `qBittorrent answered ${response.status} to ${what}${body ? `: ${body.slice(0, 200)}` : ""}`,
+        {
+          status: response.status,
+        },
+      );
     }
     return body;
   }
@@ -192,10 +217,17 @@ export function createQBittorrentClient(options: QBittorrentOptions) {
       body = JSON.parse(await text(response, what));
     } catch (error) {
       if (error instanceof QBittorrentError) throw error;
-      throw new QBittorrentError("invalid_response", `${baseUrl} did not answer like qBittorrent (not JSON). Check the URL.`, { cause: error });
+      throw new QBittorrentError(
+        "invalid_response",
+        `${baseUrl} did not answer like qBittorrent (not JSON). Check the URL.`,
+        { cause: error },
+      );
     }
     const parsed = schema.safeParse(body);
-    if (!parsed.success) throw new QBittorrentError("invalid_response", `Unexpected answer from qBittorrent to ${what}`, { cause: parsed.error });
+    if (!parsed.success)
+      throw new QBittorrentError("invalid_response", `Unexpected answer from qBittorrent to ${what}`, {
+        cause: parsed.error,
+      });
     return parsed.data;
   }
 
@@ -213,7 +245,10 @@ export function createQBittorrentClient(options: QBittorrentOptions) {
     async ensureCategory(category: string): Promise<void> {
       const existing = await read(await call("torrents/categories"), "the category list", categoriesSchema);
       if (category in existing) return;
-      const response = await call("torrents/createCategory", { method: "POST", body: new URLSearchParams({ category, savePath: "" }) });
+      const response = await call("torrents/createCategory", {
+        method: "POST",
+        body: new URLSearchParams({ category, savePath: "" }),
+      });
       // 409: created meanwhile.
       if (response.status !== 409) await text(response, `creating the category "${category}"`);
     },
@@ -228,7 +263,11 @@ export function createQBittorrentClient(options: QBittorrentOptions) {
 
     /** The files in a torrent. Empty while a magnet's metadata is still being fetched. */
     async files(hash: string): Promise<QBittorrentFile[]> {
-      return read(await call("torrents/files", { query: new URLSearchParams({ hash }) }), "the file list", z.array(fileSchema));
+      return read(
+        await call("torrents/files", { query: new URLSearchParams({ hash }) }),
+        "the file list",
+        z.array(fileSchema),
+      );
     },
 
     /** Adds a torrent in the category. qBittorrent answers before it has fetched a magnet's metadata. */
@@ -239,7 +278,8 @@ export function createQBittorrentClient(options: QBittorrentOptions) {
       form.append("category", category);
       const response = await call("torrents/add", { method: "POST", body: form });
       // 5.3 answers 409 when it already has the torrent.
-      if (response.status === 409) throw new QBittorrentError("http", "qBittorrent already has this torrent", { status: 409 });
+      if (response.status === 409)
+        throw new QBittorrentError("http", "qBittorrent already has this torrent", { status: 409 });
       const body = await text(response, "adding the torrent");
       // Before 5.3: "Ok." or "Fails.". From 5.3: counts as JSON, still with status 200 on failure.
       if (body === "Fails.") throw new QBittorrentError("http", "qBittorrent refused the torrent");
@@ -250,7 +290,11 @@ export function createQBittorrentClient(options: QBittorrentOptions) {
         } catch {
           // Not JSON after all: nothing to read.
         }
-        if (Number(counts.failure_count) > 0 && !(Number(counts.success_count) > 0) && !(Number(counts.pending_count) > 0)) {
+        if (
+          Number(counts.failure_count) > 0 &&
+          !(Number(counts.success_count) > 0) &&
+          !(Number(counts.pending_count) > 0)
+        ) {
           throw new QBittorrentError("http", "qBittorrent refused the torrent");
         }
       }

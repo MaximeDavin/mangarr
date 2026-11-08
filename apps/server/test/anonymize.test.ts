@@ -5,7 +5,13 @@ import { bdecode, sampleTorrent } from "./bencode";
 
 const indexers = [
   { id: 1, name: "Nyaa.si", definitionName: "nyaasi", privacy: "public", indexerUrls: ["https://nyaa.si/"] },
-  { id: 2, name: "SecretBay", definitionName: "secretbay", privacy: "private", indexerUrls: ["https://www.secretbay.org/"] },
+  {
+    id: 2,
+    name: "SecretBay",
+    definitionName: "secretbay",
+    privacy: "private",
+    indexerUrls: ["https://www.secretbay.org/"],
+  },
 ];
 
 describe("trackerAliases", () => {

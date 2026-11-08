@@ -1,7 +1,23 @@
 // Activity (spec §9.5): the queue (downloads that need attention first, then qBittorrent's live
 // progress) and the history of imports, each with its import log (§7.4).
 
-import { Alert, AspectRatio, Badge, Box, Button, Card, Center, Group, Image, Progress, Stack, Table, Text, Title, Tooltip } from "@mantine/core";
+import {
+  Alert,
+  AspectRatio,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Center,
+  Group,
+  Image,
+  Progress,
+  Stack,
+  Table,
+  Text,
+  Title,
+  Tooltip,
+} from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import {
   useMutation,
@@ -53,7 +69,9 @@ export function ActivityPage() {
   const history = useSuspenseInfiniteQuery(historyOptions);
 
   // Those that need attention first; the sort keeps newest grabbed first otherwise.
-  const queue = [...queued].sort((a, b) => Number(b.status === "needs_attention") - Number(a.status === "needs_attention"));
+  const queue = [...queued].sort(
+    (a, b) => Number(b.status === "needs_attention") - Number(a.status === "needs_attention"),
+  );
   const imported = history.data.pages.flatMap((page) => page.downloads);
   const importedTotal = history.data.pages.at(-1)!.total;
 
@@ -186,9 +204,19 @@ function Cover({ url }: { url: string | null }) {
 }
 
 /** One download: its series, the release, and what the section adds below or beside it. */
-function DownloadRow({ download: d, aside, children }: { download: Download; aside?: ReactNode; children?: ReactNode }) {
+function DownloadRow({
+  download: d,
+  aside,
+  children,
+}: {
+  download: Download;
+  aside?: ReactNode;
+  children?: ReactNode;
+}) {
   const volumes = formatVolumes(d.expectedVolumes);
-  const meta = [volumes, d.indexerName, formatBytes(d.size), `grabbed ${formatAge(d.grabbedAt)} ago`].filter(Boolean).join(" · ");
+  const meta = [volumes, d.indexerName, formatBytes(d.size), `grabbed ${formatAge(d.grabbedAt)} ago`]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <Group align="flex-start" wrap="nowrap" gap="md">
@@ -254,7 +282,8 @@ function QueueStatus({ download: d, clientError }: { download: Download; clientE
   if (d.status === "missing_from_client") {
     return (
       <Text size="sm" c="orange">
-        {d.statusMessage ?? "The torrent is no longer in qBittorrent"}. It goes back to downloading if the torrent shows up again.
+        {d.statusMessage ?? "The torrent is no longer in qBittorrent"}. It goes back to downloading if the torrent shows
+        up again.
       </Text>
     );
   }
@@ -301,7 +330,8 @@ function RetryImport({ download }: { download: Download }) {
         // Returned, so the button keeps loading until the list shows the import running.
         return queryClient.invalidateQueries({ queryKey: orpc.downloads.list.key() });
       },
-      onError: (error) => notifications.show({ color: "red", title: "Could not retry the import", message: error.message }),
+      onError: (error) =>
+        notifications.show({ color: "red", title: "Could not retry the import", message: error.message }),
     }),
   );
 

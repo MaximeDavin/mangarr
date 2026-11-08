@@ -17,7 +17,7 @@ import { createHmac, randomBytes } from "node:crypto";
 import { join } from "node:path";
 import { parseArgs } from "node:util";
 import { replaceFixtures } from "../test/fixtures";
-import { type Recording, recordedApiKey as fakeKey, recordedUrl as fakeUrl } from "../test/prowlarr-replay";
+import { recordedApiKey as fakeKey, recordedUrl as fakeUrl, type Recording } from "../test/prowlarr-replay";
 import { type IndexerInfo, realsIn, recordedOn, type TrackerAliases, trackerAliases } from "./anonymize";
 
 const { values } = parseArgs({
@@ -56,7 +56,8 @@ const tokenSegment = /^[A-Za-z0-9_-]{16,}$/;
  * matches across fields (guid, infoUrl), but the key is random and never saved, so it can't be reversed.
  */
 const pseudonymKey = randomBytes(32);
-const pseudonym = (value: string) => `redacted-${createHmac("sha256", pseudonymKey).update(value).digest("hex").slice(0, 12)}`;
+const pseudonym = (value: string) =>
+  `redacted-${createHmac("sha256", pseudonymKey).update(value).digest("hex").slice(0, 12)}`;
 
 /** The API key and every credential in Prowlarr's indexer settings, so we can prove none leaked. Value → where it came from. */
 const secrets = new Map<string, string>([[apiKey, "the Prowlarr API key"]]);
@@ -182,11 +183,19 @@ const status = await record("status", "GET /system/status", "system/status", [])
 prowlarrVersion = (status.body as { version?: string }).version ?? "unknown";
 for (const recording of recordings.values()) recording.prowlarrVersion = prowlarrVersion;
 
-const indexers = await record("indexers", "GET /indexer; each indexer's settings reduced to field names", "indexer", [], {
-  scrubBody: scrubIndexers,
-});
+const indexers = await record(
+  "indexers",
+  "GET /indexer; each indexer's settings reduced to field names",
+  "indexer",
+  [],
+  {
+    scrubBody: scrubIndexers,
+  },
+);
 const names = new Map(
-  (indexers.body as { id: number; name: string }[]).map((indexer) => [indexer.id, aliases.scrub(indexer.name)] as const),
+  (indexers.body as { id: number; name: string }[]).map(
+    (indexer) => [indexer.id, aliases.scrub(indexer.name)] as const,
+  ),
 );
 
 /** The query string the client sends for a search (same keys, in the same order). */
@@ -201,7 +210,12 @@ const inCategories = categories.length > 0 ? `, categories ${categories.join(", 
 for (const id of indexerIds) {
   const name = names.get(id);
   if (!name) throw new Error(`Prowlarr has no indexer ${id}`);
-  await record(`search-${slug(name)}`, `Search "${values.query}" on ${name}${inCategories}`, "search", searchQuery(values.query, id));
+  await record(
+    `search-${slug(name)}`,
+    `Search "${values.query}" on ${name}${inCategories}`,
+    "search",
+    searchQuery(values.query, id),
+  );
 }
 
 const noResults = "zzqxw nothing matches";
@@ -229,7 +243,8 @@ for (const [name, recording] of recordings) {
     if (json.includes(secret)) leaks.push(`${name}: contains ${source}`);
   }
   if (realHost !== new URL(fakeUrl).host && json.includes(realHost)) leaks.push(`${name}: contains ${realHost}`);
-  for (const real of realsIn(json, aliases.reals)) leaks.push(`${name}: contains a private indexer's name or address ("${real}")`);
+  for (const real of realsIn(json, aliases.reals))
+    leaks.push(`${name}: contains a private indexer's name or address ("${real}")`);
 }
 if (leaks.length > 0) {
   console.error(`Not writing anything, secrets found:\n${[...new Set(leaks)].join("\n")}`);

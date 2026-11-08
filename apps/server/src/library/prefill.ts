@@ -37,7 +37,8 @@ export function draftTerms(series: MangaBakaSeries, languageCode: string): Terms
   const inLanguage = (t: MangaBakaTitle) => sameLanguage(t.language, languageCode);
   const romanized = (t: MangaBakaTitle) =>
     t.isPrimary && original !== undefined && t.language.toLowerCase() === `${original.toLowerCase()}-latn`;
-  const native = (t: MangaBakaTitle) => t.isPrimary && original !== undefined && t.language.toLowerCase() === original.toLowerCase();
+  const native = (t: MangaBakaTitle) =>
+    t.isPrimary && original !== undefined && t.language.toLowerCase() === original.toLowerCase();
 
   const seen = new Set<string>();
   const take = (list: string[], title: string | undefined) => {
@@ -88,7 +89,9 @@ export function draftAuthors(series: MangaBakaSeries): string[] {
 /** The publishers in the series language, or undefined. */
 export function draftPublisher(series: MangaBakaSeries, languageCode: string): string | undefined {
   const names = [
-    ...new Set(series.publishers.filter((p) => p.language && sameLanguage(p.language, languageCode)).map((p) => p.name)),
+    ...new Set(
+      series.publishers.filter((p) => p.language && sameLanguage(p.language, languageCode)).map((p) => p.name),
+    ),
   ];
   return names.length > 0 ? names.sort((a, b) => a.localeCompare(b)).join(", ") : undefined;
 }

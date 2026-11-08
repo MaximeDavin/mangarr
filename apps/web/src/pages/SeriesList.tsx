@@ -1,4 +1,16 @@
-import { AspectRatio, Badge, Card, Center, Group, Image, SegmentedControl, SimpleGrid, Stack, Text, Title } from "@mantine/core";
+import {
+  AspectRatio,
+  Badge,
+  Card,
+  Center,
+  Group,
+  Image,
+  SegmentedControl,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
 import { orpc } from "../api";

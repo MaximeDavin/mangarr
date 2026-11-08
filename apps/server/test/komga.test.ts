@@ -12,8 +12,22 @@ const apiKey = "komga-api-key";
 
 // Trimmed from Komga 1.x's LibraryDto.
 const libraries = [
-  { id: "0FRA", name: "Manga FR", root: "/data/media/manga/fr", importComicInfoBook: true, scanInterval: "EVERY_6H", unavailable: false },
-  { id: "0ENG", name: "Manga EN", root: "/data/media/manga/en", importComicInfoBook: true, scanInterval: "EVERY_6H", unavailable: false },
+  {
+    id: "0FRA",
+    name: "Manga FR",
+    root: "/data/media/manga/fr",
+    importComicInfoBook: true,
+    scanInterval: "EVERY_6H",
+    unavailable: false,
+  },
+  {
+    id: "0ENG",
+    name: "Manga EN",
+    root: "/data/media/manga/en",
+    importComicInfoBook: true,
+    scanInterval: "EVERY_6H",
+    unavailable: false,
+  },
 ];
 
 function setup(respond: (request: Request) => Response | Promise<Response>, url = "http://komga:25600/") {
@@ -45,7 +59,9 @@ describe("libraries", () => {
   });
 
   it("names a wrong key, a page that isn't Komga, and an unreachable server", async () => {
-    expect((await failure(setup(() => new Response(null, { status: 401 })).komga.libraries())).kind).toBe("unauthorized");
+    expect((await failure(setup(() => new Response(null, { status: 401 })).komga.libraries())).kind).toBe(
+      "unauthorized",
+    );
 
     const html = await failure(setup(() => new Response("<html>login</html>")).komga.libraries());
     expect(html.kind).toBe("invalid_response");
@@ -65,7 +81,9 @@ describe("libraries", () => {
 
   it("times out", async () => {
     const hang = (request: Request) =>
-      new Promise<Response>((_, reject) => request.signal.addEventListener("abort", () => reject(request.signal.reason)));
+      new Promise<Response>((_, reject) =>
+        request.signal.addEventListener("abort", () => reject(request.signal.reason)),
+      );
     expect((await failure(setup(hang).komga.libraries())).kind).toBe("timeout");
   });
 });
@@ -86,7 +104,9 @@ describe("scanLibrary", () => {
     expect(forbidden.kind).toBe("unauthorized");
     expect(forbidden.message).toContain("admin");
 
-    const broken = await failure(setup(() => Response.json({ message: "Library is unavailable" }, { status: 500 })).komga.scanLibrary("0FRA"));
+    const broken = await failure(
+      setup(() => Response.json({ message: "Library is unavailable" }, { status: 500 })).komga.scanLibrary("0FRA"),
+    );
     expect(broken.message).toBe("Komga answered 500: Library is unavailable");
   });
 });
@@ -149,7 +169,16 @@ describe("language Komga check", () => {
     const { api } = setupWithKomga();
     serveKomga();
     expect((await api.languages.create({ ...french, komgaLibraryId: "0FRA" })).warnings).toEqual([]);
-    expect((await api.languages.create({ code: "en", name: "English", rootFolder: "/data/media/manga/en/series", komgaLibraryId: "0ENG" })).warnings).toEqual([]);
+    expect(
+      (
+        await api.languages.create({
+          code: "en",
+          name: "English",
+          rootFolder: "/data/media/manga/en/series",
+          komgaLibraryId: "0ENG",
+        })
+      ).warnings,
+    ).toEqual([]);
   });
 
   it("warns, but saves, when the root folder is outside the library's folder", async () => {
@@ -161,7 +190,12 @@ describe("language Komga check", () => {
     expect(created.warnings).toEqual([
       'The root folder /data/media/manga/fr is not inside the Komga library "Manga EN" (/data/media/manga/en), so Komga won\'t see imported volumes. Both containers must use the same paths.',
     ]);
-    const english = await api.languages.create({ code: "en", name: "English", rootFolder: "/data/media/manga/english", komgaLibraryId: "0ENG" });
+    const english = await api.languages.create({
+      code: "en",
+      name: "English",
+      rootFolder: "/data/media/manga/english",
+      komgaLibraryId: "0ENG",
+    });
     expect(english.warnings).toHaveLength(1);
   });
 
@@ -232,7 +266,8 @@ describe("komga procedures", () => {
     const { db, api: client } = api();
     setSetting(db, "komgaUrl", "http://komga:25600");
     setSetting(db, "komgaApiKey", apiKey);
-    spyOn(globalThis, "fetch").mockImplementation((async () => Response.json(libraries)) as unknown as typeof globalThis.fetch);
+    spyOn(globalThis, "fetch").mockImplementation((async () =>
+      Response.json(libraries)) as unknown as typeof globalThis.fetch);
     expect((await client.komga.libraries()).map((l) => l.name)).toEqual(["Manga EN", "Manga FR"]);
 
     (globalThis.fetch as unknown as { mockImplementation: (f: unknown) => void }).mockImplementation(

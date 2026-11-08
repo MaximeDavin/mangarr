@@ -76,7 +76,8 @@ export function createFetchHandler(
   return async (request: Request): Promise<Response> => {
     const url = new URL(request.url);
     const { pathname } = url;
-    const https = url.protocol === "https:" || request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim() === "https";
+    const https =
+      url.protocol === "https:" || request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim() === "https";
     const context: ApiContext = { db, headers: request.headers, https, mangabaka, releases, jobs };
 
     if (pathname === `${restPrefix}/openapi.json` && request.method === "GET") {

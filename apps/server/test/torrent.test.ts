@@ -18,7 +18,10 @@ describe("torrentInfoHash", () => {
       name: "Berserk",
       "piece length": 16384,
       pieces: new Uint8Array(40),
-      files: [{ length: 1, path: ["v01.cbz"] }, { length: 2, path: ["sub", "v02.cbz"] }],
+      files: [
+        { length: 1, path: ["v01.cbz"] },
+        { length: 2, path: ["sub", "v02.cbz"] },
+      ],
     };
     const bytes = bencode({ "announce-list": [["a"], ["b"]], info, "url-list": ["x"] });
     expect(torrentInfoHash(bytes)).toBe(sha1(bencode(info)));

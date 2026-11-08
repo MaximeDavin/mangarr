@@ -53,6 +53,7 @@ export function SeriesDetailPage() {
         <Alert color="orange" variant="light" title={`The last scan found ${s.scanWarnings.length} problem(s)`}>
           <List size="sm" spacing={2}>
             {s.scanWarnings.map((w, i) => (
+              // biome-ignore lint/suspicious/noArrayIndexKey: read-only list, warnings can repeat.
               <List.Item key={i}>
                 {w.file && (
                   <Text span ff="monospace" size="sm">
@@ -75,7 +76,13 @@ export function SeriesDetailPage() {
         <SearchTermsForm key={s.searchTerms.map((t) => `${t.kind}:${t.term}`).join("\n")} series={s} />
       </Panel>
 
-      <Modal opened={modal === "search"} onClose={close} title={`Search: ${s.displayTitle}`} size="80rem" fullScreen={narrow}>
+      <Modal
+        opened={modal === "search"}
+        onClose={close}
+        title={`Search: ${s.displayTitle}`}
+        size="80rem"
+        fullScreen={narrow}
+      >
         {modal === "search" && <ReleaseSearch series={s} />}
       </Modal>
       <Modal opened={modal === "edit"} onClose={close} title="Edit series" size="lg" fullScreen={narrow}>
@@ -102,8 +109,10 @@ const countSource = { mangabaka: "from MangaBaka", manganews: "from Manga-News",
 
 function externalLinks(s: Series) {
   const links = [{ label: "MangaBaka", href: `https://mangabaka.org/manga/${s.mangabakaId}` }];
-  if (s.externalIds.anilist) links.push({ label: "AniList", href: `https://anilist.co/manga/${s.externalIds.anilist}` });
-  if (s.externalIds.mal) links.push({ label: "MyAnimeList", href: `https://myanimelist.net/manga/${s.externalIds.mal}` });
+  if (s.externalIds.anilist)
+    links.push({ label: "AniList", href: `https://anilist.co/manga/${s.externalIds.anilist}` });
+  if (s.externalIds.mal)
+    links.push({ label: "MyAnimeList", href: `https://myanimelist.net/manga/${s.externalIds.mal}` });
   if (s.externalIds.mangaupdates) {
     links.push({ label: "MangaUpdates", href: `https://www.mangaupdates.com/series/${s.externalIds.mangaupdates}` });
   }
@@ -135,7 +144,8 @@ function Header({ series: s, onSearch, onEdit }: { series: Series; onSearch: () 
         setSeries(updated);
         notifications.show({ color: "green", message: "Metadata refreshed from MangaBaka" });
       },
-      onError: (error) => notifications.show({ color: "red", title: "Could not refresh metadata", message: error.message }),
+      onError: (error) =>
+        notifications.show({ color: "red", title: "Could not refresh metadata", message: error.message }),
     }),
   );
   const remove = useMutation(
@@ -151,7 +161,8 @@ function Header({ series: s, onSearch, onEdit }: { series: Series; onSearch: () 
   );
 
   const confirmDelete = () =>
-    window.confirm(`Delete ${s.displayTitle} from mangarr? Its files on disk and its torrents are left alone.`) && remove.mutate({ id: s.id });
+    window.confirm(`Delete ${s.displayTitle} from mangarr? Its files on disk and its torrents are left alone.`) &&
+    remove.mutate({ id: s.id });
 
   // Owned and missing counts are in the volume grid's legend.
   const count =
@@ -189,7 +200,11 @@ function Header({ series: s, onSearch, onEdit }: { series: Series; onSearch: () 
 
         <Stack gap={2}>
           <Text size="sm">
-            {[s.publisher, s.authors.join(", ")].filter(Boolean).join(" · ") || <Text span c="dimmed">No publisher or author</Text>}
+            {[s.publisher, s.authors.join(", ")].filter(Boolean).join(" · ") || (
+              <Text span c="dimmed">
+                No publisher or author
+              </Text>
+            )}
           </Text>
           {count && <Text size="sm">{count}</Text>}
           <Text size="xs" c="dimmed" ff="monospace" style={{ wordBreak: "break-all" }}>

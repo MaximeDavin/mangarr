@@ -1,10 +1,23 @@
 // Languages (spec §4.1): indexers, root folder, Komga library, and the warnings from saving one.
 
-import { Alert, Badge, Button, Card, Group, Modal, MultiSelect, Select, Stack, Switch, Text, TextInput } from "@mantine/core";
+import {
+  Alert,
+  Badge,
+  Button,
+  Card,
+  Group,
+  Modal,
+  MultiSelect,
+  Select,
+  Stack,
+  Switch,
+  Text,
+  TextInput,
+} from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { client, orpc } from "../../api";
+import { type client, orpc } from "../../api";
 import { Section, SectionForm } from "./shared";
 
 type Language = Awaited<ReturnType<typeof client.languages.list>>[number];
@@ -52,7 +65,10 @@ export function LanguagesSection() {
                   variant="subtle"
                   color="red"
                   loading={remove.isPending && remove.variables?.id === language.id}
-                  onClick={() => window.confirm(`Delete ${language.name}? Only works while it has no series.`) && remove.mutate({ id: language.id })}
+                  onClick={() =>
+                    window.confirm(`Delete ${language.name}? Only works while it has no series.`) &&
+                    remove.mutate({ id: language.id })
+                  }
                 >
                   Delete
                 </Button>
@@ -73,7 +89,12 @@ export function LanguagesSection() {
         </div>
       </Stack>
 
-      <Modal opened={editing !== null} onClose={() => setEditing(null)} title={editing === "new" ? "Add language" : "Edit language"} size="lg">
+      <Modal
+        opened={editing !== null}
+        onClose={() => setEditing(null)}
+        title={editing === "new" ? "Add language" : "Edit language"}
+        size="lg"
+      >
         {editing && <LanguageForm language={editing === "new" ? undefined : editing} onDone={() => setEditing(null)} />}
       </Modal>
     </Section>
@@ -95,11 +116,15 @@ function LanguageForm({ language, onDone }: { language?: Language; onDone: () =>
   const libraries = useQuery(orpc.komga.libraries.queryOptions({ throwOnError: false }));
 
   const torrentIndexers = (indexers.data ?? []).filter((i) => i.protocol !== "usenet");
-  const indexerOptions = torrentIndexers.map((i) => ({ value: String(i.id), label: i.enabled ? i.name : `${i.name} (disabled)` }));
+  const indexerOptions = torrentIndexers.map((i) => ({
+    value: String(i.id),
+    label: i.enabled ? i.name : `${i.name} (disabled)`,
+  }));
   // Categories offered by the chosen indexers, plus any already saved, so a saved id never loses its label.
   const categoryLabels = new Map<string, string>();
   for (const indexer of torrentIndexers) {
-    if (indexerIds.includes(String(indexer.id))) for (const c of indexer.categories) categoryLabels.set(String(c.id), `${c.name} (${c.id})`);
+    if (indexerIds.includes(String(indexer.id)))
+      for (const c of indexer.categories) categoryLabels.set(String(c.id), `${c.name} (${c.id})`);
   }
   for (const id of categories) if (!categoryLabels.has(id)) categoryLabels.set(id, id);
   const categoryOptions = [...categoryLabels].map(([value, label]) => ({ value, label }));
@@ -133,7 +158,13 @@ function LanguageForm({ language, onDone }: { language?: Language; onDone: () =>
   return (
     <SectionForm onSubmit={submit} pending={saving.isPending} error={saving.error?.message}>
       <Group grow align="flex-start">
-        <TextInput label="Name" placeholder="French" required value={name} onChange={(e) => setName(e.currentTarget.value)} />
+        <TextInput
+          label="Name"
+          placeholder="French"
+          required
+          value={name}
+          onChange={(e) => setName(e.currentTarget.value)}
+        />
         <TextInput
           label="Code"
           placeholder="fr"

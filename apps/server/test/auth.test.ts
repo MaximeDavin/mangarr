@@ -96,7 +96,9 @@ describe("the session cookie", () => {
     });
     expect(setCookieLine(await direct.handle(overHttps))).toContain("Secure");
     const proxied = setup();
-    expect(setCookieLine(await proxied.post("/auth/setup", account, { "x-forwarded-proto": "https" }))).toContain("Secure");
+    expect(setCookieLine(await proxied.post("/auth/setup", account, { "x-forwarded-proto": "https" }))).toContain(
+      "Secure",
+    );
   });
 
   it("opens the API on /api/v1 and /rpc", async () => {
@@ -192,7 +194,9 @@ describe("changing the password", () => {
     const cookie = await signUp();
     const other = sessionCookie(await post("/auth/login", account));
 
-    expect((await post("/auth/password", { ...change, currentPassword: "wrong password" }, { cookie })).status).toBe(400);
+    expect((await post("/auth/password", { ...change, currentPassword: "wrong password" }, { cookie })).status).toBe(
+      400,
+    );
     expect((await post("/auth/password", { ...change, newPassword: "short" }, { cookie })).status).toBe(400);
     expect((await post("/auth/password", change, { cookie })).status).toBe(204);
 

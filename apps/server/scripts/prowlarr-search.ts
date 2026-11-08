@@ -68,7 +68,8 @@ const database = () => (db ??= openDatabase(loadConfig().databasePath));
 
 const url = process.env.PROWLARR_URL || getSettings(database()).prowlarrUrl;
 const apiKey = process.env.PROWLARR_API_KEY || getSettings(database()).prowlarrApiKey;
-if (!url || !apiKey) fail("No Prowlarr URL or API key: save them in Settings, or set PROWLARR_URL and PROWLARR_API_KEY.");
+if (!url || !apiKey)
+  fail("No Prowlarr URL or API key: save them in Settings, or set PROWLARR_URL and PROWLARR_API_KEY.");
 
 const prowlarr = createProwlarrClient({ url, apiKey });
 
@@ -122,13 +123,11 @@ const rows = [...unique.values()]
     return { release, parsed, match: titleMatch(parsed, target) ?? ("none" as const) };
   })
   .filter((row) => values.chapters || !row.parsed.isChapterRelease)
-  .sort(
-    (a, b) =>
-      matchRank[b.match] - matchRank[a.match] || (b.release.seeders ?? -1) - (a.release.seeders ?? -1),
-  );
+  .sort((a, b) => matchRank[b.match] - matchRank[a.match] || (b.release.seeders ?? -1) - (a.release.seeders ?? -1));
 
 for (const { release, parsed, match } of rows) {
-  const volumes = parsed.volumes.length > 0 ? `v${formatVolumes(parsed.volumes)}` : parsed.isComplete ? "complete" : "-";
+  const volumes =
+    parsed.volumes.length > 0 ? `v${formatVolumes(parsed.volumes)}` : parsed.isComplete ? "complete" : "-";
   const notes = [
     parsed.isChapterRelease && "chapters",
     parsed.hasExtraChapters && "+chapters",

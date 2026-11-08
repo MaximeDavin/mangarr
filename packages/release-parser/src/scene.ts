@@ -1,5 +1,5 @@
 import type { ReleaseSource } from "./types";
-import { YEAR, addRange, indexOf, isYear, sorted, token, word } from "./util";
+import { addRange, indexOf, isYear, sorted, token, word, YEAR } from "./util";
 
 // Scene names only ("One.Piece.T01.FRENCH.CBZ.eBook-GRP"): where the title stops when no volume marker comes first.
 const STOP_RE = token(

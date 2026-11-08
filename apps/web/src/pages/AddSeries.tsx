@@ -18,7 +18,7 @@ import { useDebouncedValue } from "@mantine/hooks";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { client, orpc } from "../api";
+import { type client, orpc } from "../api";
 import { ButtonLink } from "../components/links";
 import { MangaNewsPicker } from "../components/MangaNewsPicker";
 import { RoutePending } from "../components/RouteStatus";
@@ -61,7 +61,12 @@ export function AddSeriesPage() {
         }}
       />
       {picked ? (
-        <DraftForm key={`${language.id}:${picked.mangabakaId}`} language={language} picked={picked} onBack={() => setPicked(null)} />
+        <DraftForm
+          key={`${language.id}:${picked.mangabakaId}`}
+          language={language}
+          picked={picked}
+          onBack={() => setPicked(null)}
+        />
       ) : (
         <SearchStep onPick={setPicked} />
       )}
@@ -96,7 +101,14 @@ function SearchStep({ onPick }: { onPick: (result: SearchResult) => void }) {
       {results.data?.map((result) => (
         <Card key={result.mangabakaId} withBorder padding="xs">
           <Group wrap="nowrap" align="flex-start">
-            <Image src={result.thumbnailUrl} w={48} h={72} fit="cover" fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" />
+            <Image
+              src={result.thumbnailUrl}
+              w={48}
+              h={72}
+              fit="cover"
+              fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+              alt=""
+            />
             <Stack gap={2} style={{ flex: 1 }}>
               <Text fw={500}>{result.title}</Text>
               <Text size="sm" c="dimmed">
@@ -177,9 +189,13 @@ function ReviewForm({ language, draft, onBack }: { language: Language; draft: Dr
     { value: "", label: `New folder named after the display title, in ${language.rootFolder}` },
     ...(folders.data ?? [])
       .filter((f) => f.seriesId === null)
-      .map((f) => ({ value: f.path, label: f.path === draft.folderPath && draft.folderFrom === "matching_name" ? `${f.name} (suggested)` : f.name })),
+      .map((f) => ({
+        value: f.path,
+        label: f.path === draft.folderPath && draft.folderFrom === "matching_name" ? `${f.name} (suggested)` : f.name,
+      })),
   ];
-  const suggestedMissing = draft.folderFrom === "matching_name" && folders.data && !folders.data.some((f) => f.path === draft.folderPath);
+  const suggestedMissing =
+    draft.folderFrom === "matching_name" && folders.data && !folders.data.some((f) => f.path === draft.folderPath);
 
   const submit = () =>
     create.mutate({
@@ -203,7 +219,14 @@ function ReviewForm({ language, draft, onBack }: { language: Language; draft: Dr
     >
       <Stack>
         <Group wrap="nowrap" align="flex-start">
-          <Image src={draft.coverUrl} w={72} h={108} fit="cover" fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" />
+          <Image
+            src={draft.coverUrl}
+            w={72}
+            h={108}
+            fit="cover"
+            fallbackSrc="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+            alt=""
+          />
           <Stack gap={2}>
             <Text fw={600} size="lg">
               {draft.title}
@@ -283,6 +306,7 @@ function ReviewForm({ language, draft, onBack }: { language: Language; draft: Dr
               </Text>
               {draft.volumeCountOptions.map((option, i) => (
                 <Badge
+                  // biome-ignore lint/suspicious/noArrayIndexKey: read-only list rebuilt with each draft.
                   key={i}
                   component="button"
                   type="button"
@@ -294,7 +318,8 @@ function ReviewForm({ language, draft, onBack }: { language: Language; draft: Dr
                     setCountTouched(true);
                   }}
                 >
-                  {[option.edition ?? option.medium, option.publisher].filter(Boolean).join(", ") || "Edition"}: {option.volumeCount}
+                  {[option.edition ?? option.medium, option.publisher].filter(Boolean).join(", ") || "Edition"}:{" "}
+                  {option.volumeCount}
                 </Badge>
               ))}
             </Group>
@@ -321,7 +346,9 @@ function ReviewForm({ language, draft, onBack }: { language: Language; draft: Dr
           </Text>
         </div>
 
-        {language.useMangaNewsDataset && <MangaNewsPicker value={mangaNewsId} onChange={setMangaNewsId} initialQuery={draft.title} />}
+        {language.useMangaNewsDataset && (
+          <MangaNewsPicker value={mangaNewsId} onChange={setMangaNewsId} initialQuery={draft.title} />
+        )}
 
         {create.error && (
           <Alert color="red" variant="light">
@@ -329,7 +356,11 @@ function ReviewForm({ language, draft, onBack }: { language: Language; draft: Dr
           </Alert>
         )}
         <Group>
-          <Button type="submit" loading={create.isPending} disabled={draft.existingSeriesId !== null || searchTerms.length === 0 || !displayTitle.trim()}>
+          <Button
+            type="submit"
+            loading={create.isPending}
+            disabled={draft.existingSeriesId !== null || searchTerms.length === 0 || !displayTitle.trim()}
+          >
             Add series
           </Button>
           <Button variant="subtle" onClick={onBack}>

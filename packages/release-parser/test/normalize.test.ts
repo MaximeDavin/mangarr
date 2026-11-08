@@ -28,24 +28,79 @@ describe("titleMatch", () => {
   // Real names from the French tracker (fixtures/fr-tracker.json), except "Tokyo Ghoul Re".
   it.each<[string, string, string[], "exact" | "partial" | undefined]>([
     ["Spy.x.Family.Tome.13.2024.FRENCH.RETAiL.eBOOK-NoTag", "Spy x Family", ["Tatsuya Endo"], "exact"],
-    ["Hunter.X.Hunter.T40.TOGASHI.2026.Digital-1350.Officiel.CBZ.FR-NoFace696", "HUNTER×HUNTER", ["Yoshihiro Togashi"], "exact"],
+    [
+      "Hunter.X.Hunter.T40.TOGASHI.2026.Digital-1350.Officiel.CBZ.FR-NoFace696",
+      "HUNTER×HUNTER",
+      ["Yoshihiro Togashi"],
+      "exact",
+    ],
     ["Sui.Ishida.Tokyo.Ghoul.T1-14.2011.FRENCH.SCAN.MANGA.CBR.eBOOK", "Tokyo Ghoul", ["Sui Ishida"], "partial"],
-    ["Eiichiro.Oda.One.Piece.Tome.115.2026.FRENCH.SCAN.MANGA.CBZ.eBOOK-NoTag", "One Piece", ["Eiichirō Oda"], "partial"],
-    ["Kotoyama.Call.of.the.Night.Kurokawa.Vol.15.15.2025.FRENCH.SCAN.MANGA.CBZ.eBOOK", "Call of the Night", ["Kotoyama"], "partial"],
+    [
+      "Eiichiro.Oda.One.Piece.Tome.115.2026.FRENCH.SCAN.MANGA.CBZ.eBOOK-NoTag",
+      "One Piece",
+      ["Eiichirō Oda"],
+      "partial",
+    ],
+    [
+      "Kotoyama.Call.of.the.Night.Kurokawa.Vol.15.15.2025.FRENCH.SCAN.MANGA.CBZ.eBOOK",
+      "Call of the Night",
+      ["Kotoyama"],
+      "partial",
+    ],
     ["Nobuyuki.Anzai.Mar.Kana.Integrale.2005.FRENCH.SCAN.MANGA.CBZ.eBOOK", "MÄR", ["Nobuyuki Anzai"], "partial"],
     ["En.proie.au.silence.Akata.integrale.2013.FRENCH.RETAiL.MANGA.CBZ.eBOOK", "En proie au silence", [], "partial"],
     // Author in Japanese order.
-    ["Yoshizaki.Mine.Sergent.Keroro.T01.a.T34.Kana.2007.EBook.Officiel.MANGA.eBOOK", "Sergent Keroro", ["Mine Yoshizaki"], "partial"],
-    ["Endo.Tatsuya.Spy.x.Family.T16.Tatsuya.Endo.FR.CBZ-Dogbanov.16.2026.FRENCH.RETAiL.MANGA.CBZ.eBOOK", "Spy x Family", ["Tatsuya Endo"], "partial"],
+    [
+      "Yoshizaki.Mine.Sergent.Keroro.T01.a.T34.Kana.2007.EBook.Officiel.MANGA.eBOOK",
+      "Sergent Keroro",
+      ["Mine Yoshizaki"],
+      "partial",
+    ],
+    [
+      "Endo.Tatsuya.Spy.x.Family.T16.Tatsuya.Endo.FR.CBZ-Dogbanov.16.2026.FRENCH.RETAiL.MANGA.CBZ.eBOOK",
+      "Spy x Family",
+      ["Tatsuya Endo"],
+      "partial",
+    ],
     // Two authors, glued together or mixed up.
-    ["Eiichiro.OdaBoichi.One.Piece.1.a.112.officiel.113&114.scan.NoFace696.Episode.A.1.et.2.officiel.Glenat.2000.HYBRiD.MANGA.eBOOK", "One Piece", ["Eiichiro Oda", "Boichi"], "partial"],
-    ["Gamon.SAKURAI.MIURA.Tsuina.Ajin.T17.2021.FRENCH.CBZ-Paprika+", "Ajin", ["Gamon Sakurai", "Tsuina Miura"], "partial"],
-    ["Akira.Toriyama.Toyotaro.Dragon.Ball.Super.tome.1-24.pdf.Glenat.2015.RETAiL.MANGA.eBOOK-Team.Chromatique", "Dragon Ball Super", ["Akira Toriyama", "Toyotaro"], "partial"],
+    [
+      "Eiichiro.OdaBoichi.One.Piece.1.a.112.officiel.113&114.scan.NoFace696.Episode.A.1.et.2.officiel.Glenat.2000.HYBRiD.MANGA.eBOOK",
+      "One Piece",
+      ["Eiichiro Oda", "Boichi"],
+      "partial",
+    ],
+    [
+      "Gamon.SAKURAI.MIURA.Tsuina.Ajin.T17.2021.FRENCH.CBZ-Paprika+",
+      "Ajin",
+      ["Gamon Sakurai", "Tsuina Miura"],
+      "partial",
+    ],
+    [
+      "Akira.Toriyama.Toyotaro.Dragon.Ball.Super.tome.1-24.pdf.Glenat.2015.RETAiL.MANGA.eBOOK-Team.Chromatique",
+      "Dragon Ball Super",
+      ["Akira Toriyama", "Toyotaro"],
+      "partial",
+    ],
     // Author name after the title.
-    ["Chica.Umino.March.Comes.in.Like.a.Lion.Umino.T01.a.T16.CBZ.Fr.Kana.2011.FRENCH.RETAiL.MANGA.eBOOK", "March Comes in Like a Lion", ["Chica Umino"], "partial"],
+    [
+      "Chica.Umino.March.Comes.in.Like.a.Lion.Umino.T01.a.T16.CBZ.Fr.Kana.2011.FRENCH.RETAiL.MANGA.eBOOK",
+      "March Comes in Like a Lion",
+      ["Chica Umino"],
+      "partial",
+    ],
     // A spin-off or sequel: extra words after the name.
-    ["Blue.Lock.Episode.Nagi.T06.Sannomiya.Kaneshiro.2025.FRENCH.RETAiL.MANGA.CBZ.eBOOK-NeoRipClub", "Blue Lock", ["Muneyuki Kaneshiro", "Yusuke Nomura"], undefined],
-    ["Kaiju.N.8.Relax.T01.Naoya.Matsumoto.2025.FRENCH.RETAiL.MANGA.CBZ.eBOOK-NeoRipClub", "Kaiju No. 8", ["Naoya Matsumoto"], undefined],
+    [
+      "Blue.Lock.Episode.Nagi.T06.Sannomiya.Kaneshiro.2025.FRENCH.RETAiL.MANGA.CBZ.eBOOK-NeoRipClub",
+      "Blue Lock",
+      ["Muneyuki Kaneshiro", "Yusuke Nomura"],
+      undefined,
+    ],
+    [
+      "Kaiju.N.8.Relax.T01.Naoya.Matsumoto.2025.FRENCH.RETAiL.MANGA.CBZ.eBOOK-NeoRipClub",
+      "Kaiju No. 8",
+      ["Naoya Matsumoto"],
+      undefined,
+    ],
     ["Sui.Ishida.Tokyo.Ghoul.Re.T01.2016.FRENCH.SCAN.MANGA.CBZ.eBOOK", "Tokyo Ghoul", ["Sui Ishida"], undefined],
   ])("%s / %s → %s", (input, name, authors, want) => {
     expect(titleMatch(parseRelease(input), { names: [name], authors })).toBe(want);

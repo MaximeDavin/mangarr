@@ -4,7 +4,7 @@ import { ORPCError } from "@orpc/server";
 import { eq } from "drizzle-orm";
 import { z } from "zod";
 import type { Db } from "../db/client";
-import { downloads, downloadStatuses, series, titleMatches } from "../db/schema";
+import { downloadStatuses, downloads, series, titleMatches } from "../db/schema";
 import { prowlarrFromSettings } from "../integrations/prowlarr";
 import { qbittorrentFromSettings } from "../integrations/qbittorrent";
 import { infoHashOf, TorrentError } from "../integrations/torrent";
@@ -123,10 +123,13 @@ export const releasesRouter = {
 
       const { language } = row;
       if (language.prowlarrIndexerIds.length === 0) {
-        throw new ORPCError("PRECONDITION_FAILED", { message: `Choose Prowlarr indexers for ${language.name} in Settings first` });
+        throw new ORPCError("PRECONDITION_FAILED", {
+          message: `Choose Prowlarr indexers for ${language.name} in Settings first`,
+        });
       }
       const queries = row.searchTerms.filter((t) => t.kind === "search").map((t) => t.term);
-      if (queries.length === 0) throw new ORPCError("PRECONDITION_FAILED", { message: "The series has no search terms" });
+      if (queries.length === 0)
+        throw new ORPCError("PRECONDITION_FAILED", { message: "The series has no search terms" });
 
       const outcome = await searchReleases(
         prowlarrFromSettings(db),
@@ -172,7 +175,8 @@ export const releasesRouter = {
           editionHint: parsed.editionHint,
           source: parsed.source,
           contentHint: parsed.contentHint,
-          grabbed: (release.infoHash !== undefined && grabbedHashes.has(release.infoHash)) || grabbedGuids.has(release.guid),
+          grabbed:
+            (release.infoHash !== undefined && grabbedHashes.has(release.infoHash)) || grabbedGuids.has(release.guid),
         })),
       };
     }),
@@ -205,14 +209,16 @@ export const releasesRouter = {
       const { client: qbittorrent, category } = qbittorrentFromSettings(db);
 
       const link = release.magnetUrl ?? release.downloadUrl;
-      if (!link) throw new ORPCError("UNPROCESSABLE_CONTENT", { message: "The indexer gave no download link for this release" });
+      if (!link)
+        throw new ORPCError("UNPROCESSABLE_CONTENT", { message: "The indexer gave no download link for this release" });
       const download = await prowlarr.download(link, signal);
 
       let infoHash: string;
       try {
         infoHash = infoHashOf(download);
       } catch (error) {
-        if (error instanceof TorrentError) throw new ORPCError("UNPROCESSABLE_CONTENT", { message: error.message, cause: error });
+        if (error instanceof TorrentError)
+          throw new ORPCError("UNPROCESSABLE_CONTENT", { message: error.message, cause: error });
         throw error;
       }
       assertNotGrabbed(db, infoHash);

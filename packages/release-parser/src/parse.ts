@@ -1,6 +1,6 @@
 import { sceneMarkers, sceneSource, unscene } from "./scene";
 import type { ContentHint, ParsedRelease, ReleaseSource } from "./types";
-import { YEAR, addRange, earliest, indexOf, isYear, sorted, token, word } from "./util";
+import { addRange, earliest, indexOf, isYear, sorted, token, word, YEAR } from "./util";
 
 const EXT_RE = /\.(?:cbz|cbr|zip|rar|7z|epub|pdf)$/i;
 const TAG_RE = /\[([^\]]*)\]|\(([^)]*)\)/g;
@@ -15,7 +15,7 @@ const VOLUME_RE = token(String.raw`${VOL_KW}(${NUM})(?:(?:${RANGE_SEP}${VOL_KW}?
 const JP_VOLUME_RE = new RegExp(String.raw`(?<!\d)(?:第\s*)?(${NUM})(?:\s*[-~〜～]\s*(${NUM}))?\s*巻`, "gu");
 // Plain ranges with no volume keyword, outside tags: "Maximum 01-03", "Pack 01-12", "1 à 50".
 // A dash range must start with 1-2 digits: "001-022" is chapters (BARE_CHAPTER_RE).
-const BARE_RANGE_RE = /(?<![\p{L}\d.,\-#])(?:pack\s+)?(?:(\d{1,2})-|(\d{1,3})\s+à\s+)(\d{1,3})(?![\p{L}\d.,\-])/giu;
+const BARE_RANGE_RE = /(?<![\p{L}\d.,\-#])(?:pack\s+)?(?:(\d{1,2})-|(\d{1,3})\s+à\s+)(\d{1,3})(?![\p{L}\d.,-])/giu;
 // "Pack.4.Volumes": a count of volumes, not volume numbers. Ends the title.
 const PACK_COUNT_RE = token(String.raw`pack\s+\d+\s+(?:volumes?|tomes?)`);
 
@@ -23,7 +23,7 @@ const PACK_COUNT_RE = token(String.raw`pack\s+\d+\s+(?:volumes?|tomes?)`);
 const CHAPTER_RE = token(String.raw`(?:(?:chapters?|chapitres?|chap|ch)\.?\s*|c(?=\d))${NUM}`);
 const CHAPTER_WORD_RE = word("chapters?|chapitres?");
 // Bare chapter numbers ("001-022", "0001-1648"). Must be zero-padded or a range, so "Mob Psycho 100" is safe.
-const BARE_CHAPTER_RE = /(?<![\p{L}\d,.\-])(\d{3,4}(?:\.\d+)?)(?:\s*-\s*(\d{2,4}(?:\.\d+)?))?(?![\p{L}\d,])/gu;
+const BARE_CHAPTER_RE = /(?<![\p{L}\d,.-])(\d{3,4}(?:\.\d+)?)(?:\s*-\s*(\d{2,4}(?:\.\d+)?))?(?![\p{L}\d,])/gu;
 
 /*
  * Plain numbers right after the title, with no keyword ("One Piece 105", "Berserk - 377"):
@@ -33,11 +33,9 @@ const BARE_CHAPTER_RE = /(?<![\p{L}\d,.\-])(\d{3,4}(?:\.\d+)?)(?:\s*-\s*(\d{2,4}
  * - anything else stays unparsed.
  * Language words may follow ("Berserk - 377 Arabic").
  */
-const LANGUAGE_WORDS = "arabic|english|eng|en|french|fr|vf|jp|jpn|japanese|raws?|italian|spanish|german|portuguese|russian";
-const TRAILING_CHAPTER_RE = new RegExp(
-  String.raw`(?<![\p{L}\d.,\-#])(\d{3,4})(?:\s+(?:${LANGUAGE_WORDS}))*\s*$`,
-  "iu",
-);
+const LANGUAGE_WORDS =
+  "arabic|english|eng|en|french|fr|vf|jp|jpn|japanese|raws?|italian|spanish|german|portuguese|russian";
+const TRAILING_CHAPTER_RE = new RegExp(String.raw`(?<![\p{L}\d.,\-#])(\d{3,4})(?:\s+(?:${LANGUAGE_WORDS}))*\s*$`, "iu");
 const FILE_VOLUME_RE = new RegExp(
   String.raw`(?<![\p{L}\d.,\-#])(?<!(?:no|n°)\.?\s*)(\d{1,3})\s*\(${YEAR}\)(?:\s*(?:\[[^\]]*\]|\([^)]*\)))*\s*$`,
   "iu",
@@ -151,7 +149,12 @@ function splitTitles(s: string): string[] {
 }
 
 /** Volume markers ("v01", "Tome 3", "T01-T12", "第1巻"…) in the text outside tags. */
-function findVolumes(core: string): { volumes: number[]; firstIndex?: number; lastEnd?: number; hasExtraChapters: boolean } {
+function findVolumes(core: string): {
+  volumes: number[];
+  firstIndex?: number;
+  lastEnd?: number;
+  hasExtraChapters: boolean;
+} {
   const volumes = new Set<number>();
   let firstIndex: number | undefined;
   let lastEnd: number | undefined;
@@ -245,9 +248,7 @@ export function parseRelease(input: string): ParsedRelease {
   let volumes = marked.volumes.length > 0 ? marked.volumes : volumesFromTags(tags);
   const chapterIndex = findChapterMarker(core, scene.isScene);
   const integraleIndex = indexOf(INTEGRALE_RE, core);
-  const sceneMarks = scene.isScene
-    ? sceneMarkers(core, volumes.length === 0 && chapterIndex === undefined)
-    : undefined;
+  const sceneMarks = scene.isScene ? sceneMarkers(core, volumes.length === 0 && chapterIndex === undefined) : undefined;
   if (sceneMarks?.bare) volumes = sceneMarks.bare.volumes;
 
   // Last resorts, when no marker gave volumes and nothing reads as chapters.

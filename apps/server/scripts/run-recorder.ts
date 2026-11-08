@@ -13,7 +13,16 @@
 import { createHmac, randomBytes } from "node:crypto";
 import { stringsOutsideInfo } from "../src/integrations/torrent";
 import { type RunCall, type RunRecording, recordedServices, type Service } from "../test/run-replay";
-import { anonymizeTorrent, fakeHash, type IndexerInfo, realsIn, recordedOn, remapHashes, type TrackerAliases, trackerAliases } from "./anonymize";
+import {
+  anonymizeTorrent,
+  fakeHash,
+  type IndexerInfo,
+  realsIn,
+  recordedOn,
+  remapHashes,
+  type TrackerAliases,
+  trackerAliases,
+} from "./anonymize";
 
 export interface RecorderOptions {
   /** Left out when only qBittorrent is recorded. */
@@ -31,7 +40,20 @@ const safeParams = new Set(["file", "xt", "dn"]);
 /** Path segments that may be a passkey or token. */
 const tokenSegment = /^[A-Za-z0-9_-]{16,}$/;
 /** The fields of qBittorrent's torrent list that are kept (others hold tracker URLs and magnets). */
-const torrentFields = ["hash", "name", "category", "state", "progress", "amount_left", "size", "save_path", "eta", "dlspeed", "num_seeds", "num_leechs"];
+const torrentFields = [
+  "hash",
+  "name",
+  "category",
+  "state",
+  "progress",
+  "amount_left",
+  "size",
+  "save_path",
+  "eta",
+  "dlspeed",
+  "num_seeds",
+  "num_leechs",
+];
 
 const base = (url: string) => url.trim().replace(/\/+$/, "");
 const latin1 = (bytes: Uint8Array) => Buffer.from(bytes).toString("latin1");
@@ -58,14 +80,18 @@ export function createRunRecorder(options: RecorderOptions) {
 
   /** Same value → same stand-in within a run (a guid matches across fields), never reversible. */
   const pseudonymKey = randomBytes(32);
-  const pseudonym = (value: string) => `redacted-${createHmac("sha256", pseudonymKey).update(value).digest("hex").slice(0, 12)}`;
+  const pseudonym = (value: string) =>
+    `redacted-${createHmac("sha256", pseudonymKey).update(value).digest("hex").slice(0, 12)}`;
 
   /** Private indexers' stand-ins, loaded from Prowlarr before its first recorded call. */
   let aliases: TrackerAliases = trackerAliases([]);
   let aliasesLoaded: Promise<void> | undefined;
   async function loadAliases() {
-    const response = await realFetch(`${services.prowlarr}/api/v1/indexer`, { headers: { "X-Api-Key": prowlarrApiKey, Accept: "application/json" } });
-    if (!response.ok) throw new Error(`Could not list Prowlarr's indexers to anonymize the recording (${response.status})`);
+    const response = await realFetch(`${services.prowlarr}/api/v1/indexer`, {
+      headers: { "X-Api-Key": prowlarrApiKey, Accept: "application/json" },
+    });
+    if (!response.ok)
+      throw new Error(`Could not list Prowlarr's indexers to anonymize the recording (${response.status})`);
     aliases = trackerAliases((await response.json()) as IndexerInfo[]);
   }
 
@@ -103,7 +129,8 @@ export function createRunRecorder(options: RecorderOptions) {
 
   function scrubString(value: string): string {
     let out = value;
-    for (const [service, url] of Object.entries(services)) out = out.replaceAll(url, recordedServices[service as Service]);
+    for (const [service, url] of Object.entries(services))
+      out = out.replaceAll(url, recordedServices[service as Service]);
     if (prowlarrApiKey) out = out.replaceAll(prowlarrApiKey, "REDACTED");
     return scrubUrl(aliases.scrub(out));
   }
@@ -111,7 +138,8 @@ export function createRunRecorder(options: RecorderOptions) {
   function scrub(value: unknown): unknown {
     if (typeof value === "string") return scrubString(value);
     if (Array.isArray(value)) return value.map(scrub);
-    if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, scrub(v)]));
+    if (value && typeof value === "object")
+      return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, scrub(v)]));
     return value;
   }
 
@@ -155,7 +183,10 @@ export function createRunRecorder(options: RecorderOptions) {
       } else body = scrub(Object.fromEntries(new URLSearchParams(await request.text())));
     }
 
-    const recorded: RunCall["response"] = { status: response.status, contentType: response.headers.get("content-type") };
+    const recorded: RunCall["response"] = {
+      status: response.status,
+      contentType: response.headers.get("content-type"),
+    };
     const location = response.headers.get("location");
     if (location) recorded.location = scrubString(location);
     const cookies = response.headers.getSetCookie();
@@ -175,20 +206,30 @@ export function createRunRecorder(options: RecorderOptions) {
       if (service === "qbittorrent" && path.endsWith("/torrents/info") && Array.isArray(parsed)) {
         for (const t of parsed as Record<string, unknown>[]) {
           const fromPrivateTracker = t.private === true || realsIn(String(t.tracker ?? ""), aliases.reals).length > 0;
-          if ((options.hideEveryHash || fromPrivateTracker) && typeof t.hash === "string") hideHash(t.hash, fakeHash(t.hash, pseudonymKey));
+          if ((options.hideEveryHash || fromPrivateTracker) && typeof t.hash === "string")
+            hideHash(t.hash, fakeHash(t.hash, pseudonymKey));
         }
-        parsed = parsed.map((t: Record<string, unknown>) => Object.fromEntries(torrentFields.filter((f) => f in t).map((f) => [f, t[f]])));
+        parsed = parsed.map((t: Record<string, unknown>) =>
+          Object.fromEntries(torrentFields.filter((f) => f in t).map((f) => [f, t[f]])),
+        );
       }
       recorded.body = scrub(parsed);
     }
-    return { service, request: { method: request.method, path, query, ...(body === undefined ? {} : { body }) }, response: recorded };
+    return {
+      service,
+      request: { method: request.method, path, query, ...(body === undefined ? {} : { body }) },
+      response: recorded,
+    };
   }
 
   const fetch = async (input: string | URL | Request, init?: RequestInit): Promise<Response> => {
     const request = input instanceof Request ? input : new Request(String(input), init);
     const service = (Object.keys(services) as Service[]).find((s) => request.url.startsWith(`${services[s]}/`));
     if (!service) return realFetch(request);
-    if (service === "prowlarr") await (aliasesLoaded ??= loadAliases());
+    if (service === "prowlarr") {
+      aliasesLoaded ??= loadAliases();
+      await aliasesLoaded;
+    }
     const sent = request.clone() as Request;
     const response = await realFetch(request);
     calls.push(await capture(service, sent, response.clone() as Response));
@@ -197,9 +238,15 @@ export function createRunRecorder(options: RecorderOptions) {
 
   /** Where secrets were found in `value` and in the .torrent bodies of `recorded`. */
   function leaksIn(value: unknown, recorded: RunCall[]): string[] {
-    const texts = [JSON.stringify(value), ...recorded.flatMap((c) => (c.response.bodyBase64 ? [latin1(Buffer.from(c.response.bodyBase64, "base64"))] : []))];
-    const found = [...secrets].filter(([secret]) => texts.some((text) => text.includes(secret))).map(([, source]) => source);
-    for (const real of texts.flatMap((text) => realsIn(text, aliases.reals))) found.push(`a private tracker's name or address ("${real}")`);
+    const texts = [
+      JSON.stringify(value),
+      ...recorded.flatMap((c) => (c.response.bodyBase64 ? [latin1(Buffer.from(c.response.bodyBase64, "base64"))] : [])),
+    ];
+    const found = [...secrets]
+      .filter(([secret]) => texts.some((text) => text.includes(secret)))
+      .map(([, source]) => source);
+    for (const real of texts.flatMap((text) => realsIn(text, aliases.reals)))
+      found.push(`a private tracker's name or address ("${real}")`);
     return [...new Set(found)];
   }
 

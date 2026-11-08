@@ -24,7 +24,13 @@ export interface ProwlarrOptions {
   searchTimeoutMs?: number;
 }
 
-export type ProwlarrErrorKind = "not_configured" | "unreachable" | "timeout" | "unauthorized" | "http" | "invalid_response";
+export type ProwlarrErrorKind =
+  | "not_configured"
+  | "unreachable"
+  | "timeout"
+  | "unauthorized"
+  | "http"
+  | "invalid_response";
 
 export class ProwlarrError extends UpstreamError {
   declare readonly kind: ProwlarrErrorKind;
@@ -213,7 +219,9 @@ export function createProwlarrClient(options: ProwlarrOptions) {
           cause: error,
         });
       }
-      throw new ProwlarrError("unreachable", `Could not reach Prowlarr at ${baseUrl}: ${errorMessage(error)}`, { cause: error });
+      throw new ProwlarrError("unreachable", `Could not reach Prowlarr at ${baseUrl}: ${errorMessage(error)}`, {
+        cause: error,
+      });
     };
 
     let response: Response;
@@ -240,28 +248,34 @@ export function createProwlarrClient(options: ProwlarrOptions) {
     }
     if (!response.ok) {
       const detail = errorDetail(body);
-      throw new ProwlarrError(
-        "http",
-        `Prowlarr answered ${response.status}${detail ? `: ${detail}` : ""}`,
-        { status: response.status },
-      );
+      throw new ProwlarrError("http", `Prowlarr answered ${response.status}${detail ? `: ${detail}` : ""}`, {
+        status: response.status,
+      });
     }
     try {
       return JSON.parse(body) as unknown;
     } catch (error) {
       // Typically a reverse proxy or another app's web page: the URL is wrong.
-      throw new ProwlarrError("invalid_response", `${baseUrl} did not answer like Prowlarr (not JSON). Check the URL.`, {
-        cause: error,
-      });
+      throw new ProwlarrError(
+        "invalid_response",
+        `${baseUrl} did not answer like Prowlarr (not JSON). Check the URL.`,
+        {
+          cause: error,
+        },
+      );
     }
   }
 
   function parse<T>(schema: z.ZodType<T>, json: unknown, what: string): T {
     const result = schema.safeParse(json);
     if (!result.success) {
-      throw new ProwlarrError("invalid_response", `Unexpected ${what} from Prowlarr: ${z.prettifyError(result.error)}`, {
-        cause: result.error,
-      });
+      throw new ProwlarrError(
+        "invalid_response",
+        `Unexpected ${what} from Prowlarr: ${z.prettifyError(result.error)}`,
+        {
+          cause: result.error,
+        },
+      );
     }
     return result.data;
   }
@@ -324,8 +338,13 @@ export function createProwlarrClient(options: ProwlarrOptions) {
           response = await fetchImpl(new Request(url, { redirect: "manual", signal: AbortSignal.any(signals) }));
         } catch (error) {
           if (signal?.aborted) throw error;
-          if (isTimeout(error)) throw new ProwlarrError("timeout", "Prowlarr did not send the torrent in time", { cause: error });
-          throw new ProwlarrError("unreachable", `Could not fetch the torrent through Prowlarr: ${errorMessage(error)}`, { cause: error });
+          if (isTimeout(error))
+            throw new ProwlarrError("timeout", "Prowlarr did not send the torrent in time", { cause: error });
+          throw new ProwlarrError(
+            "unreachable",
+            `Could not fetch the torrent through Prowlarr: ${errorMessage(error)}`,
+            { cause: error },
+          );
         }
 
         if (response.status >= 300 && response.status < 400) {
@@ -341,9 +360,13 @@ export function createProwlarrClient(options: ProwlarrOptions) {
         const bytes = new Uint8Array(await response.arrayBuffer());
         if (!response.ok) {
           const detail = errorDetail(new TextDecoder().decode(bytes.subarray(0, 2000)));
-          throw new ProwlarrError("http", `Prowlarr could not get the torrent (${response.status})${detail ? `: ${detail}` : ""}`, {
-            status: response.status,
-          });
+          throw new ProwlarrError(
+            "http",
+            `Prowlarr could not get the torrent (${response.status})${detail ? `: ${detail}` : ""}`,
+            {
+              status: response.status,
+            },
+          );
         }
         const text = new TextDecoder().decode(bytes.subarray(0, 7));
         // Some indexers answer with the magnet link as text.

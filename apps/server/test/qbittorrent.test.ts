@@ -4,13 +4,18 @@ import { afterEach, describe, expect, it, spyOn } from "bun:test";
 import { openDatabase } from "../src/db/client";
 import { createQBittorrentClient, QBittorrentError } from "../src/integrations/qbittorrent";
 import { ensureApiKey, setSetting } from "../src/settings";
-import { apiClient, rejection } from "./helpers";
 import { fakeQBittorrent } from "./fake-qbittorrent";
+import { apiClient, rejection } from "./helpers";
 
 function client(fake = fakeQBittorrent(), overrides: { password?: string } = {}) {
   return {
     fake,
-    qbit: createQBittorrentClient({ url: fake.url, username: fake.username, password: overrides.password ?? fake.password, fetch: fake.fetch }),
+    qbit: createQBittorrentClient({
+      url: fake.url,
+      username: fake.username,
+      password: overrides.password ?? fake.password,
+      fetch: fake.fetch,
+    }),
   };
 }
 
@@ -81,24 +86,43 @@ describe("qBittorrent client", () => {
   it("reports a torrent qBittorrent refuses", async () => {
     const { fake, qbit } = client();
     fake.state.addAnswer = "Fails.";
-    expect((await rejection(qbit.add({ kind: "magnet", uri: "magnet:?xt=urn:btih:abc" }, "mangarr"), QBittorrentError)).message).toBe(
-      "qBittorrent refused the torrent",
-    );
+    expect(
+      (await rejection(qbit.add({ kind: "magnet", uri: "magnet:?xt=urn:btih:abc" }, "mangarr"), QBittorrentError))
+        .message,
+    ).toBe("qBittorrent refused the torrent");
   });
 
   it("reads qBittorrent 5.3's JSON answer to an add", async () => {
     const { fake, qbit } = client();
-    fake.state.addAnswer = JSON.stringify({ added_torrent_ids: ["abc"], failure_count: 0, pending_count: 0, success_count: 1 });
+    fake.state.addAnswer = JSON.stringify({
+      added_torrent_ids: ["abc"],
+      failure_count: 0,
+      pending_count: 0,
+      success_count: 1,
+    });
     await qbit.add({ kind: "magnet", uri: "magnet:?xt=urn:btih:abc" }, "mangarr");
-    fake.state.addAnswer = JSON.stringify({ added_torrent_ids: [], failure_count: 1, pending_count: 0, success_count: 0 });
-    expect((await rejection(qbit.add({ kind: "magnet", uri: "magnet:?xt=urn:btih:abc" }, "mangarr"), QBittorrentError)).message).toBe(
-      "qBittorrent refused the torrent",
-    );
+    fake.state.addAnswer = JSON.stringify({
+      added_torrent_ids: [],
+      failure_count: 1,
+      pending_count: 0,
+      success_count: 0,
+    });
+    expect(
+      (await rejection(qbit.add({ kind: "magnet", uri: "magnet:?xt=urn:btih:abc" }, "mangarr"), QBittorrentError))
+        .message,
+    ).toBe("qBittorrent refused the torrent");
   });
 
   it("lists torrents by hash, lowercased", async () => {
     const { fake, qbit } = client();
-    fake.state.torrents.push({ hash: "ABC", name: "x", category: "mangarr", state: "downloading", progress: 0.5, amount_left: 10 });
+    fake.state.torrents.push({
+      hash: "ABC",
+      name: "x",
+      category: "mangarr",
+      state: "downloading",
+      progress: 0.5,
+      amount_left: 10,
+    });
     expect(await qbit.torrents({ hashes: ["ABC"] })).toMatchObject([{ hash: "abc", amountLeft: 10, progress: 0.5 }]);
     expect(await qbit.torrents({ hashes: ["def"] })).toEqual([]);
   });

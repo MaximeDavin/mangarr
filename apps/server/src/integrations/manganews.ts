@@ -107,7 +107,14 @@ export function parseMangaNewsCsv(text: string): ParsedDataset {
       volumeCount: Number(volumes),
       artists: orNull(at(line, "artists")),
       writers: orNull(at(line, "writers")),
-      genres: [...new Set((at(line, "genres") ?? "").split("|").map((g) => g.trim()).filter(Boolean))],
+      genres: [
+        ...new Set(
+          (at(line, "genres") ?? "")
+            .split("|")
+            .map((g) => g.trim())
+            .filter(Boolean),
+        ),
+      ],
       coverUrl: orNull(at(line, "cover_url")),
     });
   }
@@ -119,7 +126,11 @@ const isTimeout = (error: unknown) => (error as { name?: unknown })?.name === "T
 /** Downloads the CSV. Redirects are followed: data.gouv.fr's "latest" link redirects to the file. */
 export async function downloadMangaNewsCsv(
   url: string,
-  { fetch: fetchImpl = (request) => fetch(request), timeoutMs = 120_000, signal }: { fetch?: Fetch; timeoutMs?: number; signal?: AbortSignal } = {},
+  {
+    fetch: fetchImpl = (request) => fetch(request),
+    timeoutMs = 120_000,
+    signal,
+  }: { fetch?: Fetch; timeoutMs?: number; signal?: AbortSignal } = {},
 ): Promise<string> {
   const host = URL.parse(url)?.host ?? url;
   const signals = [AbortSignal.timeout(timeoutMs)];
@@ -127,18 +138,33 @@ export async function downloadMangaNewsCsv(
   let response: Response;
   let bytes: Uint8Array;
   try {
-    response = await fetchImpl(new Request(url, { headers: { Accept: "text/csv, */*" }, signal: AbortSignal.any(signals) }));
+    response = await fetchImpl(
+      new Request(url, { headers: { Accept: "text/csv, */*" }, signal: AbortSignal.any(signals) }),
+    );
     const length = Number(response.headers.get("content-length"));
-    if (length > maxBytes) throw new UpstreamError("invalid_response", `The file at ${host} is too big to be the Manga-News CSV`);
+    if (length > maxBytes)
+      throw new UpstreamError("invalid_response", `The file at ${host} is too big to be the Manga-News CSV`);
     bytes = new Uint8Array(await response.arrayBuffer());
   } catch (error) {
     if (error instanceof UpstreamError || signal?.aborted) throw error;
-    if (isTimeout(error)) throw new UpstreamError("timeout", `${host} did not send the Manga-News CSV within ${timeoutMs / 1000} s`, { cause: error });
-    throw new UpstreamError("unreachable", `Could not download the Manga-News CSV from ${host}: ${errorMessage(error)}`, { cause: error });
+    if (isTimeout(error))
+      throw new UpstreamError("timeout", `${host} did not send the Manga-News CSV within ${timeoutMs / 1000} s`, {
+        cause: error,
+      });
+    throw new UpstreamError(
+      "unreachable",
+      `Could not download the Manga-News CSV from ${host}: ${errorMessage(error)}`,
+      { cause: error },
+    );
   }
-  if (response.status === 404) throw new UpstreamError("not_found", `No file at the Manga-News CSV URL (${host} answered 404)`, { status: 404 });
-  if (!response.ok) throw new UpstreamError("http", `${host} answered ${response.status} for the Manga-News CSV`, { status: response.status });
-  if (bytes.length > maxBytes) throw new UpstreamError("invalid_response", `The file at ${host} is too big to be the Manga-News CSV`);
+  if (response.status === 404)
+    throw new UpstreamError("not_found", `No file at the Manga-News CSV URL (${host} answered 404)`, { status: 404 });
+  if (!response.ok)
+    throw new UpstreamError("http", `${host} answered ${response.status} for the Manga-News CSV`, {
+      status: response.status,
+    });
+  if (bytes.length > maxBytes)
+    throw new UpstreamError("invalid_response", `The file at ${host} is too big to be the Manga-News CSV`);
   try {
     return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
   } catch (error) {

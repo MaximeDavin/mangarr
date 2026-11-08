@@ -2,7 +2,7 @@
 // Passwords and third-party API keys are write-only: reads only say whether each one is set.
 
 import { z } from "zod";
-import { generateApiKey, getSettings, setSetting, type SettingKey, type Settings } from "../settings";
+import { generateApiKey, getSettings, type SettingKey, type Settings, setSetting } from "../settings";
 import { authed } from "./base";
 
 /** An http(s) URL without trailing slashes, or "" when not configured. */

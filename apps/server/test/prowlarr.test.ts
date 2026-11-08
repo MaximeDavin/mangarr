@@ -1,11 +1,6 @@
 import { describe, expect, it } from "bun:test";
 import { openDatabase } from "../src/db/client";
-import {
-  createProwlarrClient,
-  type Fetch,
-  ProwlarrError,
-  prowlarrFromSettings,
-} from "../src/integrations/prowlarr";
+import { createProwlarrClient, type Fetch, ProwlarrError, prowlarrFromSettings } from "../src/integrations/prowlarr";
 import { normalizeInfoHash } from "../src/integrations/torrent";
 import { setSetting } from "../src/settings";
 import { rejection } from "./helpers";
@@ -101,7 +96,14 @@ describe("search", () => {
     const sparse = { guid: "x-1", title: "Berserk T01", indexerId: 7, protocol: "torrent", publishDate: "garbage" };
     const { prowlarr } = setup(() => Response.json([sparse]));
     const [release] = await prowlarr.search({ query: "berserk", indexerIds: [7] });
-    expect(release).toEqual({ guid: "x-1", title: "Berserk T01", size: 0, indexerId: 7, indexer: "Indexer 7", protocol: "torrent" });
+    expect(release).toEqual({
+      guid: "x-1",
+      title: "Berserk T01",
+      size: 0,
+      indexerId: 7,
+      indexer: "Indexer 7",
+      protocol: "torrent",
+    });
   });
 
   it("skips results with an unexpected shape and keeps the rest", async () => {
@@ -148,7 +150,9 @@ describe("indexers", () => {
         privacy: "public",
         priority: 25,
         language: "en-US",
-        categories: [{ id: 7000, name: "Books", subCategories: [{ id: 7030, name: "Books/Comics", subCategories: [] }] }],
+        categories: [
+          { id: 7000, name: "Books", subCategories: [{ id: 7030, name: "Books/Comics", subCategories: [] }] },
+        ],
       },
       { id: 9, name: "Old usenet", enabled: false, protocol: "usenet", categories: [] },
     ]);
@@ -158,7 +162,9 @@ describe("indexers", () => {
 
 describe("status", () => {
   it("returns the version", async () => {
-    const { prowlarr } = setup(() => Response.json({ appName: "Prowlarr", instanceName: "Prowlarr", version: "2.1.0.5000" }));
+    const { prowlarr } = setup(() =>
+      Response.json({ appName: "Prowlarr", instanceName: "Prowlarr", version: "2.1.0.5000" }),
+    );
     expect(await prowlarr.status()).toEqual({ version: "2.1.0.5000" });
   });
 
@@ -228,7 +234,9 @@ describe("errors", () => {
 
 describe("normalizeInfoHash", () => {
   it("lowercases hex and converts base32", () => {
-    expect(normalizeInfoHash(" ABCDEF0123456789ABCDEF0123456789ABCDEF01 ")).toBe("abcdef0123456789abcdef0123456789abcdef01");
+    expect(normalizeInfoHash(" ABCDEF0123456789ABCDEF0123456789ABCDEF01 ")).toBe(
+      "abcdef0123456789abcdef0123456789abcdef01",
+    );
     // Base32 of 0x00…00 followed by 0xff…ff halves.
     expect(normalizeInfoHash("AAAAAAAAAAAAAAAA7777777777777777")).toBe("00000000000000000000ffffffffffffffffffff");
     expect(normalizeInfoHash("mfrggzdfmztwq2lknnwg23tpobyxe43u")).toBe(

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { openDatabase, type Db } from "../src/db/client";
+import { type Db, openDatabase } from "../src/db/client";
 import { series } from "../src/db/schema";
 import { ensureApiKey, getSetting } from "../src/settings";
 import { apiClient, errorCode } from "./helpers";
@@ -46,7 +46,11 @@ describe("settings", () => {
     const { db, api } = setup();
     await api.settings.update({ qbittorrentPassword: "hunter2", pollIntervalSeconds: 60 });
     const saved = await api.settings.update({ qbittorrentUsername: "admin" });
-    expect(saved).toMatchObject({ qbittorrentUsername: "admin", pollIntervalSeconds: 60, qbittorrentCategory: "mangarr" });
+    expect(saved).toMatchObject({
+      qbittorrentUsername: "admin",
+      pollIntervalSeconds: 60,
+      qbittorrentCategory: "mangarr",
+    });
     expect(getSetting(db, "qbittorrentPassword")).toBe("hunter2");
   });
 
@@ -78,7 +82,11 @@ describe("settings", () => {
 describe("languages", () => {
   it("creates a language with defaults and cleans its fields", async () => {
     const { api } = setup();
-    const { warnings, ...created } = await api.languages.create({ ...french, code: " FR ", rootFolder: "/data/media/manga/fr/" });
+    const { warnings, ...created } = await api.languages.create({
+      ...french,
+      code: " FR ",
+      rootFolder: "/data/media/manga/fr/",
+    });
     expect(warnings).toEqual([]);
     expect(created).toEqual({
       id: expect.any(Number),
@@ -134,7 +142,12 @@ describe("languages", () => {
     expect(updated).toEqual({ ...created, name: "French", warnings: [] });
 
     expect((await api.languages.update({ id: created.id, komgaLibraryId: "" })).komgaLibraryId).toBeNull();
-    expect(await api.languages.update({ id: created.id })).toEqual({ ...created, name: "French", komgaLibraryId: null, warnings: [] });
+    expect(await api.languages.update({ id: created.id })).toEqual({
+      ...created,
+      name: "French",
+      komgaLibraryId: null,
+      warnings: [],
+    });
     // Form state often carries explicit undefineds; they count as omitted.
     expect(await api.languages.update({ id: created.id, name: undefined })).toEqual({
       ...created,

@@ -280,9 +280,13 @@ export function createMangaBakaClient(options: MangaBakaOptions = {}) {
   function parse<T>(schema: z.ZodType<T>, json: unknown, what: string): T {
     const result = schema.safeParse(json);
     if (!result.success) {
-      throw new MangaBakaError("invalid_response", `Unexpected ${what} from MangaBaka: ${z.prettifyError(result.error)}`, {
-        cause: result.error,
-      });
+      throw new MangaBakaError(
+        "invalid_response",
+        `Unexpected ${what} from MangaBaka: ${z.prettifyError(result.error)}`,
+        {
+          cause: result.error,
+        },
+      );
     }
     return result.data;
   }

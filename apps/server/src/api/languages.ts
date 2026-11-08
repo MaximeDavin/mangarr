@@ -43,11 +43,7 @@ const languageFields = z.object({
   /** Empty means all categories. */
   prowlarrCategories: z.array(id),
   /** A path inside the container (spec §3), so POSIX rules apply whatever OS runs the server. */
-  rootFolder: z
-    .string()
-    .trim()
-    .refine(posix.isAbsolute, "Must be an absolute path")
-    .transform(normalizePath),
+  rootFolder: z.string().trim().refine(posix.isAbsolute, "Must be an absolute path").transform(normalizePath),
   /** null (or "") means no Komga scan after imports. */
   komgaLibraryId: z
     .string()
@@ -67,8 +63,7 @@ const createInput = languageFields.extend({
 // No defaults here (Zod applies them even to omitted optional fields), so omitted fields keep their value.
 const updateInput = languageFields.partial().extend({ id });
 
-const notFound = (languageId: number) =>
-  new ORPCError("NOT_FOUND", { message: `Language ${languageId} not found` });
+const notFound = (languageId: number) => new ORPCError("NOT_FOUND", { message: `Language ${languageId} not found` });
 
 /** The language, or a NOT_FOUND error. */
 export function getLanguage(db: Db, languageId: number) {
@@ -81,7 +76,9 @@ function assertCodeFree(db: Db, code: string, exceptId?: number) {
   const clash = db
     .select({ id: languages.id })
     .from(languages)
-    .where(exceptId === undefined ? eq(languages.code, code) : and(eq(languages.code, code), ne(languages.id, exceptId)))
+    .where(
+      exceptId === undefined ? eq(languages.code, code) : and(eq(languages.code, code), ne(languages.id, exceptId)),
+    )
     .get();
   if (clash) throw new ORPCError("CONFLICT", { message: `A language with code "${code}" already exists` });
 }
@@ -98,7 +95,12 @@ function within(root: string, folder: string): boolean {
  * every scan would fail. What can't be checked, and a root folder outside the library's folder
  * (Komga would scan but never see the imports), are warnings: the language is saved anyway.
  */
-async function checkKomgaLibrary(db: Db, libraryId: string, rootFolder: string, signal?: AbortSignal): Promise<string[]> {
+async function checkKomgaLibrary(
+  db: Db,
+  libraryId: string,
+  rootFolder: string,
+  signal?: AbortSignal,
+): Promise<string[]> {
   let library: { name: string; root: string };
   try {
     library = await komgaFromSettings(db).library(libraryId, signal);
@@ -137,7 +139,9 @@ export const languagesRouter = {
     .output(savedOutput)
     .handler(async ({ context, input, signal }) => {
       assertCodeFree(context.db, input.code);
-      const warnings = input.komgaLibraryId ? await checkKomgaLibrary(context.db, input.komgaLibraryId, input.rootFolder, signal) : [];
+      const warnings = input.komgaLibraryId
+        ? await checkKomgaLibrary(context.db, input.komgaLibraryId, input.rootFolder, signal)
+        : [];
       return { ...context.db.insert(languages).values(input).returning().get(), warnings };
     }),
 

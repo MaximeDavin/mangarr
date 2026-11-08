@@ -110,7 +110,8 @@ export function stringsOutsideInfo(bytes: Uint8Array): string[] {
   const strings: string[] = [];
   const decoder = new TextDecoder();
   for (const [key, value] of dictEntries(bytes, 0)) {
-    if (key !== "info") skipValue(bytes, value.start, ({ start, end }) => strings.push(decoder.decode(bytes.subarray(start, end))));
+    if (key !== "info")
+      skipValue(bytes, value.start, ({ start, end }) => strings.push(decoder.decode(bytes.subarray(start, end))));
   }
   return strings;
 }

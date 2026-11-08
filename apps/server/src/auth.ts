@@ -42,7 +42,11 @@ export async function createFirstUser(db: Db, username: string, password: string
   const passwordHash = await hashPassword(password);
   return db.transaction((tx) => {
     if (hasUser(tx)) return undefined;
-    return tx.insert(users).values({ username, passwordHash }).returning({ id: users.id, username: users.username }).get();
+    return tx
+      .insert(users)
+      .values({ username, passwordHash })
+      .returning({ id: users.id, username: users.username })
+      .get();
   });
 }
 
@@ -74,7 +78,9 @@ export function createSession(db: Db, userId: number, now = Date.now()): string 
     .values({ id: hashToken(token), userId, expiresAt: new Date(now + sessionLifetimeMs) })
     .run();
   // Expired sessions are only otherwise removed when someone uses them.
-  db.delete(sessions).where(lte(sessions.expiresAt, new Date(now))).run();
+  db.delete(sessions)
+    .where(lte(sessions.expiresAt, new Date(now)))
+    .run();
   return token;
 }
 
@@ -103,7 +109,9 @@ export function findSession(db: Db, token: string, now = Date.now()): { user: Us
 }
 
 export function deleteSession(db: Db, token: string): void {
-  db.delete(sessions).where(eq(sessions.id, hashToken(token))).run();
+  db.delete(sessions)
+    .where(eq(sessions.id, hashToken(token)))
+    .run();
 }
 
 /** Signs out every session of the user except `keepToken`'s. */

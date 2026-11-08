@@ -1,6 +1,6 @@
-import { readdirSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "bun:test";
-import { parseRelease, type ParsedRelease } from "../src";
+import { readdirSync, readFileSync } from "node:fs";
+import { type ParsedRelease, parseRelease } from "../src";
 
 interface FixtureFile {
   source: string;

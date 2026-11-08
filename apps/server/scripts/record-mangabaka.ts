@@ -9,8 +9,8 @@
 import { join } from "node:path";
 import { mangabakaUrl, slimRecord } from "../src/integrations/mangabaka";
 import { replaceFixtures } from "../test/fixtures";
-import { recordedOn } from "./anonymize";
 import type { RecordedCall } from "../test/replay";
+import { recordedOn } from "./anonymize";
 
 const out = join(import.meta.dir, "../test/fixtures/mangabaka");
 
@@ -42,7 +42,11 @@ const plans: Plan[] = [
       ["limit", "50"],
     ],
   },
-  { name: "series-blue-lock", description: "A series with English collections in several editions.", path: "/v1/series/83" },
+  {
+    name: "series-blue-lock",
+    description: "A series with English collections in several editions.",
+    path: "/v1/series/83",
+  },
   {
     name: "collections-blue-lock",
     description: "Standard, omnibus and box-set editions; paperback and digital counts differ.",

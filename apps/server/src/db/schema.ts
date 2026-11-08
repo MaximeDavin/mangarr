@@ -5,30 +5,14 @@
 // Index names follow `{table}_{column}_idx`.
 
 import { sql } from "drizzle-orm";
-import {
-  type AnySQLiteColumn,
-  check,
-  index,
-  integer,
-  real,
-  snakeCase,
-  text,
-  unique,
-} from "drizzle-orm/sqlite-core";
+import { type AnySQLiteColumn, check, index, integer, real, snakeCase, text, unique } from "drizzle-orm/sqlite-core";
 
 const table = snakeCase.table;
 /** SQLite's rowid. Without AUTOINCREMENT, the id of the last deleted row can be reused. */
 const id = () => integer().primaryKey();
 const timestamp = () => integer({ mode: "timestamp_ms" });
-const createdAt = () =>
-  timestamp()
-    .notNull()
-    .default(sql`(cast(unixepoch('subsec') * 1000 as integer))`);
-const jsonList = <T>() =>
-  text({ mode: "json" })
-    .$type<T[]>()
-    .notNull()
-    .default(sql`'[]'`);
+const createdAt = () => timestamp().notNull().default(sql`(cast(unixepoch('subsec') * 1000 as integer))`);
+const jsonList = <T>() => text({ mode: "json" }).$type<T[]>().notNull().default(sql`'[]'`);
 
 /**
  * CHECK that a text column holds one of `values`, so the database enforces what
@@ -51,7 +35,7 @@ export interface ScanWarning {
   message: string;
 }
 
-export const volumeCountSources =["mangabaka", "manganews", "manual"] as const;
+export const volumeCountSources = ["mangabaka", "manganews", "manual"] as const;
 export const searchTermKinds = ["search", "alias"] as const;
 export const volumeFormats = ["cbz", "cbr"] as const;
 export const volumeSources = ["scan", "import"] as const;
@@ -63,13 +47,7 @@ export const downloadStatuses = [
   "needs_attention",
   "missing_from_client",
 ] as const;
-export const importActions = [
-  "imported",
-  "skipped_owned",
-  "skipped_unparseable",
-  "skipped_format",
-  "error",
-] as const;
+export const importActions = ["imported", "skipped_owned", "skipped_unparseable", "skipped_format", "error"] as const;
 
 // §4.1
 export const languages = table("languages", {
@@ -116,10 +94,7 @@ export const series = table(
       .notNull()
       .references(() => languages.id),
     mangabakaId: integer().notNull(),
-    externalIds: text({ mode: "json" })
-      .$type<ExternalIds>()
-      .notNull()
-      .default(sql`'{}'`),
+    externalIds: text({ mode: "json" }).$type<ExternalIds>().notNull().default(sql`'{}'`),
     displayTitle: text().notNull(),
     folderPath: text().notNull().unique(),
     coverUrl: text(),
@@ -155,10 +130,7 @@ export const searchTerms = table(
     term: text().notNull(),
     kind: text({ enum: searchTermKinds }).notNull(),
   },
-  (t) => [
-    unique().on(t.seriesId, t.term),
-    oneOf("search_terms_kind_check", t.kind, searchTermKinds),
-  ],
+  (t) => [unique().on(t.seriesId, t.term), oneOf("search_terms_kind_check", t.kind, searchTermKinds)],
 );
 
 // §4.4: a row exists only when mangarr owns the file on disk.

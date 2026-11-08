@@ -24,7 +24,11 @@ function setup() {
   const api = apiClient(db, { apiKey: ensureApiKey(db) });
   // Inserted directly: the API only accepts POSIX root folders, and tests may run on Windows.
   const addLanguage = (code: string, folder = join(root, code)) =>
-    db.insert(languages).values({ code, name: code.toUpperCase(), rootFolder: normalizePath(folder) }).returning().get();
+    db
+      .insert(languages)
+      .values({ code, name: code.toUpperCase(), rootFolder: normalizePath(folder) })
+      .returning()
+      .get();
   const en = addLanguage("en");
   return { db, api, en, addLanguage };
 }
@@ -134,7 +138,10 @@ describe("series.create", () => {
     expect(created.coverUrl).toStartWith("https://");
     expect(created.externalIds.anilist).toBeNumber();
     expect(created.missing).toHaveLength(created.volumeCount!);
-    expect(created.searchTerms.filter((t) => t.kind === "search").map((t) => t.term)).toEqual(["Blue Lock", "ブルーロック"]);
+    expect(created.searchTerms.filter((t) => t.kind === "search").map((t) => t.term)).toEqual([
+      "Blue Lock",
+      "ブルーロック",
+    ]);
     expect(created.searchTerms.some((t) => t.kind === "alias" && t.term === "Buruu Rokku")).toBe(true);
     expect(created.lastScannedAt).toBeInstanceOf(Date);
     // The folder is created by the first import, not here.
@@ -147,7 +154,9 @@ describe("series.create", () => {
     const created = await addBlueLock(api, en.id);
     expect(created.volumes.map((v) => v.number)).toEqual([1, 2]);
     expect(created.missing[0]).toBe(3);
-    expect(created.scanWarnings).toEqual([{ file: "Blue Lock c100.cbz", message: "Looks like a chapter, not a volume" }]);
+    expect(created.scanWarnings).toEqual([
+      { file: "Blue Lock c100.cbz", message: "Looks like a chapter, not a volume" },
+    ]);
   });
 
   it("uses another existing folder under the language root, and refuses one outside it or missing", async () => {
@@ -177,7 +186,12 @@ describe("series.create", () => {
     const { api, en } = setup();
     const first = await addBlueLock(api, en.id);
     const error = await rejection(
-      api.series.create({ languageId: en.id, mangabakaId: recorded.berserk, displayTitle: "Blue Lock", searchTerms: ["Berserk"] }),
+      api.series.create({
+        languageId: en.id,
+        mangabakaId: recorded.berserk,
+        displayTitle: "Blue Lock",
+        searchTerms: ["Berserk"],
+      }),
     );
     expect(error.code).toBe("CONFLICT");
     expect(error.message).toContain(first.displayTitle);
@@ -205,7 +219,9 @@ describe("series.create", () => {
     const { api, en } = setup();
     const base = { languageId: en.id, mangabakaId: recorded.blueLock, displayTitle: "Blue Lock" };
     expect(await errorCode(api.series.create({ ...base, searchTerms: [" ", ""] }))).toBe("BAD_REQUEST");
-    expect(await errorCode(api.series.create({ ...base, displayTitle: "???", searchTerms: ["Blue Lock"] }))).toBe("BAD_REQUEST");
+    expect(await errorCode(api.series.create({ ...base, displayTitle: "???", searchTerms: ["Blue Lock"] }))).toBe(
+      "BAD_REQUEST",
+    );
   });
 
   it("drops repeated terms and aliases that are also search terms", async () => {
@@ -233,7 +249,12 @@ describe("series.list and get", () => {
     files(join(en.rootFolder, "Blue Lock"), ["Blue Lock v01.cbz", "Blue Lock v02.cbz"]);
     await addBlueLock(api, en.id);
     const fr = addLanguage("fr");
-    await api.series.create({ languageId: fr.id, mangabakaId: recorded.berserk, displayTitle: "Berserk", searchTerms: ["Berserk"] });
+    await api.series.create({
+      languageId: fr.id,
+      mangabakaId: recorded.berserk,
+      displayTitle: "Berserk",
+      searchTerms: ["Berserk"],
+    });
 
     const all = await api.series.list({});
     expect(all.map((s) => [s.displayTitle, s.ownedCount])).toEqual([
@@ -280,7 +301,12 @@ describe("editing", () => {
   it("updates the display title, authors and volume count, which becomes manual", async () => {
     const { api, en } = setup();
     const created = await addBlueLock(api, en.id);
-    const updated = await api.series.update({ id: created.id, displayTitle: "BLUE LOCK", authors: ["Kaneshiro"], volumeCount: 2 });
+    const updated = await api.series.update({
+      id: created.id,
+      displayTitle: "BLUE LOCK",
+      authors: ["Kaneshiro"],
+      volumeCount: 2,
+    });
     expect(updated).toMatchObject({
       displayTitle: "BLUE LOCK",
       authors: ["Kaneshiro"],
@@ -318,11 +344,15 @@ describe("editing", () => {
   it("adds an alias, but not one it already has", async () => {
     const { api, en } = setup();
     const created = await addBlueLock(api, en.id);
-    expect(await api.series.addSearchTerm({ id: created.id, term: " Blue Lock Episode Nagi ", kind: "alias" })).toMatchObject({
+    expect(
+      await api.series.addSearchTerm({ id: created.id, term: " Blue Lock Episode Nagi ", kind: "alias" }),
+    ).toMatchObject({
       term: "Blue Lock Episode Nagi",
       kind: "alias",
     });
-    expect(await errorCode(api.series.addSearchTerm({ id: created.id, term: "Blue Lock", kind: "alias" }))).toBe("CONFLICT");
+    expect(await errorCode(api.series.addSearchTerm({ id: created.id, term: "Blue Lock", kind: "alias" }))).toBe(
+      "CONFLICT",
+    );
   });
 
   it("rescans the folder", async () => {
@@ -338,7 +368,10 @@ describe("editing", () => {
   it("refreshes metadata, changing the volume count only when it came from MangaBaka", async () => {
     const { db, api, en, addLanguage } = setup();
     const fromMangaBaka = await addBlueLock(api, en.id);
-    db.update(series).set({ volumeCount: 1, coverUrl: null, status: "old" }).where(eq(series.id, fromMangaBaka.id)).run();
+    db.update(series)
+      .set({ volumeCount: 1, coverUrl: null, status: "old" })
+      .where(eq(series.id, fromMangaBaka.id))
+      .run();
     const refreshed = await api.series.refreshMetadata({ id: fromMangaBaka.id });
     expect(refreshed).toMatchObject({ volumeCount: fromMangaBaka.volumeCount, status: fromMangaBaka.status });
     expect(refreshed.coverUrl).toStartWith("https://");

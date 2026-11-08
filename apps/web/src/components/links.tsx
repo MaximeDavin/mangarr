@@ -2,12 +2,12 @@
 // preloading on hover, and a real <a href> so middle-click works.
 
 import {
-  Anchor as MantineAnchor,
   type AnchorProps,
   Button,
   type ButtonProps,
   Card,
   type CardProps,
+  Anchor as MantineAnchor,
   NavLink,
   type NavLinkProps,
 } from "@mantine/core";

@@ -15,7 +15,13 @@
 import { parseArgs } from "node:util";
 import { createQBittorrentClient } from "../src/integrations/qbittorrent";
 import { replaceFixtures } from "../test/fixtures";
-import { asStored, type QBittorrentRecording, qbittorrentFixturesDir, type ScenarioContext, scenarios } from "../test/qbittorrent-scenarios";
+import {
+  asStored,
+  type QBittorrentRecording,
+  qbittorrentFixturesDir,
+  type ScenarioContext,
+  scenarios,
+} from "../test/qbittorrent-scenarios";
 import { recordedOn } from "./anonymize";
 import { createRunRecorder } from "./run-recorder";
 
@@ -25,13 +31,20 @@ const url = (process.env.QBITTORRENT_URL ?? "").trim().replace(/\/+$/, "");
 const username = (process.env.QBITTORRENT_USERNAME ?? "").trim();
 const password = process.env.QBITTORRENT_PASSWORD ?? "";
 if (!url) {
-  console.error("Set QBITTORRENT_URL, QBITTORRENT_USERNAME and QBITTORRENT_PASSWORD (for example in apps/server/.env).");
+  console.error(
+    "Set QBITTORRENT_URL, QBITTORRENT_USERNAME and QBITTORRENT_PASSWORD (for example in apps/server/.env).",
+  );
   process.exit(1);
 }
 
 const realFetch = globalThis.fetch;
 // These recordings stand alone, so every info-hash is replaced: none ties them to a tracker account.
-const recorder = createRunRecorder({ qbittorrentUrl: url, qbittorrentUsername: username, qbittorrentPassword: password, hideEveryHash: true });
+const recorder = createRunRecorder({
+  qbittorrentUrl: url,
+  qbittorrentUsername: username,
+  qbittorrentPassword: password,
+  hideEveryHash: true,
+});
 
 // Not recorded: what the scenarios need to know beforehand.
 const plain = createQBittorrentClient({ url, username, password, fetch: (request) => realFetch(request) });
@@ -39,11 +52,17 @@ const qbittorrentVersion = await plain.version();
 const inCategory = await plain.torrents({ category: values.category });
 const [known] = inCategory;
 if (!known) {
-  console.error(`qBittorrent has no torrent in the "${values.category}" category. Grab one first, e.g. with bun run try:run.`);
+  console.error(
+    `qBittorrent has no torrent in the "${values.category}" category. Grab one first, e.g. with bun run try:run.`,
+  );
   process.exit(1);
 }
 recorder.hideHashes(inCategory.map((t) => t.hash));
-const realContext: ScenarioContext = { knownHash: known.hash, category: values.category, newCategory: "mangarr-recorder-test" };
+const realContext: ScenarioContext = {
+  knownHash: known.hash,
+  category: values.category,
+  newCategory: "mangarr-recorder-test",
+};
 /** As stored: the known hash replaced like in the calls. */
 const context = recorder.remap(realContext);
 
@@ -54,7 +73,10 @@ async function removeTestCategory() {
     headers: { Referer: url },
     body: new URLSearchParams({ username, password }),
   });
-  const cookie = login.headers.getSetCookie().map((c) => c.split(";")[0]).join("; ");
+  const cookie = login.headers
+    .getSetCookie()
+    .map((c) => c.split(";")[0])
+    .join("; ");
   const response = await realFetch(`${url}/api/v2/torrents/removeCategories`, {
     method: "POST",
     headers: { Referer: url, Cookie: cookie },

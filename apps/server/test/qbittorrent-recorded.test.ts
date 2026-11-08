@@ -18,7 +18,12 @@ const recorded = recordedQBittorrentScenarios();
 
 async function replay(recording: QBittorrentRecording, name: string) {
   const fetch = replayRun(recording);
-  const client = createQBittorrentClient({ url: recordedServices.qbittorrent, username: "REDACTED", password: "REDACTED", fetch });
+  const client = createQBittorrentClient({
+    url: recordedServices.qbittorrent,
+    username: "REDACTED",
+    password: "REDACTED",
+    fetch,
+  });
   const outcome = asStored(await scenarios[name]!.run(client, recording.context));
   return { outcome, fetch };
 }
@@ -61,8 +66,17 @@ describe("what qBittorrent does", () => {
   });
 
   it("lists a torrent by hash with the fields the poller reads, and nothing for an unknown hash", () => {
-    const { known, unknown, files, filesUnknown } = outcomeOf("torrents") as Record<string, { ok?: unknown[]; error?: unknown }>;
-    const [torrent] = known!.ok as { hash: string; state: string; progress: number; amountLeft: number; savePath: string }[];
+    const { known, unknown, files, filesUnknown } = outcomeOf("torrents") as Record<
+      string,
+      { ok?: unknown[]; error?: unknown }
+    >;
+    const [torrent] = known!.ok as {
+      hash: string;
+      state: string;
+      progress: number;
+      amountLeft: number;
+      savePath: string;
+    }[];
     expect(torrent!.hash).toBe(loadQBittorrentRecording("torrents").context.knownHash);
     expect(torrent!.state).toBeString();
     expect(torrent!.progress).toBeNumber();
@@ -75,6 +89,8 @@ describe("what qBittorrent does", () => {
   });
 
   it("refuses to add a torrent it already has", () => {
-    expect(outcomeOf("add-duplicate")).toEqual({ error: { kind: "http", status: 409, message: "qBittorrent already has this torrent" } });
+    expect(outcomeOf("add-duplicate")).toEqual({
+      error: { kind: "http", status: 409, message: "qBittorrent already has this torrent" },
+    });
   });
 });

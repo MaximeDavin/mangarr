@@ -5,8 +5,15 @@
 import { afterEach, describe, expect, it, spyOn } from "bun:test";
 import { createProwlarrClient, ProwlarrError } from "../src/integrations/prowlarr";
 import { magnetInfoHash, torrentInfoHash } from "../src/integrations/torrent";
-import { loadRecording, recordedApiKey, recordedSearches, recordedUrl, replay, type Recording } from "./prowlarr-replay";
-import { loadRun, recordedRuns, recordedServices, replayRun, type RunRecording } from "./run-replay";
+import {
+  loadRecording,
+  type Recording,
+  recordedApiKey,
+  recordedSearches,
+  recordedUrl,
+  replay,
+} from "./prowlarr-replay";
+import { loadRun, type RunRecording, recordedRuns, recordedServices, replayRun } from "./run-replay";
 
 const client = (...recordings: Recording[]) => {
   const fetch = replay(...recordings);
@@ -110,7 +117,9 @@ describe("download links", () => {
     const fetch = replayRun(recording);
     const prowlarr = createProwlarrClient({ url: recordedServices.prowlarr, apiKey: recordedApiKey, fetch });
     const { query, indexerIds, categories } = recording.run;
-    const release = (await prowlarr.search({ query, indexerIds, categories })).find((r) => r.title === recording.run.release)!;
+    const release = (await prowlarr.search({ query, indexerIds, categories })).find(
+      (r) => r.title === recording.run.release,
+    )!;
     return { release, result: await prowlarr.download((release.magnetUrl ?? release.downloadUrl)!), fetch };
   };
 

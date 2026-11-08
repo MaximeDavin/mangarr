@@ -1,5 +1,5 @@
-# Store text files with LF whatever the contributor's core.autocrlf.
-* text=auto
+# Store and check out text files with LF whatever the contributor's core.autocrlf (Biome expects LF).
+* text=auto eol=lf
 
 # Recorded or generated files: collapsed in GitHub diffs and excluded from language stats.
 **/test/fixtures/** linguist-generated

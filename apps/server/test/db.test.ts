@@ -3,7 +3,7 @@ import { cpSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { eq } from "drizzle-orm";
-import { migrationsFolder, openDatabase, type Db } from "../src/db/client";
+import { type Db, migrationsFolder, openDatabase } from "../src/db/client";
 import { downloads, languages, searchTerms, series, volumes } from "../src/db/schema";
 
 /** Drizzle wraps driver errors, so the SQLite message (naming the failed constraint) is in `cause`. */
@@ -139,9 +139,7 @@ describe("schema", () => {
     const { series: row } = seed(db);
 
     addVolume(db, row.id);
-    expect(sqliteError(() => addVolume(db, row.id, { number: 2 }))).toBe(
-      "UNIQUE constraint failed: volumes.file_path",
-    );
+    expect(sqliteError(() => addVolume(db, row.id, { number: 2 }))).toBe("UNIQUE constraint failed: volumes.file_path");
   });
 
   it("allows a manga once per language", () => {
@@ -150,10 +148,15 @@ describe("schema", () => {
     const en = db.insert(languages).values({ code: "en", name: "English", rootFolder: "/en" }).returning().get();
     const onePiece = { mangabakaId: 42, displayTitle: "One Piece" };
 
-    db.insert(series).values({ ...onePiece, languageId: en.id, folderPath: "/en/One Piece" }).run();
+    db.insert(series)
+      .values({ ...onePiece, languageId: en.id, folderPath: "/en/One Piece" })
+      .run();
     expect(
       sqliteError(() =>
-        db.insert(series).values({ ...onePiece, languageId: language.id, folderPath: "/elsewhere" }).run(),
+        db
+          .insert(series)
+          .values({ ...onePiece, languageId: language.id, folderPath: "/elsewhere" })
+          .run(),
       ),
     ).toBe("UNIQUE constraint failed: series.language_id, series.mangabaka_id");
   });

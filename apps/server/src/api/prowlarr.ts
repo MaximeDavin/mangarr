@@ -1,7 +1,12 @@
 // Prowlarr procedures for the Settings screen (spec §6.1, §9): the connection test and the indexer list.
 
 import { z } from "zod";
-import { createProwlarrClient, type ProwlarrCategory, ProwlarrError, prowlarrFromSettings } from "../integrations/prowlarr";
+import {
+  createProwlarrClient,
+  type ProwlarrCategory,
+  ProwlarrError,
+  prowlarrFromSettings,
+} from "../integrations/prowlarr";
 import { getSettings } from "../settings";
 import { authed } from "./base";
 import { savedSecretFor, serviceUrl } from "./settings";

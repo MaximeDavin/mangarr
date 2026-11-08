@@ -66,7 +66,8 @@ export const scenarios: Record<string, Scenario> = {
     }),
   },
   torrents: {
-    description: "The torrent list by known and unknown hash and by category, and the file list by known and unknown hash",
+    description:
+      "The torrent list by known and unknown hash and by category, and the file list by known and unknown hash",
     run: async (client, { knownHash, category }) => ({
       known: await outcome(client.torrents({ hashes: [knownHash] })),
       unknown: await outcome(client.torrents({ hashes: [unknownHash] })),
@@ -77,7 +78,8 @@ export const scenarios: Record<string, Scenario> = {
   },
   "add-duplicate": {
     description: "Add a magnet for a torrent qBittorrent already has (it changes nothing)",
-    run: (client, { knownHash, category }) => outcome(client.add({ kind: "magnet", uri: `magnet:?xt=urn:btih:${knownHash}` }, category)),
+    run: (client, { knownHash, category }) =>
+      outcome(client.add({ kind: "magnet", uri: `magnet:?xt=urn:btih:${knownHash}` }, category)),
   },
   // Last, so a ban (after several failures) can't spoil the others.
   "wrong-password": {
@@ -87,6 +89,7 @@ export const scenarios: Record<string, Scenario> = {
   },
 };
 
-export const loadQBittorrentRecording = (name: string) => loadFixture<QBittorrentRecording>(qbittorrentFixturesDir, name);
+export const loadQBittorrentRecording = (name: string) =>
+  loadFixture<QBittorrentRecording>(qbittorrentFixturesDir, name);
 
 export const recordedQBittorrentScenarios = () => fixtureNames(qbittorrentFixturesDir);

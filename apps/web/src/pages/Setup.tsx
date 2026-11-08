@@ -1,7 +1,7 @@
+import { minPasswordLength } from "@mangarr/server/password-rules";
 import { PasswordInput, TextInput } from "@mantine/core";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { minPasswordLength } from "@mangarr/server/password-rules";
 import { useState } from "react";
 import { authStatusQuery, orpc, queryClient } from "../api";
 import { AuthForm } from "../components/AuthForm";

@@ -22,7 +22,7 @@ export interface IndexerInfo {
 /** Definition names shared by many indexers: not a tracker's name. */
 const genericDefinitions = new Set(["cardigann", "torznab", "newznab"]);
 
-const escape = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 export interface TrackerAliases {
   /** The text with every private indexer's name, slug and host replaced. */
@@ -44,18 +44,18 @@ export function trackerAliases(indexers: readonly IndexerInfo[]): TrackerAliases
       } catch {
         continue;
       }
-      replacements.push([new RegExp(`(www\\.)?${escape(host)}`, "gi"), `${slug}.invalid`]);
+      replacements.push([new RegExp(`(www\\.)?${escapeRegExp(host)}`, "gi"), `${slug}.invalid`]);
       reals.push(host);
     }
     if (indexer.name.length >= 3) {
       // Exact case first, so the display name reads as a name and lowercase uses read as a slug.
-      replacements.push([new RegExp(escape(indexer.name), "g"), `Private Tracker ${indexer.id}`]);
-      replacements.push([new RegExp(escape(indexer.name), "gi"), slug]);
+      replacements.push([new RegExp(escapeRegExp(indexer.name), "g"), `Private Tracker ${indexer.id}`]);
+      replacements.push([new RegExp(escapeRegExp(indexer.name), "gi"), slug]);
       reals.push(indexer.name);
     }
     const definition = indexer.definitionName;
     if (definition && definition.length >= 3 && !genericDefinitions.has(definition.toLowerCase())) {
-      replacements.push([new RegExp(escape(definition), "gi"), slug]);
+      replacements.push([new RegExp(escapeRegExp(definition), "gi"), slug]);
       reals.push(definition);
     }
   }
@@ -89,7 +89,14 @@ export function anonymizeTorrent(bytes: Uint8Array, key: Uint8Array) {
   const pieces = info.pieces as Uint8Array;
   const fake = new Uint8Array(pieces.length);
   for (let i = 0; i < pieces.length; i += 32) {
-    fake.set(createHmac("sha256", key).update(String(i)).update(pieces.subarray(i, i + 32)).digest().subarray(0, Math.min(32, pieces.length - i)), i);
+    fake.set(
+      createHmac("sha256", key)
+        .update(String(i))
+        .update(pieces.subarray(i, i + 32))
+        .digest()
+        .subarray(0, Math.min(32, pieces.length - i)),
+      i,
+    );
   }
   kept.pieces = fake;
   const out = bencode({ announce: "https://tracker.invalid/announce", info: kept });
@@ -97,7 +104,8 @@ export function anonymizeTorrent(bytes: Uint8Array, key: Uint8Array) {
 }
 
 /** A stand-in info-hash for a private torrent that isn't in the recording itself. */
-export const fakeHash = (hash: string, key: Uint8Array) => createHmac("sha256", key).update(hash.toLowerCase()).digest("hex").slice(0, 40);
+export const fakeHash = (hash: string, key: Uint8Array) =>
+  createHmac("sha256", key).update(hash.toLowerCase()).digest("hex").slice(0, 40);
 
 /** `value` with every real info-hash (any case) replaced by its stand-in. */
 export function remapHashes<T>(value: T, hashes: ReadonlyMap<string, string>): T {

@@ -29,7 +29,10 @@ export interface DatasetStatus {
 }
 
 export function datasetStatus(db: Db): DatasetStatus {
-  const row = db.select({ rowCount: count(), importedAt: max(mangaNewsSeries.datasetImportedAt) }).from(mangaNewsSeries).get();
+  const row = db
+    .select({ rowCount: count(), importedAt: max(mangaNewsSeries.datasetImportedAt) })
+    .from(mangaNewsSeries)
+    .get();
   return { rowCount: row?.rowCount ?? 0, importedAt: row?.importedAt ?? null };
 }
 
@@ -57,9 +60,18 @@ export function storeMangaNewsDataset(db: Db, { rows, skipped }: ParsedDataset, 
 
   return db.transaction((tx) => {
     // Rows the file no longer has are the ones left with an older timestamp, so it must move forward.
-    const previous = tx.select({ at: max(mangaNewsSeries.datasetImportedAt) }).from(mangaNewsSeries).get()?.at;
+    const previous = tx
+      .select({ at: max(mangaNewsSeries.datasetImportedAt) })
+      .from(mangaNewsSeries)
+      .get()?.at;
     const now = previous && previous >= at ? new Date(previous.getTime() + 1) : at;
-    const before = new Set(tx.select({ id: mangaNewsSeries.id }).from(mangaNewsSeries).all().map((r) => r.id));
+    const before = new Set(
+      tx
+        .select({ id: mangaNewsSeries.id })
+        .from(mangaNewsSeries)
+        .all()
+        .map((r) => r.id),
+    );
     const ids = new Set(rows.map((r) => r.id));
 
     for (let i = 0; i < rows.length; i += chunkSize) {
@@ -96,7 +108,8 @@ export function storeMangaNewsDataset(db: Db, { rows, skipped }: ParsedDataset, 
       // Every row the upsert didn't touch, without sending thousands of ids as parameters.
       const isStale = lt(mangaNewsSeries.datasetImportedAt, now);
       const staleIds = tx.select({ id: mangaNewsSeries.id }).from(mangaNewsSeries).where(isStale);
-      seriesUnlinked = tx.select({ n: count() }).from(series).where(inArray(series.mangaNewsSeriesId, staleIds)).get()?.n ?? 0;
+      seriesUnlinked =
+        tx.select({ n: count() }).from(series).where(inArray(series.mangaNewsSeriesId, staleIds)).get()?.n ?? 0;
       tx.update(series)
         .set({ volumeCountSource: "manual" })
         .where(and(inArray(series.mangaNewsSeriesId, staleIds), eq(series.volumeCountSource, "manganews")))
@@ -112,7 +125,8 @@ export function storeMangaNewsDataset(db: Db, { rows, skipped }: ParsedDataset, 
       .where(and(isNotNull(series.mangaNewsSeriesId), eq(series.volumeCountSource, "manganews")))
       .all()
       .filter((r) => r.latest > 0 && r.latest !== r.volumeCount);
-    for (const { id, latest } of following) tx.update(series).set({ volumeCount: latest }).where(eq(series.id, id)).run();
+    for (const { id, latest } of following)
+      tx.update(series).set({ volumeCount: latest }).where(eq(series.id, id)).run();
 
     return {
       rowCount: rows.length,

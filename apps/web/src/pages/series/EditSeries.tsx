@@ -58,7 +58,12 @@ export function EditSeriesForm({ series, onDone }: { series: Series; onDone: () 
           value={displayTitle}
           onChange={(e) => setDisplayTitle(e.currentTarget.value)}
         />
-        <TagsInput label="Authors" description="Lets releases with the author's name in front match." value={authors} onChange={setAuthors} />
+        <TagsInput
+          label="Authors"
+          description="Lets releases with the author's name in front match."
+          value={authors}
+          onChange={setAuthors}
+        />
         <div>
           <NumberInput
             label="Volume count"

@@ -71,7 +71,7 @@ describe("scanFolder", () => {
   });
 
   it("warns when the path is a file", async () => {
-    files(dir, { "Berserk": "" });
+    files(dir, { Berserk: "" });
     const scan = await scanFolder(join(dir, "Berserk"));
     expect(scan.volumes).toEqual([]);
     expect(scan.warnings).toEqual([{ message: "The series path is a file, not a folder" }]);
@@ -85,7 +85,12 @@ describe("scanSeries", () => {
     const add = (title: string) =>
       db
         .insert(series)
-        .values({ languageId: lang.id, mangabakaId: title.length, displayTitle: title, folderPath: joinPath(dir, title) })
+        .values({
+          languageId: lang.id,
+          mangabakaId: title.length,
+          displayTitle: title,
+          folderPath: joinPath(dir, title),
+        })
         .returning()
         .get();
     return { db, add };

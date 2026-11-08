@@ -37,7 +37,11 @@ export async function isDirectory(path: string): Promise<boolean> {
 
 /** Folder path → the series of this language using it. */
 export function usedFolders(db: Db, languageId: number): Map<string, number> {
-  const rows = db.select({ id: series.id, path: series.folderPath }).from(series).where(eq(series.languageId, languageId)).all();
+  const rows = db
+    .select({ id: series.id, path: series.folderPath })
+    .from(series)
+    .where(eq(series.languageId, languageId))
+    .all();
   return new Map(rows.map((s) => [s.path, s.id]));
 }
 

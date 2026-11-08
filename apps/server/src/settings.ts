@@ -43,10 +43,7 @@ export function getSettings(db: Db): Settings {
 
 /** Also accepts a transaction, since it only needs `insert`. */
 export function setSetting<K extends SettingKey>(db: Pick<Db, "insert">, key: K, value: Settings[K]): void {
-  db.insert(settings)
-    .values({ key, value })
-    .onConflictDoUpdate({ target: settings.key, set: { value } })
-    .run();
+  db.insert(settings).values({ key, value }).onConflictDoUpdate({ target: settings.key, set: { value } }).run();
 }
 
 /** 32 hex characters, like the *arr apps. */

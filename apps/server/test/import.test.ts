@@ -33,14 +33,29 @@ afterEach(() => {
 const hash = "a".repeat(40);
 const seriesFolder = () => `${library}/Berserk`;
 
-function setup({ volumeCount = 42 as number | null, expectedVolumes = [] as number[], status = "importing" as const } = {}) {
+function setup({
+  volumeCount = 42 as number | null,
+  expectedVolumes = [] as number[],
+  status = "importing" as const,
+} = {}) {
   const db = openDatabase(":memory:");
   const qbit = fakeQBittorrent();
-  const client = createQBittorrentClient({ url: qbit.url, username: qbit.username, password: qbit.password, fetch: qbit.fetch });
+  const client = createQBittorrentClient({
+    url: qbit.url,
+    username: qbit.username,
+    password: qbit.password,
+    fetch: qbit.fetch,
+  });
   const language = db.insert(languages).values({ code: "en", name: "English", rootFolder: library }).returning().get();
   const target = db
     .insert(series)
-    .values({ languageId: language.id, mangabakaId: 1, displayTitle: "Berserk", folderPath: seriesFolder(), volumeCount })
+    .values({
+      languageId: language.id,
+      mangabakaId: 1,
+      displayTitle: "Berserk",
+      folderPath: seriesFolder(),
+      volumeCount,
+    })
     .returning()
     .get();
   const download = db
@@ -78,7 +93,10 @@ function seed(qbit: ReturnType<typeof fakeQBittorrent>, names: string[], torrent
     save_path: torrents,
     ...torrent,
   });
-  qbit.state.files.set(hash, names.map((name) => ({ name, size: name.length, progress: 1, priority: 1 })));
+  qbit.state.files.set(
+    hash,
+    names.map((name) => ({ name, size: name.length, progress: 1, priority: 1 })),
+  );
 }
 
 function libraryFiles() {
@@ -99,7 +117,11 @@ const logOf = (db: ReturnType<typeof setup>["db"], downloadId: number) =>
     .map((e) => [e.sourceFile, e.action, e.volumeNumber]);
 
 const statusOf = (db: ReturnType<typeof setup>["db"], downloadId: number) =>
-  db.select({ status: downloads.status, message: downloads.statusMessage }).from(downloads).where(eq(downloads.id, downloadId)).get();
+  db
+    .select({ status: downloads.status, message: downloads.statusMessage })
+    .from(downloads)
+    .where(eq(downloads.id, downloadId))
+    .get();
 
 describe("naming", () => {
   it("pads to 2 digits, or 3 from volume 100, and keeps decimals", () => {
@@ -140,7 +162,9 @@ describe("importDownload", () => {
     const result = await importDownload(db, downloadId, client);
     expect(result).toEqual({ status: "imported", imported: 3 });
     expect(libraryFiles()).toEqual(["Berserk v01.cbz", "Berserk v02.cbz", "Berserk v03.cbr"]);
-    expect(readFileSync(join(seriesFolder(), "Berserk v02.cbz"), "utf8")).toBe("Berserk (01-03)/Berserk v02 (Digital).zip");
+    expect(readFileSync(join(seriesFolder(), "Berserk v02.cbz"), "utf8")).toBe(
+      "Berserk (01-03)/Berserk v02 (Digital).zip",
+    );
     // The torrent's files stay where they are.
     expect(existsSync(join(torrents, "Berserk (01-03)/Berserk v01 (Digital).cbz"))).toBe(true);
 
@@ -154,7 +178,11 @@ describe("importDownload", () => {
       ["Berserk (01-03)/cover.jpg", "skipped_format", null],
     ]);
     expect(statusOf(db, downloadId)).toEqual({ status: "imported", message: null });
-    const rows = db.select({ number: volumes.number, source: volumes.source, format: volumes.format }).from(volumes).where(eq(volumes.seriesId, seriesId)).all();
+    const rows = db
+      .select({ number: volumes.number, source: volumes.source, format: volumes.format })
+      .from(volumes)
+      .where(eq(volumes.seriesId, seriesId))
+      .all();
     expect(rows.sort((a, b) => a.number - b.number)).toEqual([
       { number: 1, source: "import", format: "cbz" },
       { number: 2, source: "import", format: "cbz" },
@@ -202,17 +230,24 @@ describe("importDownload", () => {
   it("needs attention when nothing can be imported", async () => {
     const formats = setup();
     seed(formats.qbit, ["Berserk v01.epub", "Berserk v01.pdf"]);
-    expect((await importDownload(formats.db, formats.downloadId, formats.client)).message).toBe("No .cbz, .zip or .cbr files in the torrent");
+    expect((await importDownload(formats.db, formats.downloadId, formats.client)).message).toBe(
+      "No .cbz, .zip or .cbr files in the torrent",
+    );
 
     const gone = setup();
-    expect((await importDownload(gone.db, gone.downloadId, gone.client)).message).toBe("The torrent is no longer in qBittorrent");
+    expect((await importDownload(gone.db, gone.downloadId, gone.client)).message).toBe(
+      "The torrent is no longer in qBittorrent",
+    );
   });
 
   it("replaces the previous attempt's log", async () => {
     const { db, qbit, client, downloadId } = setup();
     seed(qbit, ["readme.txt"]);
     await importDownload(db, downloadId, client);
-    qbit.state.files.set(hash, [{ name: "readme.txt", size: 1, progress: 1, priority: 1 }, { name: "Berserk v01.cbz", size: 1, progress: 1, priority: 1 }]);
+    qbit.state.files.set(hash, [
+      { name: "readme.txt", size: 1, progress: 1, priority: 1 },
+      { name: "Berserk v01.cbz", size: 1, progress: 1, priority: 1 },
+    ]);
     writeFileSync(join(torrents, "Berserk v01.cbz"), "x");
     await importDownload(db, downloadId, client);
     expect(logOf(db, downloadId)).toEqual([
@@ -223,7 +258,8 @@ describe("importDownload", () => {
 });
 
 describe("poller", () => {
-  const poller = (s: ReturnType<typeof setup>) => createPoller(s.db, { qbittorrent: () => s.client, intervalMs: () => 60_000 });
+  const poller = (s: ReturnType<typeof setup>) =>
+    createPoller(s.db, { qbittorrent: () => s.client, intervalMs: () => 60_000 });
 
   it("imports a download as soon as qBittorrent reports it complete", async () => {
     const s = setup({ status: "downloading" as never });
@@ -282,7 +318,8 @@ describe("poller", () => {
       });
       return { scans, client };
     }
-    const withLibrary = (s: ReturnType<typeof setup>, libraryId: string | null) => s.db.update(languages).set({ komgaLibraryId: libraryId }).run();
+    const withLibrary = (s: ReturnType<typeof setup>, libraryId: string | null) =>
+      s.db.update(languages).set({ komgaLibraryId: libraryId }).run();
 
     it("scans the language's library once after volumes are imported", async () => {
       const s = setup();
@@ -332,7 +369,10 @@ describe("poller", () => {
       expect(warn.mock.calls.flat().join(" ")).toContain("Komga has no library 0LIB");
       warn.mockRestore();
       const language = () => s.db.select().from(languages).get()!;
-      expect(language()).toMatchObject({ komgaScanError: "Komga has no library 0LIB", komgaScanErrorAt: expect.any(Date) });
+      expect(language()).toMatchObject({
+        komgaScanError: "Komga has no library 0LIB",
+        komgaScanErrorAt: expect.any(Date),
+      });
 
       // The next import's scan works.
       rmSync(join(seriesFolder(), "Berserk v01.cbz"));
@@ -413,7 +453,11 @@ describe("downloads procedures", () => {
         })
         .returning()
         .get().id;
-    s.db.update(downloads).set({ importedAt: new Date(2_000) }).where(eq(downloads.id, s.downloadId)).run();
+    s.db
+      .update(downloads)
+      .set({ importedAt: new Date(2_000) })
+      .where(eq(downloads.id, s.downloadId))
+      .run();
     const newest = grab(2, "imported", new Date(3_000));
     const oldest = grab(3, "imported", new Date(1_000));
     grab(4, "needs_attention", null);
@@ -445,8 +489,14 @@ describe("downloads procedures", () => {
     const client = api(s, wakes);
     expect((await rejection(client.downloads.retryImport({ id: s.downloadId }))).code).toBe("CONFLICT");
 
-    s.db.update(downloads).set({ status: "needs_attention", statusMessage: "Every volume in the torrent is already owned" }).run();
-    expect(await client.downloads.retryImport({ id: s.downloadId })).toMatchObject({ status: "importing", statusMessage: null });
+    s.db
+      .update(downloads)
+      .set({ status: "needs_attention", statusMessage: "Every volume in the torrent is already owned" })
+      .run();
+    expect(await client.downloads.retryImport({ id: s.downloadId })).toMatchObject({
+      status: "importing",
+      statusMessage: null,
+    });
     expect(wakes).toEqual(["wake"]);
     expect((await rejection(client.downloads.retryImport({ id: 999 }))).code).toBe("NOT_FOUND");
   });

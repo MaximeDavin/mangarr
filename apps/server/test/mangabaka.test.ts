@@ -117,7 +117,9 @@ describe("edge cases", () => {
   });
 
   it("reports server errors, bad JSON and a wrong shape", async () => {
-    expect((await failure(client(() => new Response("oops", { status: 503 })).mangabaka.search("x"))).kind).toBe("http");
+    expect((await failure(client(() => new Response("oops", { status: 503 })).mangabaka.search("x"))).kind).toBe(
+      "http",
+    );
     expect((await failure(client(() => new Response("<html>")).mangabaka.search("x"))).kind).toBe("invalid_response");
     expect((await failure(client(() => Response.json({ nope: 1 })).mangabaka.getSeries(1))).kind).toBe(
       "invalid_response",
@@ -176,7 +178,12 @@ describe("prefill", () => {
         { title: "葬送のフリーレン", language: "ja", isPrimary: true },
         { title: "Frieren: Nach dem Ende der Reise", language: "de", isPrimary: true },
       ],
-      type: "manga", status: "hiatus", authors: [], artists: [], publishers: [], externalIds: {},
+      type: "manga",
+      status: "hiatus",
+      authors: [],
+      artists: [],
+      publishers: [],
+      externalIds: {},
     };
     expect(draftTerms(series, "en")).toEqual({
       searchTerms: ["Frieren: Beyond Journey's End", "Sousou no Frieren", "葬送のフリーレン"],
@@ -214,7 +221,15 @@ describe("prefill", () => {
 
   it("has no volume count when MangaBaka has none", () => {
     const series = {
-      id: 1, title: "T", titles: [], type: "manga", status: "releasing", authors: [], artists: [], publishers: [], externalIds: {},
+      id: 1,
+      title: "T",
+      titles: [],
+      type: "manga",
+      status: "releasing",
+      authors: [],
+      artists: [],
+      publishers: [],
+      externalIds: {},
     };
     expect(draftVolumeCount(series, [], "en")).toEqual({ volumeCount: null, from: null, options: [] });
   });

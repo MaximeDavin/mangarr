@@ -13,8 +13,8 @@ import {
   series,
   volumeCountSources,
   volumeFormats,
-  volumes,
   volumeSources,
+  volumes,
 } from "../db/schema";
 import type { MangaBakaClient } from "../integrations/mangabaka";
 import { isDirectory, proposeFolder, usedFolders } from "../library/folders";
@@ -77,7 +77,9 @@ const detailOutput = seriesFields.extend({
   /** Missing numbers an active download is expected to bring. */
   downloading: z.array(z.int()),
   /** From the last disk scan. */
-  scanWarnings: z.array(z.object({ file: z.string().optional(), message: z.string() }) satisfies z.ZodType<ScanWarning>),
+  scanWarnings: z.array(
+    z.object({ file: z.string().optional(), message: z.string() }) satisfies z.ZodType<ScanWarning>,
+  ),
 });
 
 type Detail = z.infer<typeof detailOutput>;
@@ -115,7 +117,10 @@ function loadDetail(db: Db, seriesId: number): Detail {
     ...row,
     mangaNews: row.mangaNews ? toMangaNewsOutput(row.mangaNews) : null,
     // Search terms first, then aliases, each in the order they were added.
-    searchTerms: [...row.searchTerms.filter((t) => t.kind === "search"), ...row.searchTerms.filter((t) => t.kind === "alias")],
+    searchTerms: [
+      ...row.searchTerms.filter((t) => t.kind === "search"),
+      ...row.searchTerms.filter((t) => t.kind === "alias"),
+    ],
     missing,
     downloading: missing.filter((n) => expected.has(n)),
   };
@@ -182,14 +187,17 @@ function chosenVolumeCount(
   if (input === null) return { volumeCount: null, volumeCountSource: null };
   // The draft's own count is one of these: an option's count or the floored final volume.
   const offered =
-    draft.options.some((o) => o.volumeCount === input) || (finalVolume !== undefined && input === Math.floor(finalVolume));
+    draft.options.some((o) => o.volumeCount === input) ||
+    (finalVolume !== undefined && input === Math.floor(finalVolume));
   return { volumeCount: input, volumeCountSource: offered ? "mangabaka" : "manual" };
 }
 
 function requireMangaNewsRow(db: Db, mangaNewsSeriesId: number): MangaNewsSeriesRow {
   const row = getMangaNewsRow(db, mangaNewsSeriesId);
   if (!row) {
-    throw new ORPCError("BAD_REQUEST", { message: `No Manga-News series ${mangaNewsSeriesId} in the dataset; refresh it or search again` });
+    throw new ORPCError("BAD_REQUEST", {
+      message: `No Manga-News series ${mangaNewsSeriesId} in the dataset; refresh it or search again`,
+    });
   }
   return row;
 }
@@ -203,7 +211,8 @@ function linkedVolumeCount(
   given: number | null | undefined,
 ): Pick<typeof series.$inferInsert, "volumeCount" | "volumeCountSource"> | undefined {
   if (row.volumeCount === 0) return undefined;
-  if (given === undefined || given === row.volumeCount) return { volumeCount: row.volumeCount, volumeCountSource: "manganews" };
+  if (given === undefined || given === row.volumeCount)
+    return { volumeCount: row.volumeCount, volumeCountSource: "manganews" };
   return undefined;
 }
 
@@ -222,11 +231,14 @@ function termRows(seriesId: number, terms: { term: string; kind: (typeof searchT
 async function resolveFolder(rootFolder: string, displayTitle: string, given: string | undefined): Promise<string> {
   if (given === undefined) {
     const name = sanitizeName(displayTitle);
-    if (!name) throw new ORPCError("BAD_REQUEST", { message: "The display title has no usable characters for a folder name" });
+    if (!name)
+      throw new ORPCError("BAD_REQUEST", { message: "The display title has no usable characters for a folder name" });
     return joinPath(rootFolder, name);
   }
-  if (!isInside(rootFolder, given)) throw new ORPCError("BAD_REQUEST", { message: `The folder must be inside ${rootFolder}` });
-  if (!(await isDirectory(given))) throw new ORPCError("BAD_REQUEST", { message: `${given} is not an existing folder` });
+  if (!isInside(rootFolder, given))
+    throw new ORPCError("BAD_REQUEST", { message: `The folder must be inside ${rootFolder}` });
+  if (!(await isDirectory(given)))
+    throw new ORPCError("BAD_REQUEST", { message: `${given} is not an existing folder` });
   return given;
 }
 
@@ -331,13 +343,24 @@ export const seriesRouter = {
     )
     .handler(async ({ context: { db, mangabaka }, input, signal }) => {
       const language = getLanguage(db, input.languageId);
-      const { record, terms, authors, volumes: count, metadata } = await fetchDraft(mangabaka, input.mangabakaId, language.code, {
+      const {
+        record,
+        terms,
+        authors,
+        volumes: count,
+        metadata,
+      } = await fetchDraft(mangabaka, input.mangabakaId, language.code, {
         signal,
       });
 
       const displayTitle = terms.searchTerms[0] ?? record.title;
       const folderName = sanitizeName(displayTitle) || sanitizeName(record.title) || `MangaBaka ${record.id}`;
-      const folder = await proposeFolder(language.rootFolder, folderName, [...terms.searchTerms, ...terms.aliases], usedFolders(db, language.id));
+      const folder = await proposeFolder(
+        language.rootFolder,
+        folderName,
+        [...terms.searchTerms, ...terms.aliases],
+        usedFolders(db, language.id),
+      );
 
       return {
         ...record,
@@ -372,7 +395,8 @@ export const seriesRouter = {
     .output(detailOutput)
     .handler(async ({ context: { db, mangabaka }, input, signal }) => {
       const language = getLanguage(db, input.languageId);
-      const mangaNews = input.mangaNewsSeriesId === undefined ? undefined : requireMangaNewsRow(db, input.mangaNewsSeriesId);
+      const mangaNews =
+        input.mangaNewsSeriesId === undefined ? undefined : requireMangaNewsRow(db, input.mangaNewsSeriesId);
       const folderPath = await resolveFolder(language.rootFolder, input.displayTitle, input.folderPath);
       const owner = folderOwner(db, folderPath);
       if (owner) throw new ORPCError("CONFLICT", { message: `"${owner.displayTitle}" already uses ${folderPath}` });
@@ -446,7 +470,11 @@ export const seriesRouter = {
       }
       if (mangaNewsSeriesId === null) {
         set.mangaNewsSeriesId = null;
-        const current = db.select({ source: series.volumeCountSource }).from(series).where(eq(series.id, seriesId)).get();
+        const current = db
+          .select({ source: series.volumeCountSource })
+          .from(series)
+          .where(eq(series.id, seriesId))
+          .get();
         if (!current) throw notFound(seriesId);
         // The count stays, but no refresh updates it any more.
         if (newCount === undefined && current.source === "manganews") set.volumeCountSource = "manual";
@@ -468,7 +496,8 @@ export const seriesRouter = {
       method: "DELETE",
       path: "/series/{id}",
       summary: "Delete a series",
-      description: "Removes it from mangarr with its search terms, volumes and downloads. Files on disk and torrents are left alone.",
+      description:
+        "Removes it from mangarr with its search terms, volumes and downloads. Files on disk and torrents are left alone.",
       tags,
       successStatus: 204,
     })
@@ -483,7 +512,8 @@ export const seriesRouter = {
       method: "PUT",
       path: "/series/{id}/search-terms",
       summary: "Replace a series' search terms and aliases",
-      description: "Needs at least one `search` term. Repeats are dropped; a term given as both kinds stays a search term.",
+      description:
+        "Needs at least one `search` term. Repeats are dropped; a term given as both kinds stays a search term.",
       tags,
     })
     .input(z.object({ id, terms: z.array(termInput) }))
@@ -505,7 +535,7 @@ export const seriesRouter = {
       method: "POST",
       path: "/series/{id}/search-terms",
       summary: "Add a search term or alias",
-      description: "For the interactive search's \"Add alias\" action.",
+      description: 'For the interactive search\'s "Add alias" action.',
       tags,
       successStatus: 201,
     })
@@ -523,7 +553,11 @@ export const seriesRouter = {
           message: `"${input.term}" is already ${clash.kind === "search" ? "a search term" : "an alias"}`,
         });
       }
-      return db.insert(searchTerms).values({ seriesId: input.id, term: input.term, kind: input.kind }).returning().get();
+      return db
+        .insert(searchTerms)
+        .values({ seriesId: input.id, term: input.term, kind: input.kind })
+        .returning()
+        .get();
     }),
 
   rescan: authed
@@ -554,7 +588,11 @@ export const seriesRouter = {
       if (!row) throw notFound(input.id);
 
       const fromMangaBaka = row.volumeCountSource === "mangabaka";
-      const { record, metadata, volumes: count } = await fetchDraft(mangabaka, row.mangabakaId, row.language.code, {
+      const {
+        record,
+        metadata,
+        volumes: count,
+      } = await fetchDraft(mangabaka, row.mangabakaId, row.language.code, {
         withVolumeCount: fromMangaBaka,
         signal,
       });

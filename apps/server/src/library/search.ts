@@ -57,7 +57,10 @@ function compare(a: SearchResult, b: SearchResult): number {
 }
 
 /** Everything after the Prowlarr calls. No I/O. */
-export function rankReleases(releases: readonly ProwlarrRelease[], series: Omit<SearchSeries, "queries">): SearchOutcome {
+export function rankReleases(
+  releases: readonly ProwlarrRelease[],
+  series: Omit<SearchSeries, "queries">,
+): SearchOutcome {
   const unique = new Map<string, ProwlarrRelease>();
   let usenetReleases = 0;
   for (const release of releases) {
@@ -74,7 +77,8 @@ export function rankReleases(releases: readonly ProwlarrRelease[], series: Omit<
   const target: MatchTarget = { names: series.names, authors: series.authors };
   const owned = new Set(series.owned);
   const hasMissing =
-    series.volumeCount === null || Array.from({ length: series.volumeCount }, (_, i) => i + 1).some((n) => !owned.has(n));
+    series.volumeCount === null ||
+    Array.from({ length: series.volumeCount }, (_, i) => i + 1).some((n) => !owned.has(n));
 
   const results: SearchResult[] = [];
   let chapterReleases = 0;

@@ -34,7 +34,10 @@ function services({ proxy }: { proxy?: (request: Request) => Response } = {}) {
       proxied.push(request);
       if (proxy) return proxy(request);
       if (download[1] === "1") {
-        return new Response(null, { status: 301, headers: { location: `magnet:?xt=urn:btih:${nyaaHash}&dn=Berserk+v42` } });
+        return new Response(null, {
+          status: 301,
+          headers: { location: `magnet:?xt=urn:btih:${nyaaHash}&dn=Berserk+v42` },
+        });
       }
       return new Response(torrent.bytes, { headers: { "content-type": "application/x-bittorrent" } });
     }
@@ -57,12 +60,24 @@ function setup(indexerId: 1 | 2, { qbittorrent = true } = {}) {
   }
   const language = db
     .insert(languages)
-    .values({ code: "xx", name: "Test", rootFolder: "/data/xx", prowlarrIndexerIds: [indexerId], prowlarrCategories: [7000] })
+    .values({
+      code: "xx",
+      name: "Test",
+      rootFolder: "/data/xx",
+      prowlarrIndexerIds: [indexerId],
+      prowlarrCategories: [7000],
+    })
     .returning()
     .get();
   const row = db
     .insert(series)
-    .values({ languageId: language.id, mangabakaId: 1, displayTitle: "Berserk", folderPath: "/data/xx/Berserk", authors: ["Kentaro Miura"] })
+    .values({
+      languageId: language.id,
+      mangabakaId: 1,
+      displayTitle: "Berserk",
+      folderPath: "/data/xx/Berserk",
+      authors: ["Kentaro Miura"],
+    })
     .returning()
     .get();
   db.insert(searchTerms).values({ seriesId: row.id, term: "berserk", kind: "search" }).run();
@@ -108,7 +123,9 @@ describe("releases.grab", () => {
     const result = await searchFor(api, seriesId, "Berserk v42 (2025) (Digital) (LuCaZ)");
     const download = await api.releases.grab({ id: seriesId, guid: result.guid });
     expect(download).toMatchObject({ infoHash: nyaaHash, expectedVolumes: [42], indexerName: "Nyaa.si" });
-    expect(qbit.state.added).toEqual([{ category: "mangarr", magnet: `magnet:?xt=urn:btih:${nyaaHash}&dn=Berserk+v42`, torrent: undefined }]);
+    expect(qbit.state.added).toEqual([
+      { category: "mangarr", magnet: `magnet:?xt=urn:btih:${nyaaHash}&dn=Berserk+v42`, torrent: undefined },
+    ]);
   });
 
   it("refuses a release that was already grabbed", async () => {
@@ -124,7 +141,14 @@ describe("releases.grab", () => {
 
   it("refuses a torrent qBittorrent already has, without adding it", async () => {
     const { qbit } = services();
-    qbit.state.torrents.push({ hash: torrentHash, name: "added by hand", category: "", state: "uploading", progress: 1, amount_left: 0 });
+    qbit.state.torrents.push({
+      hash: torrentHash,
+      name: "added by hand",
+      category: "",
+      state: "uploading",
+      progress: 1,
+      amount_left: 0,
+    });
     const { db, api, seriesId } = setup(2);
     const result = await searchFor(api, seriesId, "Berserk_FR_01-42");
     const error = await rejection(api.releases.grab({ id: seriesId, guid: result.guid }));
@@ -163,7 +187,10 @@ describe("releases.grab", () => {
 
     answer = new Response("<html>Log in to Private Tracker 2</html>");
     const html = await rejection(api.releases.grab({ id: seriesId, guid: result.guid }));
-    expect([html.code, html.message]).toEqual(["BAD_GATEWAY", "The indexer sent something that is not a .torrent file"]);
+    expect([html.code, html.message]).toEqual([
+      "BAD_GATEWAY",
+      "The indexer sent something that is not a .torrent file",
+    ]);
   });
 
   it("reports a failed download without the link, which holds Prowlarr's API key", async () => {

@@ -16,6 +16,12 @@
     "start": "bun run --filter @mangarr/server start",
     "test": "bun test",
     "typecheck": "bun run --filter '*' typecheck",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
     "auth:reset": "bun run --filter @mangarr/server auth:reset"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.6"
   }
 }

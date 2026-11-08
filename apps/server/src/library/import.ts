@@ -64,7 +64,10 @@ export function mappedCopyStrategy(from: string, to: string): ImportStrategy {
   return {
     name: "copy (mapped)",
     place: (path, dest) =>
-      copyStrategy.place(path === source || path.startsWith(`${source}/`) ? target + path.slice(source.length) : path, dest),
+      copyStrategy.place(
+        path === source || path.startsWith(`${source}/`) ? target + path.slice(source.length) : path,
+        dest,
+      ),
   };
 }
 
@@ -110,7 +113,10 @@ export async function importDownload(
   const finish = (result: ImportResult, log: LogEntry[]): ImportResult => {
     db.transaction((tx) => {
       tx.delete(importLogEntries).where(eq(importLogEntries.downloadId, downloadId)).run();
-      if (log.length > 0) tx.insert(importLogEntries).values(log.map((entry) => ({ ...entry, downloadId }))).run();
+      if (log.length > 0)
+        tx.insert(importLogEntries)
+          .values(log.map((entry) => ({ ...entry, downloadId })))
+          .run();
       tx.update(downloads)
         .set({
           status: result.status,
@@ -122,11 +128,14 @@ export async function importDownload(
     });
     return result;
   };
-  const attention = (message: string, log: LogEntry[] = []) => finish({ status: "needs_attention", message, imported: 0 }, log);
+  const attention = (message: string, log: LogEntry[] = []) =>
+    finish({ status: "needs_attention", message, imported: 0 }, log);
 
   const [torrent] = await qbittorrent.torrents({ hashes: [download.infoHash] });
   if (!torrent) return attention("The torrent is no longer in qBittorrent");
-  const files = (await qbittorrent.files(download.infoHash)).sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+  const files = (await qbittorrent.files(download.infoHash)).sort((a, b) =>
+    a.name < b.name ? -1 : a.name > b.name ? 1 : 0,
+  );
   if (files.length === 0) return attention("qBittorrent lists no files for this torrent");
 
   /** Exactly one entry per file, at the file's index, so the log reads in file order. */
@@ -135,22 +144,38 @@ export async function importDownload(
   files.forEach((file, index) => {
     const extension = extensionOf(baseName(file.name));
     if (!supported.has(extension)) {
-      log[index] = { sourceFile: file.name, action: "skipped_format", message: extension ? `.${extension} files are not imported` : "No extension" };
+      log[index] = {
+        sourceFile: file.name,
+        action: "skipped_format",
+        message: extension ? `.${extension} files are not imported` : "No extension",
+      };
     } else if (file.priority === 0 || file.progress < 1) {
-      log[index] = { sourceFile: file.name, action: "error", message: "Not downloaded: the file is skipped or incomplete in qBittorrent" };
+      log[index] = {
+        sourceFile: file.name,
+        action: "error",
+        message: "Not downloaded: the file is skipped or incomplete in qBittorrent",
+      };
     } else {
       candidates.push({ index, file, format: extension === "cbr" ? "cbr" : "cbz" });
     }
   });
   if (candidates.length === 0) {
     const allFormat = log.every((e) => e.action === "skipped_format");
-    return attention(allFormat ? "No .cbz, .zip or .cbr files in the torrent" : "No volume file could be imported", log);
+    return attention(
+      allFormat ? "No .cbz, .zip or .cbr files in the torrent" : "No volume file could be imported",
+      log,
+    );
   }
 
   // The filesystem decides what is owned (spec §1.2), so the folder is scanned first.
   await scanSeries(db, target.id);
   const owned = new Map(
-    db.select({ number: volumes.number, filePath: volumes.filePath }).from(volumes).where(eq(volumes.seriesId, target.id)).all().map((v) => [v.number, v.filePath]),
+    db
+      .select({ number: volumes.number, filePath: volumes.filePath })
+      .from(volumes)
+      .where(eq(volumes.seriesId, target.id))
+      .all()
+      .map((v) => [v.number, v.filePath]),
   );
 
   // Step 4: a lone file with no number takes the release's single volume.
@@ -172,7 +197,13 @@ export async function importDownload(
     const { number } = volume;
     const existing = owned.get(number);
     if (existing) {
-      log[index] = { sourceFile, action: "skipped_owned", volumeNumber: number, destPath: existing, message: `Volume ${number} is already owned` };
+      log[index] = {
+        sourceFile,
+        action: "skipped_owned",
+        volumeNumber: number,
+        destPath: existing,
+        message: `Volume ${number} is already owned`,
+      };
       continue;
     }
     const dest = joinPath(target.folderPath, volumeFileName(target.displayTitle, number, format, padding));
@@ -182,12 +213,20 @@ export async function importDownload(
     } catch (error) {
       log[index] =
         error instanceof DestinationExists
-          ? { sourceFile, action: "skipped_owned", volumeNumber: number, destPath: dest, message: "A file with that name is already in the series folder" }
+          ? {
+              sourceFile,
+              action: "skipped_owned",
+              volumeNumber: number,
+              destPath: dest,
+              message: "A file with that name is already in the series folder",
+            }
           : { sourceFile, action: "error", volumeNumber: number, destPath: dest, message: errorMessage(error) };
       continue;
     }
     // The row is written now so the rescan keeps `source = import`.
-    db.insert(volumes).values({ seriesId: target.id, number, filePath: dest, fileSize: file.size, format, source: "import" }).run();
+    db.insert(volumes)
+      .values({ seriesId: target.id, number, filePath: dest, fileSize: file.size, format, source: "import" })
+      .run();
     owned.set(number, dest);
     imported++;
     log[index] = { sourceFile, action: "imported", volumeNumber: number, destPath: dest };
@@ -195,7 +234,10 @@ export async function importDownload(
 
   if (imported === 0) {
     const ownedAll = log.filter((e) => e.action !== "skipped_format").every((e) => e.action === "skipped_owned");
-    return attention(ownedAll ? "Every volume in the torrent is already owned" : "No volume file could be imported", log);
+    return attention(
+      ownedAll ? "Every volume in the torrent is already owned" : "No volume file could be imported",
+      log,
+    );
   }
   const result = finish({ status: "imported", imported }, log);
   await scanSeries(db, target.id);

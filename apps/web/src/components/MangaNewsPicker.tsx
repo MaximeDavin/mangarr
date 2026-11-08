@@ -28,7 +28,12 @@ export function MangaNewsPicker({
 
   return (
     <Stack gap="xs">
-      <TextInput label="Manga-News" description={description} value={query} onChange={(e) => setQuery(e.currentTarget.value)} />
+      <TextInput
+        label="Manga-News"
+        description={description}
+        value={query}
+        onChange={(e) => setQuery(e.currentTarget.value)}
+      />
       {results.error && (
         <Alert color="orange" variant="light">
           {results.error.message}
@@ -52,7 +57,9 @@ export function MangaNewsPicker({
                 {row.displayTitle}
               </Text>
               <Text size="xs" c="dimmed">
-                {[row.publisher, row.volumeCount ? `${row.volumeCount} volumes` : "announced", row.writers].filter(Boolean).join(" · ")}
+                {[row.publisher, row.volumeCount ? `${row.volumeCount} volumes` : "announced", row.writers]
+                  .filter(Boolean)
+                  .join(" · ")}
               </Text>
             </Stack>
             <Button size="xs" variant={row.id === value ? "filled" : "light"} onClick={() => onChange(row.id)}>

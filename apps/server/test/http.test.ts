@@ -26,9 +26,7 @@ describe("/rpc", () => {
 
   it("needs the API key", async () => {
     const { handle } = setup();
-    const response = await handle(
-      new Request("http://mangarr/rpc/settings/get", { method: "POST", body: "{}" }),
-    );
+    const response = await handle(new Request("http://mangarr/rpc/settings/get", { method: "POST", body: "{}" }));
     expect(response.status).toBe(401);
   });
 });

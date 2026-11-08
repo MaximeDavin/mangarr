@@ -11,7 +11,10 @@ export interface RecordedCall {
 }
 
 const sortedQuery = (pairs: Iterable<[string, string]>) =>
-  [...pairs].map(([key, value]) => `${key}=${value}`).sort().join("&");
+  [...pairs]
+    .map(([key, value]) => `${key}=${value}`)
+    .sort()
+    .join("&");
 
 /**
  * A fetch that answers with the recording whose path and query match the request (in any order),

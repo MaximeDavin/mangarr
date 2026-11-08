@@ -33,7 +33,6 @@ export interface Poller {
   tick(): Promise<void>;
 }
 
-
 export function createPoller(db: Db, options: PollerOptions = {}): Poller {
   const client = options.qbittorrent ?? (() => qbittorrentFromSettings(db).client);
   const komga = options.komga ?? (() => komgaFromSettings(db));
@@ -53,12 +52,17 @@ export function createPoller(db: Db, options: PollerOptions = {}): Poller {
     if (watched.length === 0) return;
 
     // By hash rather than by category: a torrent moved to another category is still found.
-    const torrents = new Map((await qbittorrent.torrents({ hashes: watched.map((d) => d.infoHash) })).map((t) => [t.hash, t]));
+    const torrents = new Map(
+      (await qbittorrent.torrents({ hashes: watched.map((d) => d.infoHash) })).map((t) => [t.hash, t]),
+    );
     for (const download of watched) {
       const torrent = torrents.get(download.infoHash);
       if (!torrent) {
         if (download.status === "downloading") {
-          setStatus(download.id, { status: "missing_from_client", statusMessage: "The torrent was removed from qBittorrent before it was imported" });
+          setStatus(download.id, {
+            status: "missing_from_client",
+            statusMessage: "The torrent was removed from qBittorrent before it was imported",
+          });
           console.warn(`poller: "${download.releaseTitle}" is no longer in qBittorrent`);
         }
         continue;

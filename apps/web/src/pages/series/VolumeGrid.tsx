@@ -75,7 +75,9 @@ export function VolumeGrid({ series }: { series: Series }) {
     <Stack gap="sm">
       <Group gap="md">
         <Legend state="owned" label={`Owned (${series.volumes.length})`} />
-        {series.volumeCount !== null && <Legend state="missing" label={`Missing (${series.missing.length - downloading.size})`} />}
+        {series.volumeCount !== null && (
+          <Legend state="missing" label={`Missing (${series.missing.length - downloading.size})`} />
+        )}
         {downloading.size > 0 && <Legend state="downloading" label={`Downloading (${downloading.size})`} />}
       </Group>
 
@@ -89,7 +91,14 @@ export function VolumeGrid({ series }: { series: Series }) {
             const volume = owned.get(n);
             if (volume) {
               const how = volume.source === "import" ? "imported" : "found on disk";
-              return <Cell key={n} number={n} state="owned" label={`${fileName(volume.filePath)} · ${formatBytes(volume.fileSize)} · ${how}`} />;
+              return (
+                <Cell
+                  key={n}
+                  number={n}
+                  state="owned"
+                  label={`${fileName(volume.filePath)} · ${formatBytes(volume.fileSize)} · ${how}`}
+                />
+              );
             }
             if (downloading.has(n)) return <Cell key={n} number={n} state="downloading" label="Downloading" />;
             return <Cell key={n} number={n} state="missing" label="Missing" />;

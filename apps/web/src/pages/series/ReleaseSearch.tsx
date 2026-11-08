@@ -76,11 +76,16 @@ export function ReleaseSearch({ series }: { series: Series }) {
     <Stack>
       <Group justify="space-between" align="flex-start">
         <Text size="sm" c="dimmed" maw={560}>
-          Searched {queries.map((q) => `“${q}”`).join(", ")} on the {series.language.name} indexers: {received} result{received === 1 ? "" : "s"}
+          Searched {queries.map((q) => `“${q}”`).join(", ")} on the {series.language.name} indexers: {received} result
+          {received === 1 ? "" : "s"}
           {dropped.length > 0 && `, without ${dropped.join(" and ")}`}, {results.length} after removing duplicates.
         </Text>
         <Group gap="md">
-          <Switch label="Hide no title match" checked={hideNoMatch} onChange={(e) => setHideNoMatch(e.currentTarget.checked)} />
+          <Switch
+            label="Hide no title match"
+            checked={hideNoMatch}
+            onChange={(e) => setHideNoMatch(e.currentTarget.checked)}
+          />
           <Button size="xs" variant="light" onClick={() => search.refetch()}>
             Search again
           </Button>
@@ -88,7 +93,9 @@ export function ReleaseSearch({ series }: { series: Series }) {
       </Group>
 
       {shown.length === 0 ? (
-        <Text c="dimmed">{results.length === 0 ? "No release found." : "Every result was hidden: none matches the title."}</Text>
+        <Text c="dimmed">
+          {results.length === 0 ? "No release found." : "Every result was hidden: none matches the title."}
+        </Text>
       ) : (
         <Table.ScrollContainer minWidth={860}>
           <Table verticalSpacing="xs" highlightOnHover>
@@ -117,9 +124,13 @@ export function ReleaseSearch({ series }: { series: Series }) {
 
 function ResultRow({ series, result }: { series: Series; result: Result }) {
   const volumes = result.volumes.length > 0 ? formatVolumes(result.volumes) : result.isComplete ? "Complete" : "";
-  const hints = [result.group, result.editionHint, result.source, result.contentHint, result.hasExtraChapters && "extra chapters"].filter(
-    (h): h is string => Boolean(h),
-  );
+  const hints = [
+    result.group,
+    result.editionHint,
+    result.source,
+    result.contentHint,
+    result.hasExtraChapters && "extra chapters",
+  ].filter((h): h is string => Boolean(h));
 
   return (
     <Table.Tr style={result.grabbed ? { opacity: 0.6 } : undefined}>
@@ -193,13 +204,15 @@ function Grab({ seriesId, result }: { seriesId: number; result: Result }) {
         // Mark it in the results on screen, so the row dims and the button becomes a badge.
         queryClient.setQueryData<SearchOutput>(
           orpc.releases.search.queryKey({ input: { id: seriesId } }),
-          (old) => old && { ...old, results: old.results.map((r) => (r.guid === result.guid ? { ...r, grabbed: true } : r)) },
+          (old) =>
+            old && { ...old, results: old.results.map((r) => (r.guid === result.guid ? { ...r, grabbed: true } : r)) },
         );
         notifications.show({ color: "green", title: "Sent to qBittorrent", message: download.releaseTitle });
         void refreshSeries(seriesId);
         void queryClient.invalidateQueries({ queryKey: orpc.downloads.key() });
       },
-      onError: (error) => notifications.show({ color: "red", title: "Could not grab", message: error.message, autoClose: false }),
+      onError: (error) =>
+        notifications.show({ color: "red", title: "Could not grab", message: error.message, autoClose: false }),
     }),
   );
 
@@ -227,14 +240,20 @@ function AddAlias({ series, title }: { series: Series; title: string }) {
         notifications.show({ color: "green", message: `“${title}” added as an alias. Search again to see it match.` });
         void refreshSeries(series.id);
       },
-      onError: (error) => notifications.show({ color: "red", title: "Could not add the alias", message: error.message }),
+      onError: (error) =>
+        notifications.show({ color: "red", title: "Could not add the alias", message: error.message }),
     }),
   );
 
   if (known || add.isSuccess) return null;
   return (
     <Tooltip label={`Add “${title}” as an alias`} withArrow>
-      <Button size="xs" variant="subtle" loading={add.isPending} onClick={() => add.mutate({ id: series.id, term: title, kind: "alias" })}>
+      <Button
+        size="xs"
+        variant="subtle"
+        loading={add.isPending}
+        onClick={() => add.mutate({ id: series.id, term: title, kind: "alias" })}
+      >
         Add alias
       </Button>
     </Tooltip>

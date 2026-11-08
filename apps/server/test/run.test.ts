@@ -16,7 +16,7 @@ import { normalizePath } from "../src/library/paths";
 import { ReleaseCache } from "../src/library/release-cache";
 import { ensureApiKey } from "../src/settings";
 import { apiClient } from "./helpers";
-import { loadRun, recordedRuns, recordedServices, replayRun, type RunRecording, seedRun } from "./run-replay";
+import { loadRun, type RunRecording, recordedRuns, recordedServices, replayRun, seedRun } from "./run-replay";
 
 let temp: string;
 beforeEach(() => {
@@ -30,8 +30,12 @@ afterEach(() => {
 /** The files qBittorrent listed, and where it said it saved them. */
 function torrentFiles(recording: RunRecording) {
   const answers = recording.calls.filter((c) => c.service === "qbittorrent" && c.response.status === 200);
-  const files = answers.filter((c) => c.request.path.endsWith("/torrents/files")).at(-1)?.response.body as { name: string }[] | undefined;
-  const info = answers.filter((c) => c.request.path.endsWith("/torrents/info")).flatMap((c) => c.response.body as { save_path?: string }[]);
+  const files = answers.filter((c) => c.request.path.endsWith("/torrents/files")).at(-1)?.response.body as
+    | { name: string }[]
+    | undefined;
+  const info = answers
+    .filter((c) => c.request.path.endsWith("/torrents/info"))
+    .flatMap((c) => c.response.body as { save_path?: string }[]);
   return { files: files ?? [], savePath: info.at(-1)?.save_path ?? "/downloads" };
 }
 
@@ -87,7 +91,11 @@ describe.each(runs)("%s", (name) => {
     const statuses: string[] = [];
     for (let tick = 0; tick <= polls; tick++) {
       await poller.tick();
-      const { status } = db.select({ status: downloads.status }).from(downloads).where(eq(downloads.id, download.id)).get()!;
+      const { status } = db
+        .select({ status: downloads.status })
+        .from(downloads)
+        .where(eq(downloads.id, download.id))
+        .get()!;
       if (statuses.at(-1) !== status) statuses.push(status);
       if (status === "imported" || status === "needs_attention") break;
     }
@@ -95,7 +103,11 @@ describe.each(runs)("%s", (name) => {
 
     // Import: the same files, named the same way.
     const log = db
-      .select({ sourceFile: importLogEntries.sourceFile, action: importLogEntries.action, volumeNumber: importLogEntries.volumeNumber })
+      .select({
+        sourceFile: importLogEntries.sourceFile,
+        action: importLogEntries.action,
+        volumeNumber: importLogEntries.volumeNumber,
+      })
       .from(importLogEntries)
       .where(eq(importLogEntries.downloadId, download.id))
       .orderBy(importLogEntries.id)

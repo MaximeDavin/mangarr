@@ -5,7 +5,7 @@ import { ORPCError } from "@orpc/server";
 import { and, count, desc, eq, inArray, type SQL } from "drizzle-orm";
 import { z } from "zod";
 import type { Db } from "../db/client";
-import { downloads, downloadStatuses, importActions, series } from "../db/schema";
+import { downloadStatuses, downloads, importActions, series } from "../db/schema";
 import { errorMessage } from "../errors";
 import { type QBittorrentTorrent, qbittorrentFromSettings } from "../integrations/qbittorrent";
 import { authed } from "./base";
@@ -44,7 +44,10 @@ function getDownload(db: Db, downloadId: number) {
   const row = db.query.downloads
     .findFirst({
       where: { id: downloadId },
-      with: { series: { columns: { id: true, displayTitle: true, coverUrl: true } }, importLog: { orderBy: { id: "asc" } } },
+      with: {
+        series: { columns: { id: true, displayTitle: true, coverUrl: true } },
+        importLog: { orderBy: { id: "asc" } },
+      },
     })
     .sync();
   if (!row) throw notFound(downloadId);
@@ -85,7 +88,10 @@ export const downloadsRouter = {
       if (input.seriesId) filters.push(eq(downloads.seriesId, input.seriesId));
       const where = filters.length > 0 ? and(...filters) : undefined;
       const rows = db
-        .select({ download: downloads, series: { id: series.id, displayTitle: series.displayTitle, coverUrl: series.coverUrl } })
+        .select({
+          download: downloads,
+          series: { id: series.id, displayTitle: series.displayTitle, coverUrl: series.coverUrl },
+        })
         .from(downloads)
         .innerJoin(series, eq(series.id, downloads.seriesId))
         .where(where)
@@ -138,7 +144,9 @@ export const downloadsRouter = {
       const row = db.select({ status: downloads.status }).from(downloads).where(eq(downloads.id, input.id)).get();
       if (!row) throw notFound(input.id);
       if (row.status !== "needs_attention") {
-        throw new ORPCError("CONFLICT", { message: `Only a download that needs attention can be retried; this one is ${row.status.replaceAll("_", " ")}` });
+        throw new ORPCError("CONFLICT", {
+          message: `Only a download that needs attention can be retried; this one is ${row.status.replaceAll("_", " ")}`,
+        });
       }
       const updated = db
         .update(downloads)

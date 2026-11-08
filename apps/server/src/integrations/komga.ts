@@ -18,7 +18,14 @@ export interface KomgaOptions {
   timeoutMs?: number;
 }
 
-export type KomgaErrorKind = "not_configured" | "unreachable" | "timeout" | "unauthorized" | "not_found" | "http" | "invalid_response";
+export type KomgaErrorKind =
+  | "not_configured"
+  | "unreachable"
+  | "timeout"
+  | "unauthorized"
+  | "not_found"
+  | "http"
+  | "invalid_response";
 
 export class KomgaError extends UpstreamError {
   declare readonly kind: KomgaErrorKind;
@@ -71,9 +78,13 @@ export function createKomgaClient(options: KomgaOptions) {
     const failed = (error: unknown): never => {
       if (signal?.aborted) throw error;
       if (isTimeout(error)) {
-        throw new KomgaError("timeout", `Komga at ${baseUrl} did not answer within ${timeoutMs / 1000} s`, { cause: error });
+        throw new KomgaError("timeout", `Komga at ${baseUrl} did not answer within ${timeoutMs / 1000} s`, {
+          cause: error,
+        });
       }
-      throw new KomgaError("unreachable", `Could not reach Komga at ${baseUrl}: ${errorMessage(error)}`, { cause: error });
+      throw new KomgaError("unreachable", `Could not reach Komga at ${baseUrl}: ${errorMessage(error)}`, {
+        cause: error,
+      });
     };
 
     let response: Response;
@@ -93,12 +104,16 @@ export function createKomgaClient(options: KomgaOptions) {
 
     if (response.status === 401) throw new KomgaError("unauthorized", "Komga rejected the API key", { status: 401 });
     if (response.status === 403) {
-      throw new KomgaError("unauthorized", "Komga refused: the API key's user must be an admin to scan libraries", { status: 403 });
+      throw new KomgaError("unauthorized", "Komga refused: the API key's user must be an admin to scan libraries", {
+        status: 403,
+      });
     }
     if (!response.ok) {
       const detail = errorDetail(body);
       const kind = response.status === 404 ? "not_found" : "http";
-      throw new KomgaError(kind, `Komga answered ${response.status}${detail ? `: ${detail}` : ""}`, { status: response.status });
+      throw new KomgaError(kind, `Komga answered ${response.status}${detail ? `: ${detail}` : ""}`, {
+        status: response.status,
+      });
     }
     return body;
   }
@@ -110,13 +125,19 @@ export function createKomgaClient(options: KomgaOptions) {
     try {
       json = JSON.parse(body);
     } catch (error) {
-      throw new KomgaError("invalid_response", `${baseUrl} did not answer like Komga (not JSON). Check the URL.`, { cause: error });
+      throw new KomgaError("invalid_response", `${baseUrl} did not answer like Komga (not JSON). Check the URL.`, {
+        cause: error,
+      });
     }
     const result = schema.safeParse(json);
     if (!result.success) {
-      throw new KomgaError("invalid_response", `${baseUrl} did not answer like Komga: ${z.prettifyError(result.error)}`, {
-        cause: result.error,
-      });
+      throw new KomgaError(
+        "invalid_response",
+        `${baseUrl} did not answer like Komga: ${z.prettifyError(result.error)}`,
+        {
+          cause: result.error,
+        },
+      );
     }
     return result.data;
   }
@@ -137,7 +158,8 @@ export function createKomgaClient(options: KomgaOptions) {
 
   return {
     /** Every library. Also the connection test: fails on a wrong URL or key. */
-    libraries: (signal?: AbortSignal): Promise<KomgaLibrary[]> => getJson("v1/libraries", z.array(librarySchema), signal),
+    libraries: (signal?: AbortSignal): Promise<KomgaLibrary[]> =>
+      getJson("v1/libraries", z.array(librarySchema), signal),
 
     /** One library, to check a Language's library id and folder. */
     library: (libraryId: string, signal?: AbortSignal): Promise<KomgaLibrary> =>
@@ -161,6 +183,7 @@ export type KomgaClient = ReturnType<typeof createKomgaClient>;
 /** A client using the saved Komga URL and API key. */
 export function komgaFromSettings(db: Db, fetch?: Fetch): KomgaClient {
   const { komgaUrl, komgaApiKey } = getSettings(db);
-  if (!komgaUrl || !komgaApiKey) throw new KomgaError("not_configured", "Set the Komga URL and API key in Settings first");
+  if (!komgaUrl || !komgaApiKey)
+    throw new KomgaError("not_configured", "Set the Komga URL and API key in Settings first");
   return createKomgaClient({ url: komgaUrl, apiKey: komgaApiKey, fetch });
 }
