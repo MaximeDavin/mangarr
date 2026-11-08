@@ -1,0 +1,11 @@
+# Store text files with LF whatever the contributor's core.autocrlf.
+* text=auto
+
+# Recorded or generated files: collapsed in GitHub diffs and excluded from language stats.
+**/test/fixtures/** linguist-generated
+**/drizzle/**/snapshot.json linguist-generated
+bun.lock linguist-generated
+
+# Run inside the Linux image: CRLF would break the s6 scripts' shebangs.
+root/** text eol=lf
+Dockerfile text eol=lf

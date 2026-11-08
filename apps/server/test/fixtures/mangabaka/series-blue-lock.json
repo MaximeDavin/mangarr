@@ -1,0 +1,542 @@
+{
+  "description": "A series with English collections in several editions.",
+  "recordedAt": "2026-11-07",
+  "request": {
+    "method": "GET",
+    "path": "/v1/series/83",
+    "query": []
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json",
+    "body": {
+      "status": 200,
+      "data": {
+        "id": 83,
+        "state": "active",
+        "merged_with": null,
+        "canonical_url": "https://mangabaka.org/manga/83/Blue-Lock",
+        "title": "Blue Lock",
+        "native_title": "ブルーロック",
+        "romanized_title": "BLUELOCK",
+        "secondary_titles": {
+          "unknown": [
+            {
+              "type": "unknown",
+              "title": "블루 록",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "Bluelock",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "Blue Lock",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "Mavi Hücre",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "Tiền đạo số 1",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "Блакітная вязьніца",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "Синя тюрма",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "Синяя Тюрьма",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "القفل الارزق",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "ขังดวลแข้ง",
+              "note": null
+            },
+            {
+              "type": "unknown",
+              "title": "ブルーロック",
+              "note": null
+            }
+          ]
+        },
+        "cover": {
+          "raw": {
+            "url": "https://images.mangabaka.dev/a/9/3/a/a/2/2/9/fd41/4468/a734/af871bbc1ae2",
+            "size": 3008832,
+            "height": 4063,
+            "width": 2717,
+            "blurhash": "|HG0ar^,Pvj2%wIDXxIEW,==.6-.#ITD9GSun$s;0^tR%LIDS[nApCM$t7O}x.x[EKRC.6kCWAesXAtx=za3ICNYog-;ox-Vs;IFIEt5nUx.W-M#XdRnR%$jj2b;V{Rij;.5RQWA$noMR7axbajc^-nnIDM+xaxJtPWAWB",
+            "thumbhash": "3McFHQaPp8qqGJlVqJmrePiut+EH",
+            "format": "jpeg"
+          },
+          "x150": {
+            "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x150@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzkvMy9hL2EvMi8yLzkvZmQ0MS80NDY4L2E3MzQvYWY4NzFiYmMxYWUy",
+            "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x150@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzkvMy9hL2EvMi8yLzkvZmQ0MS80NDY4L2E3MzQvYWY4NzFiYmMxYWUy",
+            "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x150@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzkvMy9hL2EvMi8yLzkvZmQ0MS80NDY4L2E3MzQvYWY4NzFiYmMxYWUy"
+          },
+          "x250": {
+            "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x250@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzkvMy9hL2EvMi8yLzkvZmQ0MS80NDY4L2E3MzQvYWY4NzFiYmMxYWUy",
+            "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x250@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzkvMy9hL2EvMi8yLzkvZmQ0MS80NDY4L2E3MzQvYWY4NzFiYmMxYWUy",
+            "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x250@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzkvMy9hL2EvMi8yLzkvZmQ0MS80NDY4L2E3MzQvYWY4NzFiYmMxYWUy"
+          },
+          "x350": {
+            "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x350@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzkvMy9hL2EvMi8yLzkvZmQ0MS80NDY4L2E3MzQvYWY4NzFiYmMxYWUy",
+            "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x350@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzkvMy9hL2EvMi8yLzkvZmQ0MS80NDY4L2E3MzQvYWY4NzFiYmMxYWUy",
+            "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x350@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzkvMy9hL2EvMi8yLzkvZmQ0MS80NDY4L2E3MzQvYWY4NzFiYmMxYWUy"
+          }
+        },
+        "authors": [
+          "Muneyuki Kaneshiro"
+        ],
+        "artists": [
+          "Yuusuke Nomura"
+        ],
+        "description": "After a disastrous defeat at the 2018 World Cup, Japan’s team struggles to regroup. But what’s missing? An absolute Ace Striker, who can guide them to the win. The Japan Football Union is hell-bent on creating a striker who hungers for goals and thirsts for victory, and who can be the decisive instrument in turning around a losing match…and to do so, they’ve gathered 300 of Japan’s best and brightest youth players. Who will emerge to lead the team…and will they be able to out-muscle and out-ego everyone who stands in their way?\n\n*Source: Kodansha USA, Vol. 1*",
+        "year": 2018,
+        "published": {
+          "start_date": "2018-08-01",
+          "end_date": null,
+          "start_date_is_estimated": false,
+          "end_date_is_estimated": null
+        },
+        "status": "releasing",
+        "is_licensed": true,
+        "has_anime": true,
+        "anime": {
+          "start": "Vol 1, Chap 1 (S1) / Vol 12, Chap 95 (S2)",
+          "end": "Vol 11, Chap 94 (S1) / Vol 17, Chap 149 (S2)"
+        },
+        "content_rating": "safe",
+        "type": "manga",
+        "original_language": "ja",
+        "rating": 82.4285714285714,
+        "popularity": {
+          "global": {
+            "current": 29,
+            "history": {
+              "1d": 29,
+              "1w": 29,
+              "1mo": 28,
+              "3mo": 29,
+              "6mo": 22,
+              "1y": 20
+            }
+          },
+          "type": {
+            "current": 24,
+            "history": {
+              "1d": 24,
+              "1w": 24,
+              "1mo": 24,
+              "3mo": 25,
+              "6mo": 20,
+              "1y": 18
+            }
+          }
+        },
+        "final_volume": "40",
+        "total_chapters": "366",
+        "links": [
+          "https://bluelock-kc.com/",
+          "https://comic-days.com/episode/14079602755418056598",
+          "https://comic.pixiv.net/works/5169",
+          "https://comics.inkr.com/title/2221-blue-lock-1-12",
+          "https://coolmic.me/titles/3952",
+          "https://kmanga.kodansha.com/title/10008/episode/318774",
+          "https://kodansha.us/series/blue-lock/",
+          "https://page.kakao.com/content/56523851/",
+          "https://piccoma.com/web/product/5046?etype=episode",
+          "https://pocket.shonenmagazine.com/episode/10834108156632602988",
+          "https://series.naver.com/comic/detail.series?productNo=5911376",
+          "https://shonenmagazine.com/special_page/bluelock/",
+          "https://twitter.com/BLUELOCK_WM",
+          "https://www.lezhin.com/ko/comic/bluelock",
+          "https://www.omoi.com/series/blue-lock",
+          "https://www.webtoons.com/th/drama/blue-lock/list?title_no=5602",
+          "https://en.wikipedia.org/wiki/Blue_Lock",
+          "https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%BC%E3%83%AD%E3%83%83%E3%82%AF",
+          "https://shonenmagazine.com/special_page/bluelock",
+          "https://mangabaka.org/83"
+        ],
+        "publishers": [
+          {
+            "id": 5008,
+            "name": "Coolmic",
+            "canonical_url": "https://mangabaka.org/publisher/5008/Coolmic",
+            "language": "en",
+            "note": null,
+            "type": "English"
+          },
+          {
+            "id": 6038,
+            "name": "Distrito Manga",
+            "canonical_url": "https://mangabaka.org/publisher/6038/Distrito-Manga",
+            "language": "pt",
+            "note": null,
+            "type": "Other"
+          },
+          {
+            "id": 6120,
+            "name": "Ivrea Argentina",
+            "canonical_url": "https://mangabaka.org/publisher/6120/Ivrea-Argentina",
+            "language": "es-la",
+            "note": null,
+            "type": "Other"
+          },
+          {
+            "id": 30,
+            "name": "K MANGA",
+            "canonical_url": "https://mangabaka.org/publisher/30/K-MANGA",
+            "language": "en",
+            "note": "Simulpub",
+            "type": "English"
+          },
+          {
+            "id": 32,
+            "name": "Kodansha",
+            "canonical_url": "https://mangabaka.org/publisher/32/Kodansha",
+            "language": "ja",
+            "note": null,
+            "type": "Original"
+          },
+          {
+            "id": 14,
+            "name": "Kodansha Manga",
+            "canonical_url": "https://mangabaka.org/publisher/14/Kodansha-Manga",
+            "language": "en",
+            "note": "36 Volumes - Ongoing; Digital | 27 Volumes - Ongoing; Print",
+            "type": "English"
+          },
+          {
+            "id": 6207,
+            "name": "Panini Comics",
+            "canonical_url": "https://mangabaka.org/publisher/6207/Panini-Comics",
+            "language": "it",
+            "note": null,
+            "type": "Other"
+          },
+          {
+            "id": 2858,
+            "name": "Pika Édition",
+            "canonical_url": "https://mangabaka.org/publisher/2858/Pika-%C3%89dition",
+            "language": "fr",
+            "note": null,
+            "type": "Other"
+          },
+          {
+            "id": 253,
+            "name": "Planeta Cómic",
+            "canonical_url": "https://mangabaka.org/publisher/253/Planeta-C%C3%B3mic",
+            "language": "es",
+            "note": null,
+            "type": "Other"
+          }
+        ],
+        "titles": [
+          {
+            "language": "ko",
+            "traits": [
+              "official"
+            ],
+            "title": "블루 록",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "en",
+            "traits": [
+              "official"
+            ],
+            "title": "Blue Lock",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "fr",
+            "traits": [],
+            "title": "Blue Lock",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "pt",
+            "traits": [
+              "official"
+            ],
+            "title": "Blue Lock",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "es-la",
+            "traits": [
+              "official"
+            ],
+            "title": "Blue Lock",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "es",
+            "traits": [
+              "official"
+            ],
+            "title": "Blue Lock",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "ja-Latn",
+            "traits": [
+              "native"
+            ],
+            "title": "BLUELOCK",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "th",
+            "traits": [],
+            "title": "BLUE LOCK ขังดวลแข้ง",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "ja-Latn",
+            "traits": [
+              "native"
+            ],
+            "title": "Buruu Rokku",
+            "note": null,
+            "is_primary": false
+          },
+          {
+            "language": "uz",
+            "traits": [],
+            "title": "Ko'k Zindon",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "tr",
+            "traits": [],
+            "title": "Mavi Hücre",
+            "note": null,
+            "is_primary": false
+          },
+          {
+            "language": "tr",
+            "traits": [],
+            "title": "Mavi Kilit",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "vi",
+            "traits": [],
+            "title": "Tiền đạo số 1",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "be",
+            "traits": [],
+            "title": "Блакітная вязьніца",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "uk",
+            "traits": [],
+            "title": "Блу Лок",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "kk",
+            "traits": [],
+            "title": "Көк қамал",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "ru",
+            "traits": [],
+            "title": "Синя тюрма",
+            "note": null,
+            "is_primary": false
+          },
+          {
+            "language": "ru",
+            "traits": [],
+            "title": "Синяя Тюрьма",
+            "note": null,
+            "is_primary": false
+          },
+          {
+            "language": "ru",
+            "traits": [],
+            "title": "Синяя тюрьма: Блю Лок",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "ar",
+            "traits": [],
+            "title": "القفل الارزق",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "th",
+            "traits": [],
+            "title": "ขังดวลแข้ง",
+            "note": null,
+            "is_primary": false
+          },
+          {
+            "language": "ja",
+            "traits": [
+              "native"
+            ],
+            "title": "ブルーロック",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "zh",
+            "traits": [],
+            "title": "蓝色监狱",
+            "note": null,
+            "is_primary": true
+          },
+          {
+            "language": "zh",
+            "traits": [],
+            "title": "蓝色禁区",
+            "note": null,
+            "is_primary": false
+          },
+          {
+            "language": "zh-Hant",
+            "traits": [],
+            "title": "藍色監獄",
+            "note": null,
+            "is_primary": true
+          }
+        ],
+        "genres_v2": null,
+        "genres": [
+          "action",
+          "drama",
+          "sports",
+          "psychological",
+          "shounen",
+          "award_winning"
+        ],
+        "tags": [
+          "Suicides",
+          "High Stakes Games",
+          "Competitive Protagonist",
+          "Survival Game",
+          "Athletes",
+          "Plain-Looking Protagonist",
+          "Male Protagonist",
+          "Football",
+          "Athletics",
+          "Primarily Male Cast",
+          "Primarily Teen Cast",
+          "Super Powers",
+          "Long-Haired Male Characters",
+          "Competitive Atmosphere",
+          "Tragedy",
+          "Anti-Hero",
+          "Competitions",
+          "Soccer",
+          "Award-Nominated Work",
+          "Soccer/Football",
+          "High School Students",
+          "Fitness",
+          "Talented Male Lead",
+          "Deception",
+          "Team Sports",
+          "Plain-Looking Male Lead",
+          "Injuries",
+          "Language Barrier",
+          "Imaginary Friend/s",
+          "Ensemble Cast",
+          "Rude Character/s",
+          "All-Boys School",
+          "Revenge",
+          "Adapted to Anime",
+          "Foreign",
+          "Survival of the Fittest",
+          "Battle Royale",
+          "Augmented Reality"
+        ],
+        "last_updated_at": "2026-11-06T09:06:12.449Z",
+        "relationships": {
+          "side_story": [
+            2041
+          ]
+        },
+        "source": {
+          "anilist": {
+            "id": 106130,
+            "rating": 8.2,
+            "rating_normalized": 82
+          },
+          "anime_planet": {
+            "id": "blue-lock",
+            "rating": 4.3,
+            "rating_normalized": 86
+          },
+          "anime_news_network": {
+            "id": 24342,
+            "rating": 7.93,
+            "rating_normalized": 79
+          },
+          "kitsu": {
+            "id": 53928,
+            "rating": 8.27,
+            "rating_normalized": 83
+          },
+          "manga_updates": {
+            "id": "joxc7wz",
+            "rating": 7.84,
+            "rating_normalized": 78
+          },
+          "my_anime_list": {
+            "id": 114745,
+            "rating": 8.4,
+            "rating_normalized": 84
+          },
+          "shikimori": {
+            "id": 114745,
+            "rating": 8.46,
+            "rating_normalized": 85
+          }
+        }
+      }
+    }
+  }
+}

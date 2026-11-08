@@ -1,0 +1,15 @@
+{
+  "description": "Any call with a wrong API key",
+  "recordedAt": "2026-11-07",
+  "prowlarrVersion": "3.0.0.5737",
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/system/status",
+    "query": []
+  },
+  "response": {
+    "status": 401,
+    "contentType": null,
+    "body": ""
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    // "bun" because the client's types come from the server's source (src/api/router.ts),
+    // which tsc checks along with ours.
+    "types": ["bun", "vite/client"]
+  },
+  "include": ["src", "vite.config.ts"]
+}

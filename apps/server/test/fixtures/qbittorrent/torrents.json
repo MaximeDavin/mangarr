@@ -1,0 +1,263 @@
+{
+  "description": "The torrent list by known and unknown hash and by category, and the file list by known and unknown hash",
+  "recordedAt": "2026-11-07",
+  "qbittorrentVersion": "v5.3.0",
+  "context": {
+    "knownHash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+    "category": "mangarr",
+    "newCategory": "mangarr-recorder-test"
+  },
+  "outcome": {
+    "known": {
+      "ok": [
+        {
+          "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+          "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+          "category": "mangarr",
+          "state": "stalledUP",
+          "progress": 1,
+          "amountLeft": 0,
+          "savePath": "/downloads",
+          "downloadSpeed": 0
+        }
+      ]
+    },
+    "unknown": {
+      "ok": []
+    },
+    "inCategory": {
+      "ok": [
+        {
+          "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+          "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+          "category": "mangarr",
+          "state": "stalledUP",
+          "progress": 1,
+          "amountLeft": 0,
+          "savePath": "/downloads",
+          "downloadSpeed": 0
+        },
+        {
+          "hash": "3511f852e20569a8300c2db2b67b0191c0721ddb",
+          "name": "Berserk - Tome 42.cbz",
+          "category": "mangarr",
+          "state": "stalledUP",
+          "progress": 1,
+          "amountLeft": 0,
+          "savePath": "/downloads",
+          "downloadSpeed": 0
+        },
+        {
+          "hash": "aed29bb05ee0d52a49be2046c9a7cf0749e5a0de",
+          "name": "Berserk T43.cbz",
+          "category": "mangarr",
+          "state": "stalledUP",
+          "progress": 1,
+          "amountLeft": 0,
+          "savePath": "/downloads",
+          "downloadSpeed": 0
+        }
+      ]
+    },
+    "files": {
+      "ok": [
+        {
+          "name": "Berserk v42 (2025) (Digital) (LuCaZ).cbz",
+          "size": 363591801,
+          "progress": 1,
+          "priority": 1
+        }
+      ]
+    },
+    "filesUnknown": {
+      "error": {
+        "kind": "http",
+        "status": 404,
+        "message": "qBittorrent answered 404 to the file list: Not Found"
+      }
+    }
+  },
+  "calls": [
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/auth/login",
+        "query": [],
+        "body": {
+          "username": "REDACTED",
+          "password": "REDACTED"
+        }
+      },
+      "response": {
+        "status": 204,
+        "contentType": null,
+        "setCookie": [
+          "QBT_SID_8081=redacted"
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "stalledUP",
+            "progress": 1,
+            "amount_left": 0,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 8640000,
+            "dlspeed": 0,
+            "num_seeds": 0,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "0123456789abcdef0123456789abcdef01234567"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": []
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "category",
+            "mangarr"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "stalledUP",
+            "progress": 1,
+            "amount_left": 0,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 8640000,
+            "dlspeed": 0,
+            "num_seeds": 0,
+            "num_leechs": 0
+          },
+          {
+            "hash": "3511f852e20569a8300c2db2b67b0191c0721ddb",
+            "name": "Berserk - Tome 42.cbz",
+            "category": "mangarr",
+            "state": "stalledUP",
+            "progress": 1,
+            "amount_left": 0,
+            "size": 205363736,
+            "save_path": "/downloads",
+            "eta": 8640000,
+            "dlspeed": 0,
+            "num_seeds": 0,
+            "num_leechs": 0
+          },
+          {
+            "hash": "aed29bb05ee0d52a49be2046c9a7cf0749e5a0de",
+            "name": "Berserk T43.cbz",
+            "category": "mangarr",
+            "state": "stalledUP",
+            "progress": 1,
+            "amount_left": 0,
+            "size": 153527077,
+            "save_path": "/downloads",
+            "eta": 8640000,
+            "dlspeed": 0,
+            "num_seeds": 0,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/files",
+        "query": [
+          [
+            "hash",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "availability": -1,
+            "index": 0,
+            "is_seed": true,
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ).cbz",
+            "piece_range": [
+              0,
+              1386
+            ],
+            "priority": 1,
+            "progress": 1,
+            "size": 363591801
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/files",
+        "query": [
+          [
+            "hash",
+            "0123456789abcdef0123456789abcdef01234567"
+          ]
+        ]
+      },
+      "response": {
+        "status": 404,
+        "contentType": "text/plain; charset=UTF-8",
+        "body": "Not Found"
+      }
+    }
+  ]
+}

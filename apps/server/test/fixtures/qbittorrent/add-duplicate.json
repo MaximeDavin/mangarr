@@ -1,0 +1,55 @@
+{
+  "description": "Add a magnet for a torrent qBittorrent already has (it changes nothing)",
+  "recordedAt": "2026-11-07",
+  "qbittorrentVersion": "v5.3.0",
+  "context": {
+    "knownHash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+    "category": "mangarr",
+    "newCategory": "mangarr-recorder-test"
+  },
+  "outcome": {
+    "error": {
+      "kind": "http",
+      "status": 409,
+      "message": "qBittorrent already has this torrent"
+    }
+  },
+  "calls": [
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/auth/login",
+        "query": [],
+        "body": {
+          "username": "REDACTED",
+          "password": "REDACTED"
+        }
+      },
+      "response": {
+        "status": 204,
+        "contentType": null,
+        "setCookie": [
+          "QBT_SID_8081=redacted"
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/torrents/add",
+        "query": [],
+        "body": {
+          "urls": "magnet:?xt=urn:btih:8247b1178fd004b08457ef62e851e12b1c85eba3",
+          "category": "mangarr"
+        }
+      },
+      "response": {
+        "status": 409,
+        "contentType": "text/plain; charset=UTF-8",
+        "body": "Conflict"
+      }
+    }
+  ]
+}

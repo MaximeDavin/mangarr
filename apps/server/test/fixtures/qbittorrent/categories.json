@@ -1,0 +1,99 @@
+{
+  "description": "Make sure mangarr's category exists (it does), then a new one (created)",
+  "recordedAt": "2026-11-07",
+  "qbittorrentVersion": "v5.3.0",
+  "context": {
+    "knownHash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+    "category": "mangarr",
+    "newCategory": "mangarr-recorder-test"
+  },
+  "outcome": {
+    "existing": {},
+    "created": {}
+  },
+  "calls": [
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/auth/login",
+        "query": [],
+        "body": {
+          "username": "REDACTED",
+          "password": "REDACTED"
+        }
+      },
+      "response": {
+        "status": 204,
+        "contentType": null,
+        "setCookie": [
+          "QBT_SID_8081=redacted"
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/categories",
+        "query": []
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": {
+          "mangarr": {
+            "download_path": null,
+            "inactive_seeding_time_limit": -2,
+            "name": "mangarr",
+            "ratio_limit": -2,
+            "savePath": "",
+            "seeding_time_limit": -2,
+            "share_limit_action": "Default",
+            "share_limits_mode": "Default"
+          }
+        }
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/categories",
+        "query": []
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": {
+          "mangarr": {
+            "download_path": null,
+            "inactive_seeding_time_limit": -2,
+            "name": "mangarr",
+            "ratio_limit": -2,
+            "savePath": "",
+            "seeding_time_limit": -2,
+            "share_limit_action": "Default",
+            "share_limits_mode": "Default"
+          }
+        }
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/torrents/createCategory",
+        "query": [],
+        "body": {
+          "category": "mangarr-recorder-test",
+          "savePath": ""
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "text/plain; charset=UTF-8"
+      }
+    }
+  ]
+}

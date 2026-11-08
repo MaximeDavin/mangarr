@@ -1,0 +1,1 @@
+ALTER TABLE `series` ADD `scan_warnings` text DEFAULT '[]' NOT NULL;

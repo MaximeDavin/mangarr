@@ -1,0 +1,792 @@
+{
+  "description": "Search \"berserk\" on Nyaa.si, categories 7000",
+  "recordedAt": "2026-11-07",
+  "prowlarrVersion": "3.0.0.5737",
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/search",
+    "query": [
+      [
+        "query",
+        "berserk"
+      ],
+      [
+        "type",
+        "search"
+      ],
+      [
+        "indexerIds",
+        "1"
+      ],
+      [
+        "categories",
+        "7000"
+      ]
+    ]
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "body": [
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3Ac22cd1ce13e9b1750940c335dedf5742dc5d7bdd&dn=Berserk+of+Gluttony+v01-14+%282021-2026%29+%28Digital%29+%28danke-Empire%2C+DigitalMangaFan%2C+Ushi%29&tr=REDACTED",
+        "age": 95,
+        "ageHours": 2294.8329423805276,
+        "ageMinutes": 137689.976542835,
+        "size": 3972844748,
+        "grabs": 1144,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk of Gluttony v01-14 (2021-2026) (Digital) (danke-Empire, DigitalMangaFan, Ushi)",
+        "sortTitle": "berserk gluttony v01 14 2021 2026 digital danke empire digitalmangafan ushi",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-08-03T19:48:00Z",
+        "infoUrl": "https://nyaa.si/view/2141516",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 156719,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v01-14+%282021-2026%29+%28Digital%29+%28danke-Empire%2C+DigitalMangaFan%2C+Ushi%29",
+        "infoHash": "c22cd1ce13e9b1750940c335dedf5742dc5d7bdd",
+        "seeders": 31,
+        "leechers": 4,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony v01-14 (2021-2026) (Digital) (danke-Empire, DigitalMangaFan, Ushi).torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3Ad177c2cae776b45e8dfc1a9e79d3ac44cdfb27e2&dn=Berserk+of+Gluttony+v01-13+%282021-2025%29+%28Digital%29+%28DigitalMangaFan%29&tr=REDACTED",
+        "age": 310,
+        "ageHours": 7458.749609076473,
+        "ageMinutes": 447524.97654459334,
+        "size": 3865470566,
+        "grabs": 1301,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk of Gluttony v01-13 (2021-2025) (Digital) (DigitalMangaFan)",
+        "sortTitle": "berserk gluttony v01 13 2021 2025 digital digitalmangafan",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2025-12-31T15:53:00Z",
+        "infoUrl": "https://nyaa.si/view/2059415",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 156719,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v01-13+%282021-2025%29+%28Digital%29+%28DigitalMangaFan%29",
+        "infoHash": "d177c2cae776b45e8dfc1a9e79d3ac44cdfb27e2",
+        "seeders": 10,
+        "leechers": 2,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony v01-13 (2021-2025) (Digital) (DigitalMangaFan).torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3A74aee934d47c020aa436779adead18e80f8b590d&dn=Berserk+Maximum+01-03+%28Planet+Manga%29+%5Bdigital+Yfe%5D+%28Italian%29&tr=REDACTED",
+        "age": 592,
+        "ageHours": 14222.016275755528,
+        "ageMinutes": 853320.976545335,
+        "size": 1003801804,
+        "grabs": 156,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk Maximum 01-03 (Planet Manga) [digital Yfe] (Italian)",
+        "sortTitle": "berserk maximum 01 03 planet manga digital yfe italian",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2025-03-24T20:37:00Z",
+        "infoUrl": "https://nyaa.si/view/1951891",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 111160,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+Maximum+01-03+%28Planet+Manga%29+%5Bdigital+Yfe%5D+%28Italian%29",
+        "infoHash": "74aee934d47c020aa436779adead18e80f8b590d",
+        "seeders": 1,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk Maximum 01-03 (Planet Manga) [digital Yfe] (Italian).torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3A8247b1178fd004b08457ef62e851e12b1c85eba3&dn=Berserk+v42+%282025%29+%28Digital%29+%28LuCaZ%29&tr=REDACTED",
+        "age": 599,
+        "ageHours": 14397.132942432,
+        "ageMinutes": 863827.9765459216,
+        "size": 363541299,
+        "grabs": 12724,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk v42 (2025) (Digital) (LuCaZ)",
+        "sortTitle": "berserk v42 2025 digital lucaz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2025-03-17T13:30:00Z",
+        "infoUrl": "https://nyaa.si/view/1949016",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 156719,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+v42+%282025%29+%28Digital%29+%28LuCaZ%29",
+        "infoHash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+        "seeders": 110,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk v42 (2025) (Digital) (LuCaZ).torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3Ad71e641ab7a260e01316a267f9c97473b39c6046&dn=Berserk+of+Gluttony+v08+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+        "age": 615,
+        "ageHours": 14765.066275774112,
+        "ageMinutes": 885903.97654645,
+        "size": 395942297,
+        "grabs": 547,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk of Gluttony v08 [Audiobook] [Seven Seas Siren] [Stick]",
+        "sortTitle": "berserk gluttony v08 audiobook seven seas siren stick",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2025-03-02T05:34:00Z",
+        "infoUrl": "https://nyaa.si/view/1942736",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 156719,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v08+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+        "infoHash": "d71e641ab7a260e01316a267f9c97473b39c6046",
+        "seeders": 3,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony v08 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3Aa8c33945c1a5cd9d7e4bfdb34f1329b1d4c522aa&dn=Berserk+of+Gluttony+v07+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+        "age": 646,
+        "ageHours": 15514.21627578361,
+        "ageMinutes": 930852.97654702,
+        "size": 339948339,
+        "grabs": 574,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk of Gluttony v07 [Audiobook] [Seven Seas Siren] [Stick]",
+        "sortTitle": "berserk gluttony v07 audiobook seven seas siren stick",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2025-01-30T00:25:00Z",
+        "infoUrl": "https://nyaa.si/view/1928351",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 156719,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v07+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+        "infoHash": "a8c33945c1a5cd9d7e4bfdb34f1329b1d4c522aa",
+        "seeders": 3,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony v07 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3A57c4df7e40d9567b34649517450deb97d1fb517b&dn=Berserk+of+Gluttony+v06+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+        "age": 664,
+        "ageHours": 15939.68294245925,
+        "ageMinutes": 956380.9765475583,
+        "size": 320235110,
+        "grabs": 601,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk of Gluttony v06 [Audiobook] [Seven Seas Siren] [Stick]",
+        "sortTitle": "berserk gluttony v06 audiobook seven seas siren stick",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2025-01-12T06:57:00Z",
+        "infoUrl": "https://nyaa.si/view/1920605",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 156719,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v06+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+        "infoHash": "57c4df7e40d9567b34649517450deb97d1fb517b",
+        "seeders": 3,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony v06 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3A1e641d688f83b273734003d6a8bef3b84bb25b2a&dn=Berserk+of+Gluttony+v05+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+        "age": 692,
+        "ageHours": 16617.532942468166,
+        "ageMinutes": 997051.9765480934,
+        "size": 386400256,
+        "grabs": 639,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk of Gluttony v05 [Audiobook] [Seven Seas Siren] [Stick]",
+        "sortTitle": "berserk gluttony v05 audiobook seven seas siren stick",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2024-12-15T01:06:00Z",
+        "infoUrl": "https://nyaa.si/view/1911806",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 156719,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v05+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+        "infoHash": "1e641d688f83b273734003d6a8bef3b84bb25b2a",
+        "seeders": 5,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony v05 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3A3b95717201664c10a427c742761093a8627c5468&dn=Berserk+of+Gluttony+v04+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+        "age": 709,
+        "ageHours": 17023.916275810054,
+        "ageMinutes": 1021434.976548605,
+        "size": 356410982,
+        "grabs": 631,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk of Gluttony v04 [Audiobook] [Seven Seas Siren] [Stick]",
+        "sortTitle": "berserk gluttony v04 audiobook seven seas siren stick",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2024-11-28T02:43:00Z",
+        "infoUrl": "https://nyaa.si/view/1905028",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 156719,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v04+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+        "infoHash": "3b95717201664c10a427c742761093a8627c5468",
+        "seeders": 5,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony v04 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3A0a0fd93ba4590048ebd830c3f7127815f40600d6&dn=Berserk+of+Gluttony+v03+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+        "age": 718,
+        "ageHours": 17239.532942485526,
+        "ageMinutes": 1034371.976549135,
+        "size": 433586176,
+        "grabs": 621,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk of Gluttony v03 [Audiobook] [Seven Seas Siren] [Stick]",
+        "sortTitle": "berserk gluttony v03 audiobook seven seas siren stick",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2024-11-19T03:06:00Z",
+        "infoUrl": "https://nyaa.si/view/1901379",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 156719,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v03+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+        "infoHash": "0a0fd93ba4590048ebd830c3f7127815f40600d6",
+        "seeders": 6,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony v03 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+      },
+      {
+        "guid": "magnet:?xt=urn%3Abtih%3A19c9a1d45f209d84eee602a0bcc2b1f3bdda291a&dn=Berserk+-+377+Arabic.cbz&tr=REDACTED",
+        "age": 735,
+        "ageHours": 17661.44960916075,
+        "ageMinutes": 1059686.9765496466,
+        "size": 113351065,
+        "grabs": 66,
+        "indexerId": 1,
+        "indexer": "Nyaa.si",
+        "title": "Berserk - 377 Arabic.cbz",
+        "sortTitle": "berserk 377 arabic cbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2024-11-01T13:11:00Z",
+        "infoUrl": "https://nyaa.si/view/1893756",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 111160,
+            "subCategories": []
+          }
+        ],
+        "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+-+377+Arabic.cbz",
+        "infoHash": "19c9a1d45f209d84eee602a0bcc2b1f3bdda291a",
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk - 377 Arabic.cbz.torrent"
+      }
+    ]
+  }
+}

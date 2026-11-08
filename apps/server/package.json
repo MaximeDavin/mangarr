@@ -1,0 +1,39 @@
+{
+  "name": "@mangarr/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./router": "./src/api/router.ts",
+    "./password-rules": "./src/password-rules.ts"
+  },
+  "scripts": {
+    "dev": "bun --watch src/main.ts",
+    "start": "bun src/main.ts",
+    "test": "bun test",
+    "prowlarr:search": "bun scripts/prowlarr-search.ts",
+    "try:run": "bun scripts/try-run.ts",
+    "prowlarr:record": "bun scripts/record-prowlarr.ts",
+    "mangabaka:record": "bun scripts/record-mangabaka.ts",
+    "qbittorrent:record": "bun scripts/record-qbittorrent.ts",
+    "komga:record": "bun scripts/record-komga.ts",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "auth:reset": "bun scripts/reset-auth.ts"
+  },
+  "dependencies": {
+    "@mangarr/release-parser": "workspace:*",
+    "@orpc/json-schema": "1.16.1",
+    "@orpc/openapi": "1.16.1",
+    "@orpc/server": "1.16.1",
+    "@orpc/zod": "1.16.1",
+    "drizzle-orm": "1.0.0-rc.5",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@orpc/client": "1.16.1",
+    "@types/bun": "1.4.4",
+    "drizzle-kit": "1.0.0-rc.5",
+    "typescript": "7.0.2"
+  }
+}

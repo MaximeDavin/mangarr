@@ -1,0 +1,709 @@
+{
+  "description": "GET /indexer; each indexer's settings reduced to field names",
+  "recordedAt": "2026-11-07",
+  "prowlarrVersion": "3.0.0.5737",
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/indexer",
+    "query": []
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "body": [
+      {
+        "indexerUrls": [
+          "https://nyaa.si/",
+          "https://nyaa.iss.ink/",
+          "https://nyaa.land/",
+          "https://nyaa.mom/",
+          "https://nyaa.media/"
+        ],
+        "legacyUrls": [
+          "https://nyaa.black-mirror.xyz/",
+          "https://nyaa.unblocked.casa/",
+          "https://nyaa.proxyportal.fun/",
+          "https://nyaa.uk-unblock.xyz/",
+          "https://nyaa.ind-unblock.xyz/",
+          "https://nyaa.unblocked.bar/",
+          "https://nyaa.proxyportal.pw/",
+          "https://nyaa.uk-unblock.pro/",
+          "https://nyaa.root.yt/",
+          "https://nyaa.lol/",
+          "https://nyaa.mrunblock.bond/",
+          "https://nyaa.nocensor.cloud/",
+          "https://nyaa.unblockninja.com/"
+        ],
+        "definitionName": "nyaasi",
+        "description": "Nyaa is a Public torrent site focused on Eastern ASIAN media including anime, manga, literature and music",
+        "language": "en-US",
+        "encoding": "Unicode (UTF-8)",
+        "enable": true,
+        "redirect": false,
+        "supportsRss": true,
+        "supportsSearch": true,
+        "supportsRedirect": false,
+        "supportsPagination": false,
+        "appProfileId": 1,
+        "protocol": "torrent",
+        "privacy": "public",
+        "capabilities": {
+          "limitsMax": 100,
+          "limitsDefault": 100,
+          "categories": [
+            {
+              "id": 5000,
+              "name": "TV",
+              "subCategories": [
+                {
+                  "id": 5070,
+                  "name": "TV/Anime",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 140679,
+              "name": "Anime",
+              "subCategories": []
+            },
+            {
+              "id": 125996,
+              "name": "Anime - Anime Music Video",
+              "subCategories": []
+            },
+            {
+              "id": 127720,
+              "name": "Anime - English-translated",
+              "subCategories": []
+            },
+            {
+              "id": 131088,
+              "name": "Anime - Non-English-translated",
+              "subCategories": []
+            },
+            {
+              "id": 134634,
+              "name": "Anime - Raw",
+              "subCategories": []
+            },
+            {
+              "id": 2000,
+              "name": "Movies",
+              "subCategories": [
+                {
+                  "id": 2020,
+                  "name": "Movies/Other",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 140679,
+              "name": "Anime",
+              "subCategories": []
+            },
+            {
+              "id": 125996,
+              "name": "Anime - Anime Music Video",
+              "subCategories": []
+            },
+            {
+              "id": 127720,
+              "name": "Anime - English-translated",
+              "subCategories": []
+            },
+            {
+              "id": 131088,
+              "name": "Anime - Non-English-translated",
+              "subCategories": []
+            },
+            {
+              "id": 134634,
+              "name": "Anime - Raw",
+              "subCategories": []
+            },
+            {
+              "id": 3000,
+              "name": "Audio",
+              "subCategories": []
+            },
+            {
+              "id": 145414,
+              "name": "Audio",
+              "subCategories": []
+            },
+            {
+              "id": 118685,
+              "name": "Audio - Lossless",
+              "subCategories": []
+            },
+            {
+              "id": 155285,
+              "name": "Audio - Lossy",
+              "subCategories": []
+            },
+            {
+              "id": 7000,
+              "name": "Books",
+              "subCategories": []
+            },
+            {
+              "id": 100920,
+              "name": "Literature",
+              "subCategories": []
+            },
+            {
+              "id": 156719,
+              "name": "Literature  English-translated",
+              "subCategories": []
+            },
+            {
+              "id": 111160,
+              "name": "Literature - Non-English-translated",
+              "subCategories": []
+            },
+            {
+              "id": 117084,
+              "name": "Literature - Raw",
+              "subCategories": []
+            },
+            {
+              "id": 129933,
+              "name": "Live Action",
+              "subCategories": []
+            },
+            {
+              "id": 101340,
+              "name": "Live Action - English-translated",
+              "subCategories": []
+            },
+            {
+              "id": 150332,
+              "name": "Live Action - Idol/Promotional Video",
+              "subCategories": []
+            },
+            {
+              "id": 150562,
+              "name": "Live Action - Non-English-translated",
+              "subCategories": []
+            },
+            {
+              "id": 150452,
+              "name": "Live Action - Raw",
+              "subCategories": []
+            },
+            {
+              "id": 8000,
+              "name": "Other",
+              "subCategories": []
+            },
+            {
+              "id": 134686,
+              "name": "Pictures",
+              "subCategories": []
+            },
+            {
+              "id": 131360,
+              "name": "Pictures - Graphics",
+              "subCategories": []
+            },
+            {
+              "id": 109829,
+              "name": "Pictures - Photos",
+              "subCategories": []
+            },
+            {
+              "id": 4000,
+              "name": "PC",
+              "subCategories": [
+                {
+                  "id": 4020,
+                  "name": "PC/ISO",
+                  "subCategories": []
+                },
+                {
+                  "id": 4050,
+                  "name": "PC/Games",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 117318,
+              "name": "Software",
+              "subCategories": []
+            },
+            {
+              "id": 130420,
+              "name": "Software - Applications",
+              "subCategories": []
+            },
+            {
+              "id": 103955,
+              "name": "Software - Games",
+              "subCategories": []
+            }
+          ],
+          "supportsRawSearch": true,
+          "searchParams": [
+            "q",
+            "q"
+          ],
+          "tvSearchParams": [
+            "q",
+            "season",
+            "ep"
+          ],
+          "movieSearchParams": [
+            "q"
+          ],
+          "musicSearchParams": [
+            "q"
+          ],
+          "bookSearchParams": [
+            "q"
+          ]
+        },
+        "priority": 25,
+        "downloadClientId": 0,
+        "added": "2026-11-07T10:03:44Z",
+        "sortName": "nyaa si",
+        "name": "Nyaa.si",
+        "fields": [
+          {
+            "name": "definitionFile"
+          },
+          {
+            "name": "baseUrl"
+          },
+          {
+            "name": "baseSettings.queryLimit"
+          },
+          {
+            "name": "baseSettings.grabLimit"
+          },
+          {
+            "name": "baseSettings.limitsUnit"
+          },
+          {
+            "name": "torrentBaseSettings.appMinimumSeeders"
+          },
+          {
+            "name": "torrentBaseSettings.seedRatio"
+          },
+          {
+            "name": "torrentBaseSettings.seedTime"
+          },
+          {
+            "name": "torrentBaseSettings.packSeedTime"
+          },
+          {
+            "name": "torrentBaseSettings.preferMagnetUrl"
+          },
+          {
+            "name": "prefer_magnet_links"
+          },
+          {
+            "name": "sonarr_compatibility"
+          },
+          {
+            "name": "strip_s01"
+          },
+          {
+            "name": "radarr_compatibility"
+          },
+          {
+            "name": "filter-id"
+          },
+          {
+            "name": "cat-id"
+          },
+          {
+            "name": "sort"
+          },
+          {
+            "name": "type"
+          }
+        ],
+        "implementationName": "Cardigann",
+        "implementation": "Cardigann",
+        "configContract": "CardigannSettings",
+        "infoLink": "https://wiki.servarr.com/prowlarr/redacted-34a2d725ba64#nyaasi",
+        "tags": [],
+        "id": 1
+      },
+      {
+        "indexerUrls": [
+          "https://private-tracker-2.invalid/"
+        ],
+        "legacyUrls": [],
+        "definitionName": "private-tracker-2",
+        "description": "Private Tracker 2 is a FRENCH Semi-Private Torrent Tracker for MOVIES / TV / GENERAL",
+        "language": "fr-FR",
+        "encoding": "Unicode (UTF-8)",
+        "enable": true,
+        "redirect": false,
+        "supportsRss": true,
+        "supportsSearch": true,
+        "supportsRedirect": false,
+        "supportsPagination": false,
+        "appProfileId": 1,
+        "protocol": "torrent",
+        "privacy": "semiPrivate",
+        "capabilities": {
+          "limitsMax": 100,
+          "limitsDefault": 100,
+          "categories": [
+            {
+              "id": 1000,
+              "name": "Console",
+              "subCategories": [
+                {
+                  "id": 1040,
+                  "name": "Console/XBox",
+                  "subCategories": []
+                },
+                {
+                  "id": 1030,
+                  "name": "Console/Wii",
+                  "subCategories": []
+                },
+                {
+                  "id": 1180,
+                  "name": "Console/PS4",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 101000,
+              "name": "PC Games",
+              "subCategories": []
+            },
+            {
+              "id": 101010,
+              "name": "Xbox",
+              "subCategories": []
+            },
+            {
+              "id": 101020,
+              "name": "Nintendo",
+              "subCategories": []
+            },
+            {
+              "id": 101030,
+              "name": "PlayStation",
+              "subCategories": []
+            },
+            {
+              "id": 2000,
+              "name": "Movies",
+              "subCategories": [
+                {
+                  "id": 2010,
+                  "name": "Movies/Foreign",
+                  "subCategories": []
+                },
+                {
+                  "id": 2040,
+                  "name": "Movies/HD",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 102000,
+              "name": "Movies",
+              "subCategories": []
+            },
+            {
+              "id": 102010,
+              "name": "Films Foreign",
+              "subCategories": []
+            },
+            {
+              "id": 102040,
+              "name": "Movies/HD",
+              "subCategories": []
+            },
+            {
+              "id": 3000,
+              "name": "Audio",
+              "subCategories": [
+                {
+                  "id": 3010,
+                  "name": "Audio/MP3",
+                  "subCategories": []
+                },
+                {
+                  "id": 3030,
+                  "name": "Audio/Audiobook",
+                  "subCategories": []
+                },
+                {
+                  "id": 3040,
+                  "name": "Audio/Lossless",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 103000,
+              "name": "Audio",
+              "subCategories": []
+            },
+            {
+              "id": 103010,
+              "name": "Audio/MP3",
+              "subCategories": []
+            },
+            {
+              "id": 103030,
+              "name": "iobook",
+              "subCategories": []
+            },
+            {
+              "id": 103040,
+              "name": "Audio/Lossless",
+              "subCategories": []
+            },
+            {
+              "id": 4000,
+              "name": "PC",
+              "subCategories": [
+                {
+                  "id": 4010,
+                  "name": "PC/0day",
+                  "subCategories": []
+                },
+                {
+                  "id": 4030,
+                  "name": "PC/Mac",
+                  "subCategories": []
+                },
+                {
+                  "id": 4070,
+                  "name": "PC/Mobile-Android",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 104000,
+              "name": "PC",
+              "subCategories": []
+            },
+            {
+              "id": 104030,
+              "name": "PC/Mac",
+              "subCategories": []
+            },
+            {
+              "id": 104070,
+              "name": "PC/Android",
+              "subCategories": []
+            },
+            {
+              "id": 5000,
+              "name": "TV",
+              "subCategories": [
+                {
+                  "id": 5040,
+                  "name": "TV/HD",
+                  "subCategories": []
+                },
+                {
+                  "id": 5060,
+                  "name": "TV/Sport",
+                  "subCategories": []
+                },
+                {
+                  "id": 5070,
+                  "name": "TV/Anime",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 105000,
+              "name": "TV",
+              "subCategories": []
+            },
+            {
+              "id": 105040,
+              "name": "TV/HD",
+              "subCategories": []
+            },
+            {
+              "id": 105060,
+              "name": "TV/Sport",
+              "subCategories": []
+            },
+            {
+              "id": 105070,
+              "name": "TV/Anime",
+              "subCategories": []
+            },
+            {
+              "id": 6000,
+              "name": "XXX",
+              "subCategories": []
+            },
+            {
+              "id": 106000,
+              "name": "XXX",
+              "subCategories": []
+            },
+            {
+              "id": 7000,
+              "name": "Books",
+              "subCategories": [
+                {
+                  "id": 7010,
+                  "name": "Books/Mags",
+                  "subCategories": []
+                },
+                {
+                  "id": 7020,
+                  "name": "Books/EBook",
+                  "subCategories": []
+                },
+                {
+                  "id": 7030,
+                  "name": "Books/Comics",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 107000,
+              "name": "Books",
+              "subCategories": []
+            },
+            {
+              "id": 107010,
+              "name": "Books/Mags",
+              "subCategories": []
+            },
+            {
+              "id": 107020,
+              "name": "Books/eBook",
+              "subCategories": []
+            },
+            {
+              "id": 107030,
+              "name": "Books/Comics",
+              "subCategories": []
+            },
+            {
+              "id": 8000,
+              "name": "Other",
+              "subCategories": [
+                {
+                  "id": 8010,
+                  "name": "Other/Misc",
+                  "subCategories": []
+                }
+              ]
+            },
+            {
+              "id": 108000,
+              "name": "Other",
+              "subCategories": []
+            },
+            {
+              "id": 108010,
+              "name": "Other/Misc",
+              "subCategories": []
+            }
+          ],
+          "supportsRawSearch": true,
+          "searchParams": [
+            "q",
+            "q"
+          ],
+          "tvSearchParams": [
+            "q",
+            "season",
+            "ep",
+            "imdbId",
+            "tvdbId"
+          ],
+          "movieSearchParams": [
+            "q",
+            "imdbId",
+            "tmdbId"
+          ],
+          "musicSearchParams": [
+            "q"
+          ],
+          "bookSearchParams": [
+            "q"
+          ]
+        },
+        "priority": 26,
+        "downloadClientId": 0,
+        "added": "2026-11-07T10:03:44Z",
+        "sortName": "private-tracker-2",
+        "name": "Private Tracker 2",
+        "fields": [
+          {
+            "name": "definitionFile"
+          },
+          {
+            "name": "baseUrl"
+          },
+          {
+            "name": "baseSettings.queryLimit"
+          },
+          {
+            "name": "baseSettings.grabLimit"
+          },
+          {
+            "name": "baseSettings.limitsUnit"
+          },
+          {
+            "name": "torrentBaseSettings.appMinimumSeeders"
+          },
+          {
+            "name": "torrentBaseSettings.seedRatio"
+          },
+          {
+            "name": "torrentBaseSettings.seedTime"
+          },
+          {
+            "name": "torrentBaseSettings.packSeedTime"
+          },
+          {
+            "name": "torrentBaseSettings.preferMagnetUrl"
+          },
+          {
+            "name": "apikey"
+          },
+          {
+            "name": "info_key"
+          },
+          {
+            "name": "multilang"
+          },
+          {
+            "name": "multilanguage"
+          },
+          {
+            "name": "vostfr"
+          },
+          {
+            "name": "info_3x"
+          }
+        ],
+        "implementationName": "Cardigann",
+        "implementation": "Cardigann",
+        "configContract": "CardigannSettings",
+        "infoLink": "https://wiki.servarr.com/prowlarr/redacted-34a2d725ba64#private-tracker-2",
+        "tags": [],
+        "id": 2
+      }
+    ]
+  }
+}

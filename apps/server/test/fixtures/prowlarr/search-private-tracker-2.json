@@ -1,0 +1,2538 @@
+{
+  "description": "Search \"berserk\" on Private Tracker 2, categories 7000",
+  "recordedAt": "2026-11-07",
+  "prowlarrVersion": "3.0.0.5737",
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/search",
+    "query": [
+      [
+        "query",
+        "berserk"
+      ],
+      [
+        "type",
+        "search"
+      ],
+      [
+        "indexerIds",
+        "2"
+      ],
+      [
+        "categories",
+        "7000"
+      ]
+    ]
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "body": [
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-b44179872eaa/download?apikey=REDACTED",
+        "age": 160,
+        "ageHours": 3851.907402637083,
+        "ageMinutes": 231114.44415823166,
+        "size": 205363736,
+        "grabs": 78,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk - Tome 42.cbz",
+        "sortTitle": "berserk tome 42 cbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-05-30T22:43:42Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+-+Tome+42.cbz",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-b44179872eaa",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 19,
+        "leechers": 19,
+        "protocol": "torrent",
+        "fileName": "Berserk - Tome 42.cbz.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-45a306007a63/download?apikey=REDACTED",
+        "age": 160,
+        "ageHours": 3851.9074026778335,
+        "ageMinutes": 231114.44416067834,
+        "size": 8446768152,
+        "grabs": 120,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk",
+        "sortTitle": "berserk",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-05-30T22:43:42Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-45a306007a63",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 15,
+        "leechers": 15,
+        "protocol": "torrent",
+        "fileName": "Berserk.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-1cda4a520129/download?apikey=REDACTED",
+        "age": 160,
+        "ageHours": 3851.9074026941666,
+        "ageMinutes": 231114.44416165666,
+        "size": 17931053751,
+        "grabs": 173,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk_FR_01-42",
+        "sortTitle": "berserk fr 01 42",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-05-30T22:43:42Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk_FR_01-42",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-1cda4a520129",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 22,
+        "leechers": 25,
+        "protocol": "torrent",
+        "fileName": "Berserk_FR_01-42.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-58f3c2d258a1/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9207360410833,
+        "ageMinutes": 226615.24416247167,
+        "size": 142190083,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T41 - Ebook Officiel - CBZ",
+        "sortTitle": "berserk t41 ebook officiel cbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:54Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T41+-+Ebook+Officiel+-+CBZ",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-58f3c2d258a1",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 1,
+        "leechers": 5,
+        "protocol": "torrent",
+        "fileName": "Berserk T41 - Ebook Officiel - CBZ.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-51aa3165b9df/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.920736054361,
+        "ageMinutes": 226615.24416326667,
+        "size": 235335418,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T41 Pdf - CLC",
+        "sortTitle": "berserk t41 pdf clc",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:54Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T41+Pdf+-+CLC",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-51aa3165b9df",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T41 Pdf - CLC.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-432d9690aff9/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.920736067417,
+        "ageMinutes": 226615.24416405,
+        "size": 4978900420,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T01 à T41 Kentaro Miura [MOBI] Fr",
+        "sortTitle": "berserk t01 à t41 kentaro miura mobi fr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:54Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T01+%C3%A0+T41+Kentaro+Miura+%5BMOBI%5D+Fr",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-432d9690aff9",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T01 à T41 Kentaro Miura [MOBI] Fr.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-41b8b101fde6/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.920736085639,
+        "ageMinutes": 226615.24416514335,
+        "size": 18301434481,
+        "grabs": 108,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk (01-41+) (Miura) (2004) [Digital-1920] (PRiNTER-PapriKa+)",
+        "sortTitle": "berserk 01 41 miura 2004 digital 1920 printer paprika",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:54Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+%2801-41%2B%29+%28Miura%29+%282004%29+%5BDigital-1920%5D+%28PRiNTER-PapriKa%2B%29",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-41b8b101fde6",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 20,
+        "leechers": 20,
+        "protocol": "torrent",
+        "fileName": "Berserk (01-41+) (Miura) (2004) [Digital-1920] (PRiNTER-PapriKa+).torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-d693d2b8ec11/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9207361011668,
+        "ageMinutes": 226615.244166075,
+        "size": 142190083,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T41 Cbr ebook officiel",
+        "sortTitle": "berserk t41 cbr ebook officiel",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:54Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T41+Cbr+ebook+officiel",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-d693d2b8ec11",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T41 Cbr ebook officiel.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-e0dea7267bc1/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9207361140557,
+        "ageMinutes": 226615.24416684834,
+        "size": 5851943810,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T01 à T41 Kentaro Miura [AZW3] Fr",
+        "sortTitle": "berserk t01 à t41 kentaro miura azw3 fr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:54Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T01+%C3%A0+T41+Kentaro+Miura+%5BAZW3%5D+Fr",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-e0dea7267bc1",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T01 à T41 Kentaro Miura [AZW3] Fr.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-10074fb446a9/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.922125019333,
+        "ageMinutes": 226615.327501165,
+        "size": 2018241184,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T01 - T12 [ PDF - eBooks officiels ]",
+        "sortTitle": "berserk t01 t12 pdf ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:49Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T01+-+T12+%5B+PDF+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-10074fb446a9",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T01 - T12 [ PDF - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-88948cf56c71/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.922125036639,
+        "ageMinutes": 226615.327502205,
+        "size": 10760922806,
+        "grabs": 28,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk (01-40) (Miura) (2004) [Digital-1699] (PapriKa+) [CBZ] [Ebooks Officiels]",
+        "sortTitle": "berserk 01 40 miura 2004 digital 1699 paprika cbz ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:49Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+%2801-40%29+%28Miura%29+%282004%29+%5BDigital-1699%5D+%28PapriKa%2B%29+%5BCBZ%5D+%5BEbooks+Officiels%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-88948cf56c71",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 8,
+        "leechers": 8,
+        "protocol": "torrent",
+        "fileName": "Berserk (01-40) (Miura) (2004) [Digital-1699] (PapriKa+) [CBZ] [Ebooks Officiels].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-a8e497bab09a/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9226806085,
+        "ageMinutes": 226615.360836515,
+        "size": 162179773,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk Official Guidebook (Miura) [eBook officiel-1619] - CBR - Fr",
+        "sortTitle": "berserk official guidebook miura ebook officiel 1619 cbr fr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:47Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+Official+Guidebook+%28Miura%29+%5BeBook+officiel-1619%5D+-+CBR+-+Fr",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-a8e497bab09a",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 1,
+        "leechers": 3,
+        "protocol": "torrent",
+        "fileName": "Berserk Official Guidebook (Miura) [eBook officiel-1619] - CBR - Fr.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-1ed4fa7220bf/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.923236177917,
+        "ageMinutes": 226615.39417067834,
+        "size": 3986053116,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk  T01 à T40 - MIURA Kentarô (PDF & CBZ) Fr",
+        "sortTitle": "berserk t01 à t40 miura kentarô pdf cbz fr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:45Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk++T01+%C3%A0+T40+-+MIURA+Kentar%C3%B4+%28PDF+%26+CBZ%29+Fr",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-1ed4fa7220bf",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 1,
+        "protocol": "torrent",
+        "fileName": "Berserk  T01 à T40 - MIURA Kentarô (PDF & CBZ) Fr.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-a6543dc5043f/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.923236195861,
+        "ageMinutes": 226615.39417175666,
+        "size": 116736183,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T40 [Scantrad][FR][CBZ]",
+        "sortTitle": "berserk t40 scantradfrcbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:45Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T40+%5BScantrad%5D%5BFR%5D%5BCBZ%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-a6543dc5043f",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T40 [Scantrad][FR][CBZ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-b8361229cea6/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9232362095277,
+        "ageMinutes": 226615.39417257666,
+        "size": 3435896,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk - Lost Chapter 083 -  1990 [JPG]",
+        "sortTitle": "berserk lost chapter 083 1990 jpg",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:45Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+-+Lost+Chapter+083+-++1990+%5BJPG%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-b8361229cea6",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 1,
+        "leechers": 4,
+        "protocol": "torrent",
+        "fileName": "Berserk - Lost Chapter 083 -  1990 [JPG].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-ceee074f63f6/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.923791778,
+        "ageMinutes": 226615.427506685,
+        "size": 594714058,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T33 - T35 [ CBZ - eBooks officiels ]",
+        "sortTitle": "berserk t33 t35 cbz ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T33+-+T35+%5B+CBZ+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-ceee074f63f6",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T33 - T35 [ CBZ - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-e52d95fb1d3e/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.923791791278,
+        "ageMinutes": 226615.42750748165,
+        "size": 141158806,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T36 - T38 [ CBZ - eBooks officiels ]",
+        "sortTitle": "berserk t36 t38 cbz ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T36+-+T38+%5B+CBZ+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-e52d95fb1d3e",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T36 - T38 [ CBZ - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-066ca7104862/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9237918047224,
+        "ageMinutes": 226615.42750828833,
+        "size": 170156838,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T33 - T35 [ PDF - eBooks officiels ]",
+        "sortTitle": "berserk t33 t35 pdf ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T33+-+T35+%5B+PDF+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-066ca7104862",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T33 - T35 [ PDF - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-67944ccb718f/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9237918176946,
+        "ageMinutes": 226615.42750906668,
+        "size": 145402309,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T24 - T26 [ PDF - eBooks officiels ]",
+        "sortTitle": "berserk t24 t26 pdf ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T24+-+T26+%5B+PDF+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-67944ccb718f",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T24 - T26 [ PDF - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-bbb391b8f929/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9237918306667,
+        "ageMinutes": 226615.427509845,
+        "size": 19436973859,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk v01-38 (2003-2017) (Digital) (danke-Empire) ANGLAIS .CBZ",
+        "sortTitle": "berserk v01 38 2003 2017 digital danke empire anglais cbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+v01-38+%282003-2017%29+%28Digital%29+%28danke-Empire%29+ANGLAIS+.CBZ",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-bbb391b8f929",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk v01-38 (2003-2017) (Digital) (danke-Empire) ANGLAIS .CBZ.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-8aed00c48dde/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9237918442777,
+        "ageMinutes": 226615.42751066166,
+        "size": 147202368,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T27 - T29 [ PDF - eBooks officiels ]",
+        "sortTitle": "berserk t27 t29 pdf ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T27+-+T29+%5B+PDF+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-8aed00c48dde",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T27 - T29 [ PDF - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-b9fa01b9f108/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9237918569443,
+        "ageMinutes": 226615.42751142167,
+        "size": 163967919,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T39 [ CBZ - eBook officiel ]",
+        "sortTitle": "berserk t39 cbz ebook officiel",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T39+%5B+CBZ+-+eBook+officiel+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-b9fa01b9f108",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T39 [ CBZ - eBook officiel ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-c4a81ba290cd/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9237918696113,
+        "ageMinutes": 226615.42751218166,
+        "size": 2437768137,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk tome 1 à 37",
+        "sortTitle": "berserk tome 1 à 37",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+tome+1+%C3%A0+37",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-c4a81ba290cd",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk tome 1 à 37.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-077018f615af/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9237918842223,
+        "ageMinutes": 226615.42751305833,
+        "size": 145781121,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T30 - T32 [ PDF - eBooks officiels ]",
+        "sortTitle": "berserk t30 t32 pdf ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T30+-+T32+%5B+PDF+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-077018f615af",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T30 - T32 [ PDF - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-72fb68df4437/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.923791897667,
+        "ageMinutes": 226615.427513865,
+        "size": 8335624970,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk (01-39) (Miura) [Digital] [CBZ]",
+        "sortTitle": "berserk 01 39 miura digital cbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+%2801-39%29+%28Miura%29+%5BDigital%5D+%5BCBZ%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-72fb68df4437",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk (01-39) (Miura) [Digital] [CBZ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-62246a3c27cd/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.924903022,
+        "ageMinutes": 226615.494181325,
+        "size": 779858738,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk of Gluttony Tome 1-12 [CBZ FR] [ebook officiel]",
+        "sortTitle": "berserk gluttony tome 1 12 cbz fr ebook officiel",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:39Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+Tome+1-12+%5BCBZ+FR%5D+%5Bebook+officiel%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-62246a3c27cd",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 1,
+        "leechers": 1,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony Tome 1-12 [CBZ FR] [ebook officiel].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-db66d82daade/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9249030357223,
+        "ageMinutes": 226615.49418214834,
+        "size": 159637788,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T18 - T20 [ PDF - eBooks officiels ]",
+        "sortTitle": "berserk t18 t20 pdf ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:39Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T18+-+T20+%5B+PDF+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-db66d82daade",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T18 - T20 [ PDF - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-2913552ae5ee/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9249030481665,
+        "ageMinutes": 226615.494182895,
+        "size": 151992337,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T21 - T23 [ PDF - eBooks officiels ]",
+        "sortTitle": "berserk t21 t23 pdf ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:39Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T21+-+T23+%5B+PDF+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-2913552ae5ee",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T21 - T23 [ PDF - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-e7c0d6c0fe2e/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.924903061,
+        "ageMinutes": 226615.494183665,
+        "size": 2654015817,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk | T01 - T39 | Fr | CBR | Scantrads",
+        "sortTitle": "berserk t01 t39 fr cbr scantrads",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:39Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+%7C+T01+-+T39+%7C+Fr+%7C+CBR+%7C+Scantrads",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-e7c0d6c0fe2e",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 2,
+        "leechers": 5,
+        "protocol": "torrent",
+        "fileName": "Berserk | T01 - T39 | Fr | CBR | Scantrads.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-2a103dd3ae5f/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9254586293055,
+        "ageMinutes": 226615.52751776334,
+        "size": 153527077,
+        "grabs": 33,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk - T43 [Scantrad] [CBZ] [FR]",
+        "sortTitle": "berserk t43 scantrad cbz fr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:37Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+-+T43+%5BScantrad%5D+%5BCBZ%5D+%5BFR%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-2a103dd3ae5f",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 10,
+        "leechers": 10,
+        "protocol": "torrent",
+        "fileName": "Berserk - T43 [Scantrad] [CBZ] [FR].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-39c2ee924835/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.925736420028,
+        "ageMinutes": 226615.54418520667,
+        "size": 161362852,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T15 - T17 [ PDF - eBooks officiels ]",
+        "sortTitle": "berserk t15 t17 pdf ebooks officiels",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:36Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T15+-+T17+%5B+PDF+-+eBooks+officiels+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-39c2ee924835",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T15 - T17 [ PDF - eBooks officiels ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-5d824f3509f1/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9257364326945,
+        "ageMinutes": 226615.54418596832,
+        "size": 1857143267,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk (39-41+) (Miura) (2018) [Digital-3840] (TONER-PapriKa+) [CBZ]",
+        "sortTitle": "berserk 39 41 miura 2018 digital 3840 toner paprika cbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:36Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+%2839-41%2B%29+%28Miura%29+%282018%29+%5BDigital-3840%5D+%28TONER-PapriKa%2B%29+%5BCBZ%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-5d824f3509f1",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk (39-41+) (Miura) (2018) [Digital-3840] (TONER-PapriKa+) [CBZ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-9c9c0897f5b5/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9260142245835,
+        "ageMinutes": 226615.56085348,
+        "size": 1930305865,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk of Gluttony (T01-T07) (Ishiki-Takino) (Maho) [Officiel] CBZ",
+        "sortTitle": "berserk gluttony t01 t07 ishiki takino maho officiel cbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:35Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+%28T01-T07%29+%28Ishiki-Takino%29+%28Maho%29+%5BOfficiel%5D+CBZ",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-9c9c0897f5b5",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 1,
+        "leechers": 1,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony (T01-T07) (Ishiki-Takino) (Maho) [Officiel] CBZ.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-0e84c6496b53/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9260142383887,
+        "ageMinutes": 226615.56085430834,
+        "size": 205363736,
+        "grabs": 22,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk - T42 [CBZ] Fr",
+        "sortTitle": "berserk t42 cbz fr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:35Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+-+T42+%5BCBZ%5D+Fr",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-0e84c6496b53",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 10,
+        "leechers": 10,
+        "protocol": "torrent",
+        "fileName": "Berserk - T42 [CBZ] Fr.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-d05903c745af/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.926569806611,
+        "ageMinutes": 226615.59418840168,
+        "size": 87361051,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk Recueil d'illustrations (Miura) [CBZ] Fr (TONER)",
+        "sortTitle": "berserk recueil d illustrations miura cbz fr toner",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:33Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+Recueil+d%27illustrations+%28Miura%29+%5BCBZ%5D+Fr+%28TONER%29",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-d05903c745af",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 1,
+        "leechers": 2,
+        "protocol": "torrent",
+        "fileName": "Berserk Recueil d'illustrations (Miura) [CBZ] Fr (TONER).torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-9687b99e4199/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.926569820472,
+        "ageMinutes": 226615.59418923332,
+        "size": 1051857425,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk (4 HS) (Miura) (2009-2020) [Digital-2126-2560-2578] (TONER-PapriKa+)",
+        "sortTitle": "berserk 4 hs miura 2009 2020 digital 2126 2560 2578 toner paprika",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:33Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+%284+HS%29+%28Miura%29+%282009-2020%29+%5BDigital-2126-2560-2578%5D+%28TONER-PapriKa%2B%29",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-9687b99e4199",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk (4 HS) (Miura) (2009-2020) [Digital-2126-2560-2578] (TONER-PapriKa+).torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-1418e33c71c8/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9265698345557,
+        "ageMinutes": 226615.59419007666,
+        "size": 741782525,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk Art Book Character Edition - 2013 [CBR] JP",
+        "sortTitle": "berserk art book character edition 2013 cbr jp",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:33Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+Art+Book+Character+Edition+-+2013+%5BCBR%5D+JP",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-1418e33c71c8",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk Art Book Character Edition - 2013 [CBR] JP.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-e28b97261034/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9268476250277,
+        "ageMinutes": 226615.61085750666,
+        "size": 54993845,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T14 [ PDF - eBook officiel ]",
+        "sortTitle": "berserk t14 pdf ebook officiel",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:32Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T14+%5B+PDF+-+eBook+officiel+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-e28b97261034",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T14 [ PDF - eBook officiel ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-9c2e55f6b1f9/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9268476377224,
+        "ageMinutes": 226615.61085826834,
+        "size": 54049518,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk T13 [ PDF - eBook officiel ]",
+        "sortTitle": "berserk t13 pdf ebook officiel",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:42:32Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+T13+%5B+PDF+-+eBook+officiel+%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-9c2e55f6b1f9",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk T13 [ PDF - eBook officiel ].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-896587fb501f/download?apikey=REDACTED",
+        "age": 236,
+        "ageHours": 5678.058514316916,
+        "ageMinutes": 340683.5108590233,
+        "size": 205363736,
+        "grabs": 14,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk - Tome 42.cbz",
+        "sortTitle": "berserk tome 42 cbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-03-15T20:34:38Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+-+Tome+42.cbz",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-896587fb501f",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk - Tome 42.cbz.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-b21132048ed8/download?apikey=REDACTED",
+        "age": 236,
+        "ageHours": 5678.058792106639,
+        "ageMinutes": 340683.527526405,
+        "size": 8446768152,
+        "grabs": 9,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk",
+        "sortTitle": "berserk",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-03-15T20:34:37Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-b21132048ed8",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-9e2f01346c31/download?apikey=REDACTED",
+        "age": 236,
+        "ageHours": 5678.05879211775,
+        "ageMinutes": 340683.52752707165,
+        "size": 17931053751,
+        "grabs": 10,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk_FR_01-42",
+        "sortTitle": "berserk fr 01 42",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-03-15T20:34:37Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk_FR_01-42",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-9e2f01346c31",
+        "indexerFlags": [
+          "freeleech"
+        ],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk_FR_01-42.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-9a1d4b07d398/download?apikey=REDACTED",
+        "age": 276,
+        "ageHours": 6632.852403240445,
+        "ageMinutes": 397971.14419443335,
+        "size": 779860207,
+        "grabs": 79,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk of Gluttony Pack 01-12 CBZ FR",
+        "sortTitle": "berserk gluttony pack 01 12 cbz fr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-02-04T01:47:00Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+Pack+01-12+CBZ+FR",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-9a1d4b07d398",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 14,
+        "leechers": 14,
+        "protocol": "torrent",
+        "fileName": "Berserk of Gluttony Pack 01-12 CBZ FR.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-7a704895217a/download?apikey=REDACTED",
+        "age": 160,
+        "ageHours": 3851.9074032526946,
+        "ageMinutes": 231114.44419516667,
+        "size": 437287601,
+        "grabs": 6,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": ".",
+        "sortTitle": "",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-05-30T22:43:42Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=.",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-7a704895217a",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "..torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-02be95185673/download?apikey=REDACTED",
+        "age": 160,
+        "ageHours": 3851.911292153528,
+        "ageMinutes": 231114.67752921834,
+        "size": 115684620,
+        "grabs": 9,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "(Comics) Pokémon - Détective Pikachu - 2020 (Rip-club - Prof.X) - CBR",
+        "sortTitle": "comics pokémon détective pikachu 2020 rip club prof x cbr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-05-30T22:43:28Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=%28Comics%29+Pok%C3%A9mon+-+D%C3%A9tective+Pikachu+-+2020+%28Rip-club+-+Prof.X%29+-+CBR",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-02be95185673",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 7,
+        "leechers": 8,
+        "protocol": "torrent",
+        "fileName": "(Comics) Pokémon - Détective Pikachu - 2020 (Rip-club - Prof.X) - CBR.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-bf4ea669e9b7/download?apikey=REDACTED",
+        "age": 160,
+        "ageHours": 3851.9115699480276,
+        "ageMinutes": 231114.69419688833,
+        "size": 60942704,
+        "grabs": 4,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "[BD] Le Gris - Dellac - Serpent Dieu - Tome 1 - 2019 [Rip-Club] [cbr]",
+        "sortTitle": "bd le gris dellac serpent dieu tome 1 2019 rip club cbr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-05-30T22:43:27Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=%5BBD%5D+Le+Gris+-+Dellac+-+Serpent+Dieu+-+Tome+1+-+2019+%5BRip-Club%5D+%5Bcbr%5D",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-bf4ea669e9b7",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 8,
+        "leechers": 8,
+        "protocol": "torrent",
+        "fileName": "[BD] Le Gris - Dellac - Serpent Dieu - Tome 1 - 2019 [Rip-Club] [cbr].torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-5e883295f3e6/download?apikey=REDACTED",
+        "age": 23,
+        "ageHours": 555.3904588513889,
+        "ageMinutes": 33323.42753108833,
+        "size": 445408104,
+        "grabs": 51,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Quentin.Boeton.Berserk.A.l.Encre.Des.Tenebres.2025.FRENCH.RETAiL.M4B.eBOOK-SGFx",
+        "sortTitle": "quentin boeton berserk l encre des tenebres 2025 french retail m4b ebook sgfx",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-10-15T07:14:43Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Quentin.Boeton.Berserk.A.l.Encre.Des.Tenebres.2025.FRENCH.RETAiL.M4B.eBOOK-SGFx",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-5e883295f3e6",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 15,
+        "leechers": 15,
+        "protocol": "torrent",
+        "fileName": "Quentin.Boeton.Berserk.A.l.Encre.Des.Tenebres.2025.FRENCH.RETAiL.M4B.eBOOK-SGFx.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-8d01f7929028/download?apikey=REDACTED",
+        "age": 140,
+        "ageHours": 3360.00823664325,
+        "ageMinutes": 201600.4941986,
+        "size": 246992298,
+        "grabs": 17,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Jupiter.Phaeton.Berserk.2020.FR.MP3.128kbps-NoTag",
+        "sortTitle": "jupiter phaeton berserk 2020 fr mp3 128kbps notag",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-20T10:37:39Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Jupiter.Phaeton.Berserk.2020.FR.MP3.128kbps-NoTag",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-8d01f7929028",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 6,
+        "leechers": 6,
+        "protocol": "torrent",
+        "fileName": "Jupiter.Phaeton.Berserk.2020.FR.MP3.128kbps-NoTag.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-2987374fb5a2/download?apikey=REDACTED",
+        "age": 144,
+        "ageHours": 3458.023236655778,
+        "ageMinutes": 207481.39419935166,
+        "size": 18301447125,
+        "grabs": 100,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Kentaro.Miura.Berserk.T01-41.FR.CBZ-PRiNTER-Paprika+",
+        "sortTitle": "kentaro miura berserk t01 41 fr cbz printer paprika",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-16T08:36:45Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Kentaro.Miura.Berserk.T01-41.FR.CBZ-PRiNTER-Paprika%2B",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-2987374fb5a2",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 13,
+        "leechers": 14,
+        "protocol": "torrent",
+        "fileName": "Kentaro.Miura.Berserk.T01-41.FR.CBZ-PRiNTER-Paprika+.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-582b3eb26810/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9535144464166,
+        "ageMinutes": 226617.21086679,
+        "size": 2349807,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Fred Saberhagen - Compilation en 2 volumes des 8 livres des Berserkers.epub",
+        "sortTitle": "fred saberhagen compilation en 2 volumes des 8 livres des berserkers epub",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:40:56Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Fred+Saberhagen+-+Compilation+en+2+volumes+des+8+livres+des+Berserkers.epub",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-582b3eb26810",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7020,
+            "name": "Books/EBook",
+            "subCategories": []
+          },
+          {
+            "id": 107020,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Fred Saberhagen - Compilation en 2 volumes des 8 livres des Berserkers.epub.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-070b7d6eb710/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9624033486944,
+        "ageMinutes": 226617.74420092665,
+        "size": 2696602,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk.A.l'encre.des.Tenebres.Ed.THIRD.2019.Fr.EPUB",
+        "sortTitle": "berserk l encre des tenebres ed third 2019 fr epub",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:40:24Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk.A.l%27encre.des.Tenebres.Ed.THIRD.2019.Fr.EPUB",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-070b7d6eb710",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7020,
+            "name": "Books/EBook",
+            "subCategories": []
+          },
+          {
+            "id": 107020,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Berserk.A.l'encre.des.Tenebres.Ed.THIRD.2019.Fr.EPUB.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-b86df94ae036/download?apikey=REDACTED",
+        "age": 157,
+        "ageHours": 3776.9874033613055,
+        "ageMinutes": 226619.24420168332,
+        "size": 63219079,
+        "grabs": 0,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Les.mondes.de.Thorgal-La.jeunesse.de.Thorgal.Tome.4.Berserkers.FR.cbr",
+        "sortTitle": "les mondes de thorgal la jeunesse de thorgal tome 4 berserkers fr cbr",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-06-03T01:38:54Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Les.mondes.de.Thorgal-La.jeunesse.de.Thorgal.Tome.4.Berserkers.FR.cbr",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-b86df94ae036",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7030,
+            "name": "Books/Comics",
+            "subCategories": []
+          },
+          {
+            "id": 107030,
+            "subCategories": []
+          }
+        ],
+        "seeders": 0,
+        "leechers": 0,
+        "protocol": "torrent",
+        "fileName": "Les.mondes.de.Thorgal-La.jeunesse.de.Thorgal.Tome.4.Berserkers.FR.cbr.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-0fac754b3bbf/download?apikey=REDACTED",
+        "age": 187,
+        "ageHours": 4506.802125596278,
+        "ageMinutes": 270408.12753578165,
+        "size": 10761899058,
+        "grabs": 51,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Kentaro.Miura.Berserk.Repack.Tome.1.a.43.1989.a.2026.French.PDF",
+        "sortTitle": "kentaro miura berserk repack tome 1 43 1989 2026 french pdf",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-05-03T15:50:01Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Kentaro.Miura.Berserk.Repack.Tome.1.a.43.1989.a.2026.French.PDF",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-0fac754b3bbf",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 9,
+        "leechers": 10,
+        "protocol": "torrent",
+        "fileName": "Kentaro.Miura.Berserk.Repack.Tome.1.a.43.1989.a.2026.French.PDF.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-8d6315054066/download?apikey=REDACTED",
+        "age": 189,
+        "ageHours": 4548.049903387333,
+        "ageMinutes": 272882.994203245,
+        "size": 153527077,
+        "grabs": 180,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Kentaro.Miura.Berserk.T43.2026.FR.scantrad.cbz",
+        "sortTitle": "kentaro miura berserk t43 2026 fr scantrad cbz",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-05-01T22:35:09Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Kentaro.Miura.Berserk.T43.2026.FR.scantrad.cbz",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-8d6315054066",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 33,
+        "leechers": 33,
+        "protocol": "torrent",
+        "fileName": "Kentaro.Miura.Berserk.T43.2026.FR.scantrad.cbz.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-33ef267dd9f4/download?apikey=REDACTED",
+        "age": 196,
+        "ageHours": 4724.6599033995835,
+        "ageMinutes": 283479.59420398,
+        "size": 17931053751,
+        "grabs": 42,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk.Kentaro.Miura.2004.INTEGRALE.FR.CBZ&PDF",
+        "sortTitle": "berserk kentaro miura 2004 integrale fr cbzpdf",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-04-24T13:58:33Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk.Kentaro.Miura.2004.INTEGRALE.FR.CBZ%26PDF",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-33ef267dd9f4",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 10,
+        "leechers": 11,
+        "protocol": "torrent",
+        "fileName": "Berserk.Kentaro.Miura.2004.INTEGRALE.FR.CBZ&PDF.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-4faddb6365b5/download?apikey=REDACTED",
+        "age": 198,
+        "ageHours": 4769.072403412167,
+        "ageMinutes": 286144.344204735,
+        "size": 20803663858,
+        "grabs": 34,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk.2003.EN.CBZ.Digital-danke-Empire-T01-T40",
+        "sortTitle": "berserk 2003 en cbz digital danke empire t01 t40",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-04-22T17:33:48Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk.2003.EN.CBZ.Digital-danke-Empire-T01-T40",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-4faddb6365b5",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 7,
+        "leechers": 7,
+        "protocol": "torrent",
+        "fileName": "Berserk.2003.EN.CBZ.Digital-danke-Empire-T01-T40.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-01b3c10a8580/download?apikey=REDACTED",
+        "age": 199,
+        "ageHours": 4790.538514535944,
+        "ageMinutes": 287432.31087216164,
+        "size": 1051857425,
+        "grabs": 52,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Berserk.HORS-SERIE.Pack.4.Volumes.FRENCH.Digital.CBZ-PapriKa",
+        "sortTitle": "berserk hors serie pack 4 volumes french digital cbz paprika",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-04-21T20:05:50Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Berserk.HORS-SERIE.Pack.4.Volumes.FRENCH.Digital.CBZ-PapriKa",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-01b3c10a8580",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 9,
+        "leechers": 9,
+        "protocol": "torrent",
+        "fileName": "Berserk.HORS-SERIE.Pack.4.Volumes.FRENCH.Digital.CBZ-PapriKa.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-8dbecdc24a8f/download?apikey=REDACTED",
+        "age": 214,
+        "ageHours": 5149.393236770667,
+        "ageMinutes": 308963.594206245,
+        "size": 527161127,
+        "grabs": 24,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Kurozuka.INTEGRALE.Fr.Cbz-Berserkcrew",
+        "sortTitle": "kurozuka integrale fr cbz berserkcrew",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-04-06T21:14:33Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Kurozuka.INTEGRALE.Fr.Cbz-Berserkcrew",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-8dbecdc24a8f",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 12,
+        "leechers": 12,
+        "protocol": "torrent",
+        "fileName": "Kurozuka.INTEGRALE.Fr.Cbz-Berserkcrew.torrent"
+      },
+      {
+        "guid": "https://private-tracker-2.invalid/api/torrents/redacted-4d4a50116dd5/download?apikey=REDACTED",
+        "age": 272,
+        "ageHours": 6537.384347893583,
+        "ageMinutes": 392243.06087362336,
+        "size": 11108476625,
+        "grabs": 2991,
+        "indexerId": 2,
+        "indexer": "Private Tracker 2",
+        "title": "Miura.Berserk.Integrale.T01-T42.FR.CBZ-PapriKa+",
+        "sortTitle": "miura berserk integrale t01 t42 fr cbz paprika",
+        "imdbId": 0,
+        "tmdbId": 0,
+        "tvdbId": 0,
+        "tvMazeId": 0,
+        "publishDate": "2026-02-08T01:15:05Z",
+        "downloadUrl": "http://prowlarr:9696/2/download?apikey=REDACTED&link=REDACTED&file=Miura.Berserk.Integrale.T01-T42.FR.CBZ-PapriKa%2B",
+        "infoUrl": "https://private-tracker-2.invalid/torrent/redacted-4d4a50116dd5",
+        "indexerFlags": [],
+        "categories": [
+          {
+            "id": 7000,
+            "name": "Books",
+            "subCategories": [
+              {
+                "id": 7010,
+                "name": "Books/Mags",
+                "subCategories": []
+              },
+              {
+                "id": 7020,
+                "name": "Books/EBook",
+                "subCategories": []
+              },
+              {
+                "id": 7030,
+                "name": "Books/Comics",
+                "subCategories": []
+              },
+              {
+                "id": 7040,
+                "name": "Books/Technical",
+                "subCategories": []
+              },
+              {
+                "id": 7050,
+                "name": "Books/Other",
+                "subCategories": []
+              },
+              {
+                "id": 7060,
+                "name": "Books/Foreign",
+                "subCategories": []
+              }
+            ]
+          },
+          {
+            "id": 107000,
+            "subCategories": []
+          }
+        ],
+        "seeders": 65,
+        "leechers": 66,
+        "protocol": "torrent",
+        "fileName": "Miura.Berserk.Integrale.T01-T42.FR.CBZ-PapriKa+.torrent"
+      }
+    ]
+  }
+}

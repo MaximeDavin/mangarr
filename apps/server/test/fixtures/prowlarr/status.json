@@ -1,0 +1,47 @@
+{
+  "description": "GET /system/status",
+  "recordedAt": "2026-11-07",
+  "prowlarrVersion": "3.0.0.5737",
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/system/status",
+    "query": []
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "appName": "Prowlarr",
+      "instanceName": "Prowlarr",
+      "version": "3.0.0.5737",
+      "buildTime": "2026-11-02T18:00:33Z",
+      "isDebug": false,
+      "isProduction": true,
+      "isAdmin": false,
+      "isUserInteractive": true,
+      "startupPath": "/app/prowlarr/bin",
+      "appData": "/config",
+      "osName": "alpine",
+      "osVersion": "3.24.3",
+      "isNetCore": true,
+      "isLinux": true,
+      "isOsx": false,
+      "isWindows": false,
+      "isDocker": true,
+      "isContainerized": true,
+      "mode": "console",
+      "branch": "develop",
+      "databaseType": "sqLite",
+      "databaseVersion": "3.53.4",
+      "authentication": "forms",
+      "migrationVersion": 44,
+      "urlBase": "",
+      "runtimeVersion": "10.0.14",
+      "runtimeName": "netcore",
+      "startTime": "2026-11-07T09:51:55Z",
+      "packageVersion": "3.0.0.5737-ls280",
+      "packageAuthor": "[linuxserver.io](https://www.linuxserver.io/)",
+      "packageUpdateMechanism": "docker"
+    }
+  }
+}

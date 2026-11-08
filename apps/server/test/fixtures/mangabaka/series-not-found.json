@@ -1,0 +1,17 @@
+{
+  "description": "An ID MangaBaka doesn't have.",
+  "recordedAt": "2026-11-07",
+  "request": {
+    "method": "GET",
+    "path": "/v1/series/2147483000",
+    "query": []
+  },
+  "response": {
+    "status": 404,
+    "contentType": "application/json",
+    "body": {
+      "status": 404,
+      "message": "NOT_FOUND"
+    }
+  }
+}

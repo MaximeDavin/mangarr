@@ -1,0 +1,17 @@
+# docker compose -f compose.example.yml up -d --build
+# /data must be the same mount (same paths) that qBittorrent and Komga see (spec §3).
+services:
+  mangarr:
+    build: .
+    image: mangarr:latest
+    container_name: mangarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ./config:/config
+      - /path/to/data:/data
+    ports:
+      - 6262:6262
+    restart: unless-stopped

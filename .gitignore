@@ -1,0 +1,31 @@
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+*.log
+
+# Secrets: real service URLs, API keys and passwords (see apps/server/.env.example)
+.env
+.env.*
+!.env.example
+
+# Runtime data: the SQLite database holds the auth secret and service credentials.
+# CONFIG_DIR defaults to ./config, and compose.example.yml mounts ./config.
+/config/
+apps/server/config/
+*.db
+*.db-shm
+*.db-wal
+
+# Local copies of compose.example.yml with real paths
+/compose.yml
+/compose.override.yml
+/docker-compose.yml
+
+# Editors, OS, local tool settings
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.claude/settings.local.json

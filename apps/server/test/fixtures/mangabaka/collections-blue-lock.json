@@ -1,0 +1,350 @@
+{
+  "description": "Standard, omnibus and box-set editions; paperback and digital counts differ.",
+  "recordedAt": "2026-11-07",
+  "request": {
+    "method": "GET",
+    "path": "/v1/series/83/collections",
+    "query": [
+      [
+        "page",
+        "1"
+      ],
+      [
+        "limit",
+        "50"
+      ]
+    ]
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json",
+    "body": {
+      "status": 200,
+      "data": [
+        {
+          "id": "019f2776-7ca3-7e90-9c09-e5d93e9f502f",
+          "series_id": 83,
+          "title": "Blue Lock",
+          "language": {
+            "iso": "en",
+            "language": "English (English)"
+          },
+          "publisher": {
+            "id": 14,
+            "type": "imprint",
+            "sub_type": "both",
+            "aliases": [
+              {
+                "language": "en",
+                "type": "official",
+                "title": "Kodansha Comics",
+                "note": "Old name"
+              },
+              {
+                "language": "unknown",
+                "type": "alternative",
+                "title": "Kodansha Comics",
+                "note": null
+              },
+              {
+                "language": "unknown",
+                "type": "alternative",
+                "title": "Kodansha International",
+                "note": null
+              }
+            ],
+            "parent_id": 13,
+            "name": "Kodansha Manga",
+            "canonical_url": "https://mangabaka.org/publisher/14/Kodansha-Manga",
+            "languages": [
+              "en"
+            ],
+            "country_of_origin": "US",
+            "founded": null,
+            "closed": null,
+            "merged_with": null
+          },
+          "edition": {
+            "id": "019e1cfb-7760-7da8-a8a6-51b28e861cd8",
+            "name": "Box Set Edition",
+            "language": {
+              "iso": "en",
+              "language": "English (English)"
+            },
+            "description": "Added by processing [VIZ]",
+            "override_text": null
+          },
+          "type": "volume",
+          "format": "paged",
+          "medium": "paperback",
+          "status": "releasing",
+          "reading": "rtl",
+          "licensed": true,
+          "description": {
+            "desc": "The cutthroat battle to become Japan’s top striker kicks off in this premium box set of the hit soccer manga that inspired the smash hit anime! Includes volumes 1-6 of the Blue Lock manga and an exclusive, double-sided poster.",
+            "source": "Kodansha Manga"
+          },
+          "note": null,
+          "start_date": "2024-10-22",
+          "end_date": null,
+          "links": [
+            {
+              "type": "publisher",
+              "link": "https://kodansha.us/series/blue-lock-manga-box-set/",
+              "language": "en"
+            }
+          ],
+          "related_collection_id": null,
+          "count_main": 2,
+          "count_extra": 0,
+          "count_other": 0,
+          "updated_at": "2026-07-03T10:11:44.435Z"
+        },
+        {
+          "id": "019f2778-5946-79c6-8cc4-a9267139609f",
+          "series_id": 83,
+          "title": "Blue Lock",
+          "language": {
+            "iso": "en",
+            "language": "English (English)"
+          },
+          "publisher": {
+            "id": 14,
+            "type": "imprint",
+            "sub_type": "both",
+            "aliases": [
+              {
+                "language": "en",
+                "type": "official",
+                "title": "Kodansha Comics",
+                "note": "Old name"
+              },
+              {
+                "language": "unknown",
+                "type": "alternative",
+                "title": "Kodansha Comics",
+                "note": null
+              },
+              {
+                "language": "unknown",
+                "type": "alternative",
+                "title": "Kodansha International",
+                "note": null
+              }
+            ],
+            "parent_id": 13,
+            "name": "Kodansha Manga",
+            "canonical_url": "https://mangabaka.org/publisher/14/Kodansha-Manga",
+            "languages": [
+              "en"
+            ],
+            "country_of_origin": "US",
+            "founded": null,
+            "closed": null,
+            "merged_with": null
+          },
+          "edition": {
+            "id": "019a5f27-bbf6-7000-8000-000000000001",
+            "name": "Standard Edition",
+            "language": {
+              "iso": "en",
+              "language": "English (English)"
+            },
+            "description": "Standard",
+            "override_text": null
+          },
+          "type": "volume",
+          "format": "paged",
+          "medium": "paperback",
+          "status": "releasing",
+          "reading": "rtl",
+          "licensed": true,
+          "description": {
+            "desc": "After a disastrous defeat at the 2018 World Cup, Japan’s team struggles to regroup. But what’s missing? An absolute Ace Striker, who can guide them to the win. The Japan Football Union is hell-bent on creating a striker who hungers for goals and thirsts for victory, and who can be the decisive instrument in turning around a losing match...and to do so, they’ve gathered 300 of Japan’s best and brightest youth players. Who will emerge to lead the team...and will they be able to out-muscle and out-ego everyone who stands in their way?",
+            "source": "Kodansha Manga"
+          },
+          "note": null,
+          "start_date": "2022-06-21",
+          "end_date": null,
+          "links": [
+            {
+              "type": "publisher",
+              "link": "https://kodansha.us/series/blue-lock/",
+              "language": "en"
+            }
+          ],
+          "related_collection_id": null,
+          "count_main": 37,
+          "count_extra": 0,
+          "count_other": 0,
+          "updated_at": "2026-07-03T10:13:46.459Z"
+        },
+        {
+          "id": "019f2778-5969-75f5-940b-9503bc91722a",
+          "series_id": 83,
+          "title": "Blue Lock",
+          "language": {
+            "iso": "en",
+            "language": "English (English)"
+          },
+          "publisher": {
+            "id": 14,
+            "type": "imprint",
+            "sub_type": "both",
+            "aliases": [
+              {
+                "language": "en",
+                "type": "official",
+                "title": "Kodansha Comics",
+                "note": "Old name"
+              },
+              {
+                "language": "unknown",
+                "type": "alternative",
+                "title": "Kodansha Comics",
+                "note": null
+              },
+              {
+                "language": "unknown",
+                "type": "alternative",
+                "title": "Kodansha International",
+                "note": null
+              }
+            ],
+            "parent_id": 13,
+            "name": "Kodansha Manga",
+            "canonical_url": "https://mangabaka.org/publisher/14/Kodansha-Manga",
+            "languages": [
+              "en"
+            ],
+            "country_of_origin": "US",
+            "founded": null,
+            "closed": null,
+            "merged_with": null
+          },
+          "edition": {
+            "id": "019a5f27-bbf6-7000-8000-000000000001",
+            "name": "Standard Edition",
+            "language": {
+              "iso": "en",
+              "language": "English (English)"
+            },
+            "description": "Standard",
+            "override_text": null
+          },
+          "type": "volume",
+          "format": "paged",
+          "medium": "digital",
+          "status": "releasing",
+          "reading": "rtl",
+          "licensed": true,
+          "description": {
+            "desc": "After a disastrous defeat at the 2018 World Cup, Japan’s team struggles to regroup. But what’s missing? An absolute Ace Striker, who can guide them to the win. The Japan Football Union is hell-bent on creating a striker who hungers for goals and thirsts for victory, and who can be the decisive instrument in turning around a losing match...and to do so, they’ve gathered 300 of Japan’s best and brightest youth players. Who will emerge to lead the team...and will they be able to out-muscle and out-ego everyone who stands in their way?",
+            "source": "Kodansha Manga"
+          },
+          "note": null,
+          "start_date": "2021-03-16",
+          "end_date": null,
+          "links": [
+            {
+              "type": "publisher",
+              "link": "https://kodansha.us/series/blue-lock/",
+              "language": "en"
+            }
+          ],
+          "related_collection_id": null,
+          "count_main": 40,
+          "count_extra": 0,
+          "count_other": 0,
+          "updated_at": "2026-07-03T10:13:46.488Z"
+        },
+        {
+          "id": "019f2779-c0ad-703d-b76e-d4cd7b3442cc",
+          "series_id": 83,
+          "title": "Blue Lock",
+          "language": {
+            "iso": "en",
+            "language": "English (English)"
+          },
+          "publisher": {
+            "id": 14,
+            "type": "imprint",
+            "sub_type": "both",
+            "aliases": [
+              {
+                "language": "en",
+                "type": "official",
+                "title": "Kodansha Comics",
+                "note": "Old name"
+              },
+              {
+                "language": "unknown",
+                "type": "alternative",
+                "title": "Kodansha Comics",
+                "note": null
+              },
+              {
+                "language": "unknown",
+                "type": "alternative",
+                "title": "Kodansha International",
+                "note": null
+              }
+            ],
+            "parent_id": 13,
+            "name": "Kodansha Manga",
+            "canonical_url": "https://mangabaka.org/publisher/14/Kodansha-Manga",
+            "languages": [
+              "en"
+            ],
+            "country_of_origin": "US",
+            "founded": null,
+            "closed": null,
+            "merged_with": null
+          },
+          "edition": {
+            "id": "019dcad4-1223-76ab-abbb-b0d6eb94ecd9",
+            "name": "Omnibus Edition",
+            "language": {
+              "iso": "en",
+              "language": "English (English)"
+            },
+            "description": "",
+            "override_text": null
+          },
+          "type": "volume",
+          "format": "paged",
+          "medium": "paperback",
+          "status": "releasing",
+          "reading": "rtl",
+          "licensed": true,
+          "description": {
+            "desc": "The manga that became a worldwide sports action phenomenon returns in a new 3-in-1 omnibus edition featuring sculpted embossed covers! Get ready for the real World Cup with the soccer manga that’s conquering the globe!",
+            "source": "Kodansha Manga"
+          },
+          "note": null,
+          "start_date": "2026-02-24",
+          "end_date": null,
+          "links": [
+            {
+              "type": "publisher",
+              "link": "https://kodansha.us/series/blue-lock-omnibus/",
+              "language": "en"
+            }
+          ],
+          "related_collection_id": null,
+          "count_main": 5,
+          "count_extra": 0,
+          "count_other": 0,
+          "updated_at": "2026-07-03T10:15:18.476Z"
+        }
+      ],
+      "pagination": {
+        "count": 4,
+        "next": null,
+        "previous": null,
+        "page": 1,
+        "limit": 50
+      }
+    }
+  }
+}

@@ -1,0 +1,2080 @@
+{
+  "description": "Search as the add-series flow sends it: novels left out.",
+  "recordedAt": "2026-11-07",
+  "request": {
+    "method": "GET",
+    "path": "/v1/series/search",
+    "query": [
+      [
+        "q",
+        "berserk"
+      ],
+      [
+        "limit",
+        "5"
+      ],
+      [
+        "type_not",
+        "novel"
+      ]
+    ]
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json",
+    "body": {
+      "status": 200,
+      "pagination": {
+        "count": 50,
+        "next": "https://api.mangabaka.org/v1/series/search?limit=5&q=berserk&type_not=novel&page=2",
+        "previous": null,
+        "page": 1,
+        "limit": 5
+      },
+      "data": [
+        {
+          "id": 1692,
+          "state": "active",
+          "merged_with": null,
+          "canonical_url": "https://mangabaka.org/manga/1692/BERSERK",
+          "title": "BERSERK",
+          "native_title": "ベルセルク",
+          "romanized_title": "BERSERK",
+          "secondary_titles": {
+            "ko": [
+              {
+                "type": "official",
+                "title": "베르세르크",
+                "note": null
+              }
+            ],
+            "unknown": [
+              {
+                "type": "unknown",
+                "title": "Берсерк",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "ברזרק",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "برزرک",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "बर्जर्क",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "बर्सर्क",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "เบอร์เซิร์ก",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "烙印勇士",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "烙印战士",
+                "note": null
+              }
+            ]
+          },
+          "cover": {
+            "raw": {
+              "url": "https://images.mangabaka.dev/c/b/d/5/5/f/e/8/71bc/4726/a56f/67a9129275d9",
+              "size": 445835,
+              "height": 1051,
+              "width": 751,
+              "blurhash": "|hJ7,i%M?b%MtRaeofWAt701aeM{M{afkCj@t7WBxbNGMxt7aej[WWWAWVaJofozRjRjWBWBj]fkt6WBRjkCofs:oeWBazNGbHxut7t7WVofj@aytRt7ofRjaeWBWCoLfkIUWARjt7WBofayj[a|NGayWBRjbIj[oeofj[",
+              "thumbhash": "XygODQLKmoBmh1d5iHhnl0LQZ/Oo",
+              "format": "jpeg"
+            },
+            "x150": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x150@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9jL2IvZC81LzUvZi9lLzgvNzFiYy80NzI2L2E1NmYvNjdhOTEyOTI3NWQ5",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x150@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9jL2IvZC81LzUvZi9lLzgvNzFiYy80NzI2L2E1NmYvNjdhOTEyOTI3NWQ5",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x150@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9jL2IvZC81LzUvZi9lLzgvNzFiYy80NzI2L2E1NmYvNjdhOTEyOTI3NWQ5"
+            },
+            "x250": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x250@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9jL2IvZC81LzUvZi9lLzgvNzFiYy80NzI2L2E1NmYvNjdhOTEyOTI3NWQ5",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x250@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9jL2IvZC81LzUvZi9lLzgvNzFiYy80NzI2L2E1NmYvNjdhOTEyOTI3NWQ5",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x250@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9jL2IvZC81LzUvZi9lLzgvNzFiYy80NzI2L2E1NmYvNjdhOTEyOTI3NWQ5"
+            },
+            "x350": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x350@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9jL2IvZC81LzUvZi9lLzgvNzFiYy80NzI2L2E1NmYvNjdhOTEyOTI3NWQ5",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x350@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9jL2IvZC81LzUvZi9lLzgvNzFiYy80NzI2L2E1NmYvNjdhOTEyOTI3NWQ5",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x350@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9jL2IvZC81LzUvZi9lLzgvNzFiYy80NzI2L2E1NmYvNjdhOTEyOTI3NWQ5"
+            }
+          },
+          "authors": [
+            "MIURA Kentaro",
+            "MORI Kouji"
+          ],
+          "artists": [
+            "MIURA Kentaro",
+            "Studio Gaga"
+          ],
+          "description": "His name is Guts, the Black Swordsman, a feared warrior spoken of only in whispers. Bearer of a gigantic sword, an iron hand, and the scars of countless battles and tortures, his flesh is also indelibly marked with The Brand, an unholy symbol that draws the forces of darkness to him and dooms him as their sacrifice. But Guts won’t take his fate lying down; he’ll cut a crimson swath of carnage through the ranks of the damned—and anyone else foolish enough to oppose him! Accompanied by Puck the Elf, more an annoyance than a companion, Guts relentlessly follows a dark, bloodstained path that leads only to death…or vengeance.\n\n*Source: Dark Horse Comics*",
+          "year": 1989,
+          "published": {
+            "start_date": "1989-08-25",
+            "end_date": null,
+            "start_date_is_estimated": false,
+            "end_date_is_estimated": null
+          },
+          "status": "releasing",
+          "is_licensed": true,
+          "has_anime": true,
+          "anime": {
+            "start": "Vol 1, Chap 0-1 (1997) Skips Chap 0-2 to 0-8 / Vol 3, Chap 0-9 (Golden Age Arc) / Vol 16, Chap 119 (2016 EP2)",
+            "end": "Vol 13, Chap 87 Page 15 (1997) / Vol 13, Chap 91 (Golden Age Arc) / Vol 29, Chap 249 (2017) All change/skip material"
+          },
+          "content_rating": "erotica",
+          "type": "manga",
+          "original_language": "ja",
+          "rating": 91.4937142857143,
+          "popularity": {
+            "global": {
+              "current": 2,
+              "history": {
+                "1d": 2,
+                "1w": 2,
+                "1mo": 2,
+                "3mo": 2,
+                "6mo": 7,
+                "1y": 4
+              }
+            },
+            "type": {
+              "current": 1,
+              "history": {
+                "1d": 1,
+                "1w": 1,
+                "1mo": 1,
+                "3mo": 1,
+                "6mo": 7,
+                "1y": 4
+              }
+            }
+          },
+          "final_volume": "43",
+          "total_chapters": "401",
+          "links": [
+            "https://magazine.younganimal.com/title/?id=32",
+            "https://manga-park.com/title/151",
+            "https://piccoma.com/web/product/28600?etype=episode",
+            "https://series.naver.com/comic/detail.series?productNo=8285283",
+            "https://www.darkhorse.com/books/12-705/berserk-volume-1-tpb/",
+            "https://www.glenat.com/glenat-manga/series-berserk-prestige/",
+            "https://www.lezhin.com/ko/comic/berserk",
+            "https://x.com/berserk_project",
+            "https://younganimal.com/series/f68f676b354d4/",
+            "https://zebrack-comic.shueisha.co.jp/title/4876",
+            "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%AB%E3%82%BB%E3%83%AB%E3%82%AF_%28%E6%BC%AB%E7%94%BB%29",
+            "https://en.wikipedia.org/wiki/Berserk_(manga)",
+            "https://mangabaka.org/1692"
+          ],
+          "publishers": [
+            {
+              "id": 250,
+              "name": "Dark Horse Manga",
+              "canonical_url": "https://mangabaka.org/publisher/250/Dark-Horse-Manga",
+              "language": "en",
+              "note": "42 Volumes - Ongoing  | 14 Omnibus; print, 3-in-1 - Ongoing",
+              "type": "English"
+            },
+            {
+              "id": 6363,
+              "name": "Editorial Vid",
+              "canonical_url": "https://mangabaka.org/publisher/6363/Editorial-Vid",
+              "language": "es-la",
+              "note": "Publisher went defunct in 2012 -  series left unfinished after publishing 24 volumes",
+              "type": "Other"
+            },
+            {
+              "id": 3819,
+              "name": "Glénat",
+              "canonical_url": "https://mangabaka.org/publisher/3819/Gl%C3%A9nat",
+              "language": "fr",
+              "note": null,
+              "type": "Other"
+            },
+            {
+              "id": 2814,
+              "name": "Hakusensha",
+              "canonical_url": "https://mangabaka.org/publisher/2814/Hakusensha",
+              "language": "ja",
+              "note": null,
+              "type": "Original"
+            },
+            {
+              "id": 6389,
+              "name": "MangaLine Ediciones",
+              "canonical_url": "https://mangabaka.org/publisher/6389/MangaLine-Ediciones",
+              "language": "es",
+              "note": "Defunct / 30 Volumes - Canceled",
+              "type": "Other"
+            },
+            {
+              "id": 6211,
+              "name": "Panini Manga Brasil",
+              "canonical_url": "https://mangabaka.org/publisher/6211/Panini-Manga-Brasil",
+              "language": "pt-br",
+              "note": null,
+              "type": "Other"
+            },
+            {
+              "id": 6213,
+              "name": "Panini Manga España",
+              "canonical_url": "https://mangabaka.org/publisher/6213/Panini-Manga-Espa%C3%B1a",
+              "language": "ca",
+              "note": null,
+              "type": "Other"
+            },
+            {
+              "id": 6213,
+              "name": "Panini Manga España",
+              "canonical_url": "https://mangabaka.org/publisher/6213/Panini-Manga-Espa%C3%B1a",
+              "language": "es",
+              "note": null,
+              "type": "Other"
+            },
+            {
+              "id": 246,
+              "name": "Panini Manga México",
+              "canonical_url": "https://mangabaka.org/publisher/246/Panini-Manga-M%C3%A9xico",
+              "language": "es-la",
+              "note": null,
+              "type": "Other"
+            },
+            {
+              "id": 253,
+              "name": "Planeta Cómic",
+              "canonical_url": "https://mangabaka.org/publisher/253/Planeta-C%C3%B3mic",
+              "language": "es",
+              "note": "10 Issues - Dropped",
+              "type": "Other"
+            }
+          ],
+          "titles": [
+            {
+              "language": "ko",
+              "traits": [
+                "official"
+              ],
+              "title": "베르세르크",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "pt-br",
+              "traits": [
+                "official"
+              ],
+              "title": "Berserk",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "es",
+              "traits": [
+                "official"
+              ],
+              "title": "BERSERK",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "de",
+              "traits": [
+                "official"
+              ],
+              "title": "BERSERK",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ja-Latn",
+              "traits": [
+                "native"
+              ],
+              "title": "BERSERK",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "en",
+              "traits": [
+                "official"
+              ],
+              "title": "BERSERK",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "de",
+              "traits": [],
+              "title": "Berserk Max",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ja-Latn",
+              "traits": [],
+              "title": "Beruseruku",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "es",
+              "traits": [
+                "official"
+              ],
+              "title": "Gatsu: El Guerrero Negro",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ru",
+              "traits": [],
+              "title": "Берсерк",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "be",
+              "traits": [],
+              "title": "Бярсерк",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "he",
+              "traits": [],
+              "title": "ברזרק",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "fa",
+              "traits": [],
+              "title": "برزرک",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ar",
+              "traits": [],
+              "title": "برسرك",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ar",
+              "traits": [],
+              "title": "بيرسيرك",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "hi",
+              "traits": [],
+              "title": "बर्जर्क",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ne",
+              "traits": [],
+              "title": "बर्जर्क",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ne",
+              "traits": [],
+              "title": "बर्सर्क",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "th",
+              "traits": [],
+              "title": "เทพมรณะ",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "th",
+              "traits": [],
+              "title": "เบอร์เซิร์ก",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ja",
+              "traits": [
+                "native"
+              ],
+              "title": "ベルセルク",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "zh",
+              "traits": [],
+              "title": "剑风传奇",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "zh-Hant",
+              "traits": [],
+              "title": "劍風傳奇",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ja",
+              "traits": [],
+              "title": "烙印勇士",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "zh",
+              "traits": [],
+              "title": "烙印勇士",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "zh",
+              "traits": [],
+              "title": "烙印战士",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "zh-Hant",
+              "traits": [
+                "official"
+              ],
+              "title": "烙印戰士",
+              "note": null,
+              "is_primary": true
+            }
+          ],
+          "genres_v2": null,
+          "genres": [
+            "action",
+            "adventure",
+            "drama",
+            "fantasy",
+            "horror",
+            "psychological",
+            "mature",
+            "seinen",
+            "supernatural",
+            "tragedy",
+            "award_winning"
+          ],
+          "tags": [
+            "Primarily Adult Cast",
+            "Femme Fatale",
+            "Scars",
+            "Half-Human",
+            "Fate",
+            "Dead Friends",
+            "European Folklore",
+            "Survival",
+            "Religious Fundamentalists",
+            "Meta",
+            "Pregnancy",
+            "Art Evolution",
+            "Sins",
+            "Realistic Bodies",
+            "Disabled Character/s",
+            "Body Horror",
+            "Human Sacrifices",
+            "Adapted to Audio Drama",
+            "Crippled Male Lead",
+            "Amnesia",
+            "Nudity",
+            "Artificial Arms",
+            "Power Dynamics",
+            "Gods",
+            "Enemies Become Friends",
+            "Ghouls",
+            "Despair",
+            "Group Sex",
+            "Death of Loved Ones",
+            "Deal with the Devil",
+            "Disabled Male Lead",
+            "Religious References",
+            "Sadistic Characters",
+            "Transformations",
+            "Slavery",
+            "Twisted Characters",
+            "Heterosexual",
+            "Demons",
+            "Mermaids",
+            "Murders",
+            "Influential Characters",
+            "Poverty",
+            "Tragic Past",
+            "Incomplete Due to Author's/Artist's Death",
+            "Fairies",
+            "Bandits",
+            "Short-Tempered Protagonist",
+            "Elaborate Art Style",
+            "Strong Characters",
+            "Extended Flashbacks",
+            "Suffering",
+            "Swords",
+            "Scarred Male Lead",
+            "Ruthless Protagonist",
+            "Medieval",
+            "Philosophical",
+            "Torture",
+            "Hated Characters",
+            "Antihero / Antiheroine",
+            "Reflections on Human Existence",
+            "Dark Past",
+            "Fairy",
+            "Ensemble Cast",
+            "Military Background",
+            "Kill or Be Killed Situation",
+            "Blood-Thirsty Protagonist",
+            "Travel",
+            "Adopted Protagonist",
+            "World Building",
+            "Horses",
+            "Demon Hunters",
+            "Found Family",
+            "Couple Growth",
+            "One-Eyed Male Lead",
+            "Psychopaths",
+            "Swordplay",
+            "Male Protagonist",
+            "Overpowered Main Characters",
+            "Brother-Sister Relationship",
+            "Sexual Assault",
+            "Knights",
+            "Amputees",
+            "Bloodlust",
+            "Master-Servant Relationship",
+            "Curses",
+            "Male Lead with Sexual Experience",
+            "Sexual Abuse",
+            "Search for Oneself",
+            "Gore",
+            "Alter Ego",
+            "Lifetime",
+            "Kaiju",
+            "Dungeons",
+            "Sadism",
+            "Traumatic Past",
+            "Hatred",
+            "Male Lead with Trauma",
+            "Abusive Authority Figure/s",
+            "Two-Faced Characters",
+            "Sexual Violence",
+            "Mysterious Location",
+            "Rude Character/s",
+            "Blood and Gore",
+            "Child Rape",
+            "Troubled Protagonist",
+            "Ruthless Male Lead",
+            "Adapted to Anime",
+            "Dystopia",
+            "Prophecies",
+            "Friends Become Enemies",
+            "Pedophilia",
+            "Post-Traumatic Stress Disorder",
+            "Engaged Couple",
+            "Corruption",
+            "Subtle Humor",
+            "Huge Cast of Characters",
+            "Giants",
+            "Nihilism",
+            "Rehabilitation",
+            "Scarred Female Lead",
+            "Muscular Male Lead",
+            "Adult Protagonist",
+            "Assassins",
+            "Godly Powers",
+            "Mental Breakdown",
+            "Abusive Family Members",
+            "Super Powers",
+            "Oppression",
+            "Orgy/ies",
+            "Brother and Sister",
+            "Politics Involving Religion",
+            "Psychological Trauma",
+            "Politics Involving Royalty",
+            "Physical Handicap",
+            "Half-Siblings",
+            "Difficult Childhood",
+            "Cruel Characters",
+            "Tomboys",
+            "Violent Male Lead",
+            "Two-Faced",
+            "Unrealistic Fighting",
+            "Strong Male Lead",
+            "Dysfunctional Families",
+            "Possession",
+            "Male Author",
+            "Adoption",
+            "Unusual First Meeting",
+            "Mercenaries",
+            "Refugees",
+            "Dark Ambience",
+            "Travel/Journey",
+            "Fearless Male Lead",
+            "Time Skip",
+            "Sexism",
+            "Duels",
+            "Charismatic Characters",
+            "Kingdoms",
+            "Fantasy World",
+            "Black Humor",
+            "Adapted to Game",
+            "Black Characters",
+            "Animal Cruelty",
+            "Scarred Protagonist",
+            "Child Soldiers",
+            "Scarred Character/s",
+            "Witches",
+            "Blunt Male Lead",
+            "Liars",
+            "Time Progression",
+            "Tactics",
+            "Misogyny",
+            "Demon-Human Relationship",
+            "Hidden Past",
+            "Rude Protagonist",
+            "Tall Male Lead",
+            "Dragons",
+            "First-Time Intercourse",
+            "Prosthesis",
+            "Skeletons",
+            "Monsters",
+            "Physical Deformity",
+            "Large Scale Battles",
+            "Flashback/s",
+            "Mind Break",
+            "Personality Changes",
+            "Cult",
+            "Abuse of Power",
+            "LGBT Characters",
+            "Empires",
+            "Violent Protagonist",
+            "Princesses",
+            "Medieval European Ambience",
+            "Wars",
+            "Embracing Darkness/Madness/Insanity",
+            "Ships",
+            "Kingdom Management",
+            "Soldiers",
+            "Group Intercourse",
+            "Sex",
+            "Orphans",
+            "Betrayal",
+            "Epic",
+            "Insanity",
+            "Dead Parents",
+            "Warriors",
+            "Cosmic Horror",
+            "Philosophy",
+            "Anti-Hero",
+            "Mental Illness",
+            "Bad Experiences",
+            "Social Hierarchy",
+            "Politicians",
+            "Long-Running Story",
+            "Cruelty",
+            "Dark Fantasy",
+            "Incest",
+            "Reluctant Protagonist",
+            "Royalty",
+            "Cruel Protagonist",
+            "Revenge",
+            "Gang Rape",
+            "Adapted to Movie",
+            "Nobility/Aristocracy",
+            "Vore",
+            "Rape",
+            "Protagonist Strong From the Start",
+            "Achronological Order",
+            "Magic",
+            "European Ambience",
+            "Abusive Father",
+            "Witch",
+            "Kings",
+            "Crazy Characters",
+            "Power at a Price",
+            "Teamwork",
+            "Religion",
+            "Tragic Protagonist",
+            "Dystopian",
+            "Fellatio",
+            "Monster Boys",
+            "Heretics",
+            "Masturbation",
+            "Lust",
+            "Romantic Subplot",
+            "Important Non-Romantic Relationships",
+            "Ghosts",
+            "Age Regression",
+            "Persecution",
+            "Female Fighters",
+            "Prostitution",
+            "Tyrants",
+            "Life-Changing Events",
+            "Mythology",
+            "Disabilities",
+            "Anti-Social Protagonist",
+            "Foreign",
+            "Swordsman/men",
+            "Hiatus",
+            "Rude Male Lead",
+            "Character Growth",
+            "Special Suits",
+            "Special Weapon/s",
+            "Armed Combat",
+            "Child Abuse",
+            "Realistic Art Style",
+            "Violence",
+            "Mental Regression",
+            "Classic Manga",
+            "Brutality",
+            "Ambitious Male Lead",
+            "Cruel Male Lead",
+            "Traumatized Male Lead",
+            "Elves",
+            "Sacrifices",
+            "Interracial Couples",
+            "Fight for the Throne",
+            "Trauma",
+            "Prejudice",
+            "Emperors",
+            "Sadists",
+            "Strong Female Lead",
+            "Disability Aid",
+            "Disabled Protagonist",
+            "Hunted Protagonist",
+            "Damsel in Distress",
+            "Mysterious Characters",
+            "Serious/Studious Characters",
+            "Pact",
+            "Blood-Thirsty Male Lead",
+            "Badass Protagonist",
+            "Commoners",
+            "Misogynistic Characters",
+            "Crippled Character/s",
+            "Geniuses",
+            "Disability",
+            "Political Intrigue",
+            "Cannibalism",
+            "Monster Girls",
+            "Outsider",
+            "Badass Male Lead",
+            "Coming of Age",
+            "Blacksmiths",
+            "Politics",
+            "Path to King",
+            "Human Becomes Nonhuman",
+            "Military"
+          ],
+          "last_updated_at": "2026-11-07T10:59:05.233Z",
+          "relationships": {
+            "alternative": [
+              48182
+            ],
+            "other": [
+              101295,
+              82960
+            ]
+          },
+          "source": {
+            "anilist": {
+              "id": 30002,
+              "rating": 9.2,
+              "rating_normalized": 92
+            },
+            "anime_planet": {
+              "id": "berserk",
+              "rating": 4.6,
+              "rating_normalized": 92
+            },
+            "anime_news_network": {
+              "id": 2298,
+              "rating": 9.2436,
+              "rating_normalized": 92
+            },
+            "kitsu": {
+              "id": 8,
+              "rating": 8.492,
+              "rating_normalized": 85
+            },
+            "manga_updates": {
+              "id": "njeqwry",
+              "rating": 8.98,
+              "rating_normalized": 90
+            },
+            "my_anime_list": {
+              "id": 2,
+              "rating": 9.46,
+              "rating_normalized": 95
+            },
+            "shikimori": {
+              "id": 2,
+              "rating": 9.47,
+              "rating_normalized": 95
+            }
+          }
+        },
+        {
+          "id": 48182,
+          "state": "active",
+          "merged_with": null,
+          "canonical_url": "https://mangabaka.org/manga/48182/Berserk-The-Prototype",
+          "title": "Berserk: The Prototype",
+          "native_title": "BERSERK THE PROTOTYPE",
+          "romanized_title": "Berserk Prototype",
+          "secondary_titles": {
+            "unknown": [
+              {
+                "type": "unknown",
+                "title": "Berserk (Pilot)",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Berserk Prototype",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Berserk: The Prototype",
+                "note": null
+              }
+            ]
+          },
+          "cover": {
+            "raw": {
+              "url": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx36408-RXe0JkIEUDv8.jpg",
+              "size": 83332,
+              "height": 690,
+              "width": 460,
+              "blurhash": "|yNm.*Rj~qt7%MofM{j[M{xuayRjj[ayayj[ayof-;j[IUWBWBfQofj[ofRjj[t7ayayfQayj[WB?bj[M{j[M{ayayayt7ofj[fQfQj[ayWBayfQt7j[WBayoffQayayWBRjayofj[ofj[j[j[WBj[j[j[fQWBWBofj[fQ",
+              "thumbhash": "KggWBQD3qHqGt1hXmHyGiAAAAAAA",
+              "format": "jpeg"
+            },
+            "x150": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x150@1/aHR0cHM6Ly9zNC5hbmlsaXN0LmNvL2ZpbGUvYW5pbGlzdGNkbi9tZWRpYS9tYW5nYS9jb3Zlci9sYXJnZS9ieDM2NDA4LVJYZTBKa0lFVUR2OC5qcGc",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x150@2/aHR0cHM6Ly9zNC5hbmlsaXN0LmNvL2ZpbGUvYW5pbGlzdGNkbi9tZWRpYS9tYW5nYS9jb3Zlci9sYXJnZS9ieDM2NDA4LVJYZTBKa0lFVUR2OC5qcGc",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x150@3/aHR0cHM6Ly9zNC5hbmlsaXN0LmNvL2ZpbGUvYW5pbGlzdGNkbi9tZWRpYS9tYW5nYS9jb3Zlci9sYXJnZS9ieDM2NDA4LVJYZTBKa0lFVUR2OC5qcGc"
+            },
+            "x250": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x250@1/aHR0cHM6Ly9zNC5hbmlsaXN0LmNvL2ZpbGUvYW5pbGlzdGNkbi9tZWRpYS9tYW5nYS9jb3Zlci9sYXJnZS9ieDM2NDA4LVJYZTBKa0lFVUR2OC5qcGc",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x250@2/aHR0cHM6Ly9zNC5hbmlsaXN0LmNvL2ZpbGUvYW5pbGlzdGNkbi9tZWRpYS9tYW5nYS9jb3Zlci9sYXJnZS9ieDM2NDA4LVJYZTBKa0lFVUR2OC5qcGc",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x250@3/aHR0cHM6Ly9zNC5hbmlsaXN0LmNvL2ZpbGUvYW5pbGlzdGNkbi9tZWRpYS9tYW5nYS9jb3Zlci9sYXJnZS9ieDM2NDA4LVJYZTBKa0lFVUR2OC5qcGc"
+            },
+            "x350": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x350@1/aHR0cHM6Ly9zNC5hbmlsaXN0LmNvL2ZpbGUvYW5pbGlzdGNkbi9tZWRpYS9tYW5nYS9jb3Zlci9sYXJnZS9ieDM2NDA4LVJYZTBKa0lFVUR2OC5qcGc",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x350@2/aHR0cHM6Ly9zNC5hbmlsaXN0LmNvL2ZpbGUvYW5pbGlzdGNkbi9tZWRpYS9tYW5nYS9jb3Zlci9sYXJnZS9ieDM2NDA4LVJYZTBKa0lFVUR2OC5qcGc",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x350@3/aHR0cHM6Ly9zNC5hbmlsaXN0LmNvL2ZpbGUvYW5pbGlzdGNkbi9tZWRpYS9tYW5nYS9jb3Zlci9sYXJnZS9ieDM2NDA4LVJYZTBKa0lFVUR2OC5qcGc"
+            }
+          },
+          "authors": [
+            "Kentarou Miura"
+          ],
+          "artists": [
+            "Kentarou Miura"
+          ],
+          "description": "The prototype chapter for *Berserk*, written by Kentarou Miura when he was a student. It was later collected in volume 14 of the main series.",
+          "year": 1988,
+          "published": {
+            "start_date": "1988-11-26",
+            "end_date": "1988-11-26",
+            "start_date_is_estimated": false,
+            "end_date_is_estimated": false
+          },
+          "status": "completed",
+          "is_licensed": true,
+          "has_anime": false,
+          "anime": null,
+          "content_rating": "safe",
+          "type": "manga",
+          "original_language": "ja",
+          "rating": 75.84,
+          "popularity": {
+            "global": {
+              "current": 3853,
+              "history": {
+                "1d": 3849,
+                "1w": 3859,
+                "1mo": 3949,
+                "3mo": 3851,
+                "6mo": 2523,
+                "1y": 1710
+              }
+            },
+            "type": {
+              "current": 2495,
+              "history": {
+                "1d": 2494,
+                "1w": 2505,
+                "1mo": 2598,
+                "3mo": 2610,
+                "6mo": 1846,
+                "1y": 1159
+              }
+            }
+          },
+          "final_volume": null,
+          "total_chapters": "1",
+          "links": [
+            "https://mangabaka.org/48182"
+          ],
+          "publishers": [],
+          "titles": [
+            {
+              "language": "en",
+              "traits": [],
+              "title": "Berserk (Pilot)",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ja-Latn",
+              "traits": [
+                "native"
+              ],
+              "title": "Berserk Prototype",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "en",
+              "traits": [
+                "official"
+              ],
+              "title": "Berserk: The Prototype",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ja",
+              "traits": [
+                "native"
+              ],
+              "title": "BERSERK THE PROTOTYPE",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ja-Latn",
+              "traits": [
+                "native"
+              ],
+              "title": "BERSERK THE PROTOTYPE",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ru",
+              "traits": [],
+              "title": "Берсерк Прототип",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ja",
+              "traits": [],
+              "title": "ベルセルク",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ja",
+              "traits": [
+                "native"
+              ],
+              "title": "ベルセルク・プロトタイプ",
+              "note": null,
+              "is_primary": false
+            }
+          ],
+          "genres_v2": null,
+          "genres": [
+            "action",
+            "adventure",
+            "fantasy",
+            "horror"
+          ],
+          "tags": [
+            "One Shot",
+            "Skeletons",
+            "Demons",
+            "Dark Fantasy",
+            "Shounen",
+            "Male Protagonist",
+            "Pilot Chapter",
+            "Fairy",
+            "Seinen",
+            "Revenge",
+            "Travel",
+            "Elves",
+            "Gore",
+            "Wars"
+          ],
+          "last_updated_at": "2026-11-07T08:08:23.783Z",
+          "relationships": {
+            "alternative": [
+              1692
+            ]
+          },
+          "source": {
+            "anilist": {
+              "id": 36408,
+              "rating": 7.2,
+              "rating_normalized": 72
+            },
+            "anime_planet": {
+              "id": "berserk-pilot",
+              "rating": 3.9,
+              "rating_normalized": 78
+            },
+            "anime_news_network": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "kitsu": {
+              "id": 13737,
+              "rating": 7.752,
+              "rating_normalized": 78
+            },
+            "manga_updates": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "my_anime_list": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "shikimori": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            }
+          }
+        },
+        {
+          "id": 60246,
+          "state": "active",
+          "merged_with": null,
+          "canonical_url": "https://mangabaka.org/manga/60246/Berserk-of-Gluttony",
+          "title": "Boushoku no Berserk - Ore dake Level to Iu Gainen wo Toppa shite Saikyou",
+          "native_title": "暴食のベルセルク　～俺だけレベルという概念を突破して最強～",
+          "romanized_title": "Boushoku no Berserk: Ore dake Level to Iu Gainen o Toppa Shite Saikyou",
+          "secondary_titles": {
+            "unknown": [
+              {
+                "type": "unknown",
+                "title": "Berserk of Gluttony (2023)",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Berserk of Gluttony (Webtoon)",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Berserk of Gluttony [Webtoon]",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Berserk of Gluttony (Yukiya)",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Boushoku no Berserk - Ore dake Level to Iu Gainen o Toppa Shite Saikyou",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Boushoku no Berserk: Ore dake Level to Iu Gainen o Toppa Shite Saikyou",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "暴食のベルセルク　～俺だけレベルという概念を突破して最強～",
+                "note": null
+              }
+            ]
+          },
+          "cover": {
+            "raw": {
+              "url": "https://images.mangabaka.dev/a/6/d/8/5/b/0/b/fe2b/4509/a04a/4121afe36f1a",
+              "size": 299507,
+              "height": 1170,
+              "width": 828,
+              "blurhash": "|RH^b-~D9]aQIUIoe.aLIU.A$SrYR,S1t7s;R%ahxKEKR*-WxaozScbYt7-WxHODkps.r]nioNog%2V{RPxaSvWVxGoLa#xat5R%n+j=NtR*azoeSzt6xFNInkw|WEW-oebtbYf8n,WBaexHbFWBs:R%RkkBogS1kBsoWA",
+              "thumbhash": "mlcKFQRPSa93p3SqeXqWeBqA8jGs",
+              "format": "jpeg"
+            },
+            "x150": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x150@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzYvZC84LzUvYi8wL2IvZmUyYi80NTA5L2EwNGEvNDEyMWFmZTM2ZjFh",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x150@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzYvZC84LzUvYi8wL2IvZmUyYi80NTA5L2EwNGEvNDEyMWFmZTM2ZjFh",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x150@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzYvZC84LzUvYi8wL2IvZmUyYi80NTA5L2EwNGEvNDEyMWFmZTM2ZjFh"
+            },
+            "x250": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x250@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzYvZC84LzUvYi8wL2IvZmUyYi80NTA5L2EwNGEvNDEyMWFmZTM2ZjFh",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x250@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzYvZC84LzUvYi8wL2IvZmUyYi80NTA5L2EwNGEvNDEyMWFmZTM2ZjFh",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x250@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzYvZC84LzUvYi8wL2IvZmUyYi80NTA5L2EwNGEvNDEyMWFmZTM2ZjFh"
+            },
+            "x350": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x350@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzYvZC84LzUvYi8wL2IvZmUyYi80NTA5L2EwNGEvNDEyMWFmZTM2ZjFh",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x350@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzYvZC84LzUvYi8wL2IvZmUyYi80NTA5L2EwNGEvNDEyMWFmZTM2ZjFh",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x350@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi9hLzYvZC84LzUvYi8wL2IvZmUyYi80NTA5L2EwNGEvNDEyMWFmZTM2ZjFh"
+            }
+          },
+          "authors": [
+            "ISSHIKI Ichika"
+          ],
+          "artists": [
+            "fame",
+            "SAITO Ikumi (斎藤いくみ)",
+            "TAKINO Daisuke",
+            "Yukiya"
+          ],
+          "description": "In this world, there are two types of people. Those Who have powerful “skills”, and those who don’t. People born with powerful skills, exterminate monsters to level up and become successful, while people without them, become failures, who are treated harshly by society. Follow the story of Fate, a guy who works as a gatekeeper, and whose only skill is gluttony, a skill that only makes him hungry.\n\n[Original Webtoon](https://jp.piccoma.com/web/product/125898)",
+          "year": 2023,
+          "published": {
+            "start_date": "2023-01-01",
+            "end_date": null,
+            "start_date_is_estimated": true,
+            "end_date_is_estimated": null
+          },
+          "status": "releasing",
+          "is_licensed": false,
+          "has_anime": false,
+          "anime": null,
+          "content_rating": "safe",
+          "type": "manga",
+          "original_language": "ja",
+          "rating": 66.3,
+          "popularity": {
+            "global": {
+              "current": 45858,
+              "history": {
+                "1d": 45759,
+                "1w": 45764,
+                "1mo": 48901,
+                "3mo": 51810,
+                "6mo": 53797,
+                "1y": 47240
+              }
+            },
+            "type": {
+              "current": 31295,
+              "history": {
+                "1d": 31226,
+                "1w": 31246,
+                "1mo": 33512,
+                "3mo": 36058,
+                "6mo": 39882,
+                "1y": 34276
+              }
+            }
+          },
+          "final_volume": null,
+          "total_chapters": "67",
+          "links": [
+            "https://mangabaka.org/60246"
+          ],
+          "publishers": [
+            {
+              "id": 3112,
+              "name": "Kakao Japan",
+              "canonical_url": "https://mangabaka.org/publisher/3112/Kakao-Japan",
+              "language": "ja",
+              "note": null,
+              "type": "Original"
+            },
+            {
+              "id": 2476,
+              "name": "Micro Magazine",
+              "canonical_url": "https://mangabaka.org/publisher/2476/Micro-Magazine",
+              "language": "ja",
+              "note": null,
+              "type": "Original"
+            },
+            {
+              "id": 4434,
+              "name": "Whomor",
+              "canonical_url": "https://mangabaka.org/publisher/4434/Whomor",
+              "language": "ja",
+              "note": null,
+              "type": "Original"
+            }
+          ],
+          "titles": [
+            {
+              "language": "en",
+              "traits": [],
+              "title": "Berserk of Gluttony",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "en",
+              "traits": [],
+              "title": "Berserk of Gluttony (2023)",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "en",
+              "traits": [],
+              "title": "Berserk of Gluttony [Webtoon]",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "en",
+              "traits": [],
+              "title": "Berserk of Gluttony (Yukiya)",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ja-Latn",
+              "traits": [],
+              "title": "Boushoku no Berserk: Ore dake Level to Iu Gainen o Toppa Shite Saikyou",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ja-Latn",
+              "traits": [
+                "native"
+              ],
+              "title": "Boushoku no Berserk - Ore dake Level to Iu Gainen wo Toppa shite Saikyou",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ja",
+              "traits": [
+                "native"
+              ],
+              "title": "暴食のベルセルク　～俺だけレベルという概念を突破して最強～",
+              "note": null,
+              "is_primary": true
+            }
+          ],
+          "genres_v2": null,
+          "genres": [
+            "action",
+            "drama",
+            "fantasy",
+            "shounen"
+          ],
+          "tags": [
+            "Based on a Light Novel",
+            "Adventure"
+          ],
+          "last_updated_at": "2026-11-06T19:24:39.557Z",
+          "relationships": {
+            "alternative": [
+              646
+            ]
+          },
+          "source": {
+            "anilist": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "anime_planet": {
+              "id": "berserk-of-gluttony-2023",
+              "rating": 3.7,
+              "rating_normalized": 74
+            },
+            "anime_news_network": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "kitsu": {
+              "id": 75018,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "manga_updates": {
+              "id": "43z3ja6",
+              "rating": 5.86,
+              "rating_normalized": 59
+            },
+            "my_anime_list": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "shikimori": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            }
+          }
+        },
+        {
+          "id": 51093,
+          "state": "active",
+          "merged_with": null,
+          "canonical_url": "https://mangabaka.org/manhwa/51093/Ripple-Berserker",
+          "title": "Ripple: Berserker",
+          "native_title": "리플 : 버서커",
+          "romanized_title": "Ripple: Berserker",
+          "secondary_titles": {
+            "unknown": [
+              {
+                "type": "unknown",
+                "title": "리플 : 버서커",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "리플:버서커",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Level Berserker",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Real Play: Berserker",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Ripple: Berserker",
+                "note": null
+              }
+            ]
+          },
+          "cover": {
+            "raw": {
+              "url": "https://images.mangabaka.dev/6/a/f/5/6/4/6/2/a66c/4046/8982/409dee33e573",
+              "size": 417472,
+              "height": 972,
+              "width": 720,
+              "blurhash": "|tEWXXbHo}NGtRaybbkCWB_NozogWBt7WVazkCWB-;xuV@jZn$WBaej[WB%2xZRjV@jFaeayayf6%Mn%WBWBjZj@j[afj@xuWBj[azj[axkCjZj[n%aef6ozaybHofoLayRioLWBofaxazofoLbHRjaybHoLofWVoej[j]",
+              "thumbhash": "l9cVDQSXl494qHmYeHqXdwhXiWCV",
+              "format": "jpeg"
+            },
+            "x150": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x150@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi82L2EvZi81LzYvNC82LzIvYTY2Yy80MDQ2Lzg5ODIvNDA5ZGVlMzNlNTcz",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x150@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi82L2EvZi81LzYvNC82LzIvYTY2Yy80MDQ2Lzg5ODIvNDA5ZGVlMzNlNTcz",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x150@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi82L2EvZi81LzYvNC82LzIvYTY2Yy80MDQ2Lzg5ODIvNDA5ZGVlMzNlNTcz"
+            },
+            "x250": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x250@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi82L2EvZi81LzYvNC82LzIvYTY2Yy80MDQ2Lzg5ODIvNDA5ZGVlMzNlNTcz",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x250@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi82L2EvZi81LzYvNC82LzIvYTY2Yy80MDQ2Lzg5ODIvNDA5ZGVlMzNlNTcz",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x250@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi82L2EvZi81LzYvNC82LzIvYTY2Yy80MDQ2Lzg5ODIvNDA5ZGVlMzNlNTcz"
+            },
+            "x350": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x350@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi82L2EvZi81LzYvNC82LzIvYTY2Yy80MDQ2Lzg5ODIvNDA5ZGVlMzNlNTcz",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x350@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi82L2EvZi81LzYvNC82LzIvYTY2Yy80MDQ2Lzg5ODIvNDA5ZGVlMzNlNTcz",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x350@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi82L2EvZi81LzYvNC82LzIvYTY2Yy80MDQ2Lzg5ODIvNDA5ZGVlMzNlNTcz"
+            }
+          },
+          "authors": [
+            "Honey Boy"
+          ],
+          "artists": [
+            "Honey Boy"
+          ],
+          "description": "Unlike his friends, Hyun-So, who dropped the world's no 1 professional gamer because of the virtual reality implementation item \"real play\", is bullied for refusing to ripple and earn money from Alvaro. Unfortunately, with the invitation of his best friend, He reluctantly begins to ripple, and he became the main character of the topic with the power of reflexes, vision, and photoelectric forces that react on a one-frame basic...",
+          "year": 2022,
+          "published": {
+            "start_date": "2022-01-17",
+            "end_date": "2022-11-21",
+            "start_date_is_estimated": false,
+            "end_date_is_estimated": false
+          },
+          "status": "completed",
+          "is_licensed": false,
+          "has_anime": false,
+          "anime": null,
+          "content_rating": "safe",
+          "type": "manhwa",
+          "original_language": "ko",
+          "rating": 63.4,
+          "popularity": {
+            "global": {
+              "current": 44447,
+              "history": {
+                "1d": 44553,
+                "1w": 44424,
+                "1mo": 43805,
+                "3mo": 47409,
+                "6mo": 48652,
+                "1y": 44610
+              }
+            },
+            "type": {
+              "current": 9614,
+              "history": {
+                "1d": 9624,
+                "1w": 9592,
+                "1mo": 9431,
+                "3mo": 9676,
+                "6mo": 6995,
+                "1y": 6402
+              }
+            }
+          },
+          "final_volume": null,
+          "total_chapters": "50",
+          "links": [
+            "https://page.kakao.com/home?seriesId=58603371",
+            "https://page.kakao.com/content/58603371",
+            "https://mangabaka.org/51093"
+          ],
+          "publishers": [
+            {
+              "id": 5081,
+              "name": "Daum",
+              "canonical_url": "https://mangabaka.org/publisher/5081/Daum",
+              "language": "ko",
+              "note": null,
+              "type": "Original"
+            },
+            {
+              "id": 3109,
+              "name": "Kakao",
+              "canonical_url": "https://mangabaka.org/publisher/3109/Kakao",
+              "language": "ko",
+              "note": null,
+              "type": "Original"
+            },
+            {
+              "id": 4983,
+              "name": "Ultra Media",
+              "canonical_url": "https://mangabaka.org/publisher/4983/Ultra-Media",
+              "language": "ko",
+              "note": null,
+              "type": "Original"
+            }
+          ],
+          "titles": [
+            {
+              "language": "ko",
+              "traits": [
+                "native"
+              ],
+              "title": "리플 : 버서커",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "en",
+              "traits": [],
+              "title": "Level Berserker",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "en",
+              "traits": [],
+              "title": "Real Play: Berserker",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ko-Latn",
+              "traits": [
+                "native"
+              ],
+              "title": "Ripple: Berserker",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "en",
+              "traits": [
+                "official"
+              ],
+              "title": "Ripple: Berserker",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ru",
+              "traits": [],
+              "title": "Пульсация: Берсеркер",
+              "note": null,
+              "is_primary": true
+            }
+          ],
+          "genres_v2": null,
+          "genres": [
+            "action",
+            "supernatural",
+            "drama",
+            "fantasy",
+            "shounen"
+          ],
+          "tags": [
+            "Video Games",
+            "Violence",
+            "Male Protagonist",
+            "Bullying",
+            "Bullied Protagonist",
+            "Virtual Reality",
+            "Manhwa",
+            "Helpful Character/s",
+            "Harassment",
+            "Bullied Male Lead",
+            "Webtoons",
+            "Virtual Game World",
+            "School",
+            "Livestreaming",
+            "Games",
+            "Full Color"
+          ],
+          "last_updated_at": "2026-11-05T07:37:22.168Z",
+          "relationships": null,
+          "source": {
+            "anilist": {
+              "id": 146987,
+              "rating": 6.2,
+              "rating_normalized": 62
+            },
+            "anime_planet": {
+              "id": "real-play-berserker",
+              "rating": 3.3,
+              "rating_normalized": 66
+            },
+            "anime_news_network": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "kitsu": {
+              "id": null,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "manga_updates": {
+              "id": "oghodx3",
+              "rating": 6.22,
+              "rating_normalized": 62
+            },
+            "my_anime_list": {
+              "id": 159765,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "shikimori": {
+              "id": 159765,
+              "rating": null,
+              "rating_normalized": null
+            }
+          }
+        },
+        {
+          "id": 646,
+          "state": "active",
+          "merged_with": null,
+          "canonical_url": "https://mangabaka.org/manga/646/Berserk-of-Gluttony",
+          "title": "Berserk of Gluttony",
+          "native_title": "暴食のベルセルク　～俺だけレベルという概念を突破する～ THE COMIC",
+          "romanized_title": "Bōshoku no Berserk: Ore dake Level to Iu Gainen wo Toppa Suru THE COMIC",
+          "secondary_titles": {
+            "unknown": [
+              {
+                "type": "unknown",
+                "title": "폭식의 버서크 ~나만 레벨이라는 개념을 돌파한다~",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Berserk of Gluttony",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Berserk of Gluttony - The One That Exceeds the Concept of Levels",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Berserk of Gluttony: The One That Exceeds the Concept of Levels",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Boushoku no Berserk - Ore dake Level to Iu Gainen o Toppa Suru THE COMIC",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Boushoku no Berserk: Ore dake Level to Iu Gainen o Toppa Suru THE COMIC",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Boushoku no Berserk - Ore dake Level to Iu Gainen wo Toppa Suru THE COMIC",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Boushoku no Berserk: Ore dake Level to Iu Gainen wo Toppa Suru THE COMIC",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Godumo įniršis",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Savaşının Açlığı: Seviye Denen Kavramı Sadece Ben Aşabilirim",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Берсерк Ненажерливості",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "Берсерк Обжорства",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "จอมตะกละดาบคลั่ง The Comic",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "จอมตะกละดาบคลั่ง -ข้านี่แหละจะทะลวงแนวความคิดที่เรียกว่าเลเวลเอง- (Luckpim)",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "暴食のベルセルク　～俺だけレベルという概念を突破する～ THE COMIC",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "狂怒的暴食 ～僅自己突破了等級這概念～",
+                "note": null
+              },
+              {
+                "type": "unknown",
+                "title": "狂怒的暴食 ～只有我突破了等级这概念～",
+                "note": null
+              }
+            ]
+          },
+          "cover": {
+            "raw": {
+              "url": "https://images.mangabaka.dev/8/8/e/7/5/4/2/2/0358/4ebd/9087/6b8c22d5ea86",
+              "size": 3299538,
+              "height": 4301,
+              "width": 3024,
+              "blurhash": "|JEolX4z%4?ZE4IWxta{M~~FD?obxrIuNGofa$WFxdxuRooYNIWZobRmogIv%FN5xpj^oexsRnj;D=t0NGobt8s:xsR.obE2NGWSWCodxst7R+t4R.Rjs,WFt7xYt6j^s:WHWAocRns.t7ogaxt5s,jcoeWCWDfhf8WEt3",
+              "thumbhash": "2BcGPQDiTVeX9mt1imU2dnNfdor4",
+              "format": "jpeg"
+            },
+            "x150": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x150@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi84LzgvZS83LzUvNC8yLzIvMDM1OC80ZWJkLzkwODcvNmI4YzIyZDVlYTg2",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x150@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi84LzgvZS83LzUvNC8yLzIvMDM1OC80ZWJkLzkwODcvNmI4YzIyZDVlYTg2",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x150@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi84LzgvZS83LzUvNC8yLzIvMDM1OC80ZWJkLzkwODcvNmI4YzIyZDVlYTg2"
+            },
+            "x250": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x250@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi84LzgvZS83LzUvNC8yLzIvMDM1OC80ZWJkLzkwODcvNmI4YzIyZDVlYTg2",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x250@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi84LzgvZS83LzUvNC8yLzIvMDM1OC80ZWJkLzkwODcvNmI4YzIyZDVlYTg2",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x250@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi84LzgvZS83LzUvNC8yLzIvMDM1OC80ZWJkLzkwODcvNmI4YzIyZDVlYTg2"
+            },
+            "x350": {
+              "x1": "https://cdn.mangabaka.dev/imgproxy/plain/x350@1/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi84LzgvZS83LzUvNC8yLzIvMDM1OC80ZWJkLzkwODcvNmI4YzIyZDVlYTg2",
+              "x2": "https://cdn.mangabaka.dev/imgproxy/plain/x350@2/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi84LzgvZS83LzUvNC8yLzIvMDM1OC80ZWJkLzkwODcvNmI4YzIyZDVlYTg2",
+              "x3": "https://cdn.mangabaka.dev/imgproxy/plain/x350@3/aHR0cHM6Ly9pbWFnZXMubWFuZ2FiYWthLmRldi84LzgvZS83LzUvNC8yLzIvMDM1OC80ZWJkLzkwODcvNmI4YzIyZDVlYTg2"
+            }
+          },
+          "authors": [
+            "Daisuke Takino",
+            "Ichika Isshiki"
+          ],
+          "artists": [
+            "Daisuke Takino"
+          ],
+          "description": "**A strikingly illustrated dark fantasy, in which a frail young man’s terrible magic could lead him to ultimate power.**\n\nFate Graphite has never tasted true power. Born into a world with two kinds of people—those with superior skills and those without—he’s been shunned his entire life. Fate’s skill is Gluttony, a curse that leaves him constantly hungry…until he awakens its terrible potential. When he kills someone, he can devour their skills and feed his insatiable appetite. How many lives will it take for Fate’s Gluttony to finally be satisfied?\n\n*Source: Seven Seas Entertainment, Vol. 1*",
+          "year": 2018,
+          "published": {
+            "start_date": "2018-03-01",
+            "end_date": null,
+            "start_date_is_estimated": false,
+            "end_date_is_estimated": null
+          },
+          "status": "releasing",
+          "is_licensed": true,
+          "has_anime": true,
+          "anime": {
+            "start": "Vol 1, Chap 1 (S1)",
+            "end": "Vol 6, Chap 30 (S1)"
+          },
+          "content_rating": "safe",
+          "type": "manga",
+          "original_language": "ja",
+          "rating": 69.225,
+          "popularity": {
+            "global": {
+              "current": 595,
+              "history": {
+                "1d": 595,
+                "1w": 589,
+                "1mo": 572,
+                "3mo": 525,
+                "6mo": 608,
+                "1y": 810
+              }
+            },
+            "type": {
+              "current": 379,
+              "history": {
+                "1d": 379,
+                "1w": 377,
+                "1mo": 374,
+                "3mo": 357,
+                "6mo": 457,
+                "1y": 569
+              }
+            }
+          },
+          "final_volume": "15",
+          "total_chapters": "87",
+          "links": [
+            "https://comicride.jp/gluttony/",
+            "https://seiga.nicovideo.jp/comic/31663",
+            "https://sevenseasentertainment.com/series/berserk-of-gluttony-manga/",
+            "https://www.mangas.io/lire/berserk-of-gluttony",
+            "https://en.wikipedia.org/wiki/Berserk_of_Gluttony",
+            "https://ja.wikipedia.org/wiki/暴食のベルセルク",
+            "https://www.comicride.jp/book/gluttony/",
+            "https://mangabaka.org/646"
+          ],
+          "publishers": [
+            {
+              "id": 2476,
+              "name": "Micro Magazine",
+              "canonical_url": "https://mangabaka.org/publisher/2476/Micro-Magazine",
+              "language": "ja",
+              "note": null,
+              "type": "Original"
+            },
+            {
+              "id": 1,
+              "name": "Seven Seas Entertainment",
+              "canonical_url": "https://mangabaka.org/publisher/1/Seven-Seas-Entertainment",
+              "language": "en",
+              "note": "14 Volumes; Ongoing",
+              "type": "English"
+            }
+          ],
+          "titles": [
+            {
+              "language": "ko",
+              "traits": [],
+              "title": "폭식의 베르세르크 ~나만 레벨이라는 개념을 돌파한다~",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ko",
+              "traits": [],
+              "title": "폭식의 버서크 ~나만 레벨이라는 개념을 돌파한다~",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "vi",
+              "traits": [],
+              "title": "Bạo Thực Cuồng Nhân",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "fr",
+              "traits": [],
+              "title": "Berserk de la Gourmandise : Celui qui surpasse le concept même de niveaux",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "pl",
+              "traits": [],
+              "title": "Berserk obżarstwa",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "en",
+              "traits": [
+                "official"
+              ],
+              "title": "Berserk of Gluttony",
+              "note": "Seven Seas Entertainment",
+              "is_primary": true
+            },
+            {
+              "language": "en",
+              "traits": [],
+              "title": "Berserk of Gluttony: The One That Exceeds the Concept of Levels",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ja-Latn",
+              "traits": [
+                "alternative"
+              ],
+              "title": "Bōshoku no Berserk: Ore dake Level to Iu Gainen wo Toppa Suru THE COMIC",
+              "note": "macron and wo title",
+              "is_primary": false
+            },
+            {
+              "language": "ja-Latn",
+              "traits": [
+                "native"
+              ],
+              "title": "Boushoku no Berserk: Ore dake Level to Iu Gainen o Toppa Suru THE COMIC",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ja-Latn",
+              "traits": [
+                "alternative"
+              ],
+              "title": "Boushoku no Berserk: Ore dake Level to Iu Gainen wo Toppa Suru THE COMIC",
+              "note": "wo title",
+              "is_primary": false
+            },
+            {
+              "language": "lt",
+              "traits": [],
+              "title": "Godumo įniršis",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "tr",
+              "traits": [],
+              "title": "Savaşının Açlığı: Seviye Denen Kavramı Sadece Ben Aşabilirim",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "uk",
+              "traits": [],
+              "title": "Берсерк Ненажерливості",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "ru",
+              "traits": [],
+              "title": "Берсерк Обжорства",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ru",
+              "traits": [],
+              "title": "Ненасытный Берсерк",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "th",
+              "traits": [],
+              "title": "จอมตะกละดาบคลั่ง The Comic",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "th",
+              "traits": [],
+              "title": "จอมตะกละดาบคลั่ง -ข้านี่แหละจะทะลวงแนวความคิดที่เรียกว่าเลเวลเอง- (Luckpim)",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "th",
+              "traits": [],
+              "title": "จอมตะกละดาบคลั่ง -ข้านี่แหละจะทะลวงแนวความคิดที่เรียกว่าเลเวลเอง- The comic",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "ja",
+              "traits": [
+                "native"
+              ],
+              "title": "暴食のベルセルク　～俺だけレベルという概念を突破する～ THE COMIC",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "zh",
+              "traits": [],
+              "title": "暴食狂戰士 唯有我突破了所謂「等級」的概念",
+              "note": null,
+              "is_primary": false
+            },
+            {
+              "language": "zh-Hant",
+              "traits": [],
+              "title": "狂怒的暴食 ～僅自己突破了等級這概念～",
+              "note": null,
+              "is_primary": true
+            },
+            {
+              "language": "zh",
+              "traits": [],
+              "title": "狂怒的暴食 ～只有我突破了等级这概念～",
+              "note": null,
+              "is_primary": true
+            }
+          ],
+          "genres_v2": null,
+          "genres": [
+            "action",
+            "adventure",
+            "drama",
+            "fantasy",
+            "romance",
+            "harem",
+            "seinen"
+          ],
+          "tags": [
+            "Game Elements",
+            "Power at a Price",
+            "Shounen",
+            "Male Protagonist",
+            "Level System",
+            "Based on a Light Novel",
+            "Subtle Romance",
+            "Knights",
+            "Discrimination",
+            "Dead Parents",
+            "Masks",
+            "Loyal Servants",
+            "Master-Servant Relationship",
+            "Masked Characters",
+            "Cheat Skills",
+            "Social Hierarchy",
+            "Yandere Characters",
+            "Chivalrous Female Lead",
+            "Abuse",
+            "Special Abilities",
+            "Gluttons",
+            "Strong Female Lead",
+            "Kind Female Lead",
+            "Seven Deadly Sins",
+            "Female Harem",
+            "Poor Male Lead",
+            "Monsters",
+            "Dark Fantasy",
+            "Weak to Strong",
+            "Strong Male Lead",
+            "Cursed Weapon",
+            "Revenge",
+            "Adapted to Anime",
+            "Abuse of Power",
+            "Sentient Weapon",
+            "Nobility/Aristocracy",
+            "Beautiful Female Lead",
+            "Swordsman/men",
+            "Different Social Status",
+            "Corruption",
+            "Based on a Novel",
+            "Magic"
+          ],
+          "last_updated_at": "2026-11-07T11:18:18.747Z",
+          "relationships": {
+            "main_story": [
+              83038
+            ]
+          },
+          "source": {
+            "anilist": {
+              "id": 101625,
+              "rating": 6.6,
+              "rating_normalized": 66
+            },
+            "anime_planet": {
+              "id": "berserk-of-gluttony",
+              "rating": 3.8,
+              "rating_normalized": 76
+            },
+            "anime_news_network": {
+              "id": 23622,
+              "rating": null,
+              "rating_normalized": null
+            },
+            "kitsu": {
+              "id": 40812,
+              "rating": 6.995,
+              "rating_normalized": 70
+            },
+            "manga_updates": {
+              "id": "y10mhma",
+              "rating": 6.73,
+              "rating_normalized": 67
+            },
+            "my_anime_list": {
+              "id": 113958,
+              "rating": 6.8,
+              "rating_normalized": 68
+            },
+            "shikimori": {
+              "id": 113958,
+              "rating": 6.81,
+              "rating_normalized": 68
+            }
+          }
+        }
+      ]
+    }
+  }
+}

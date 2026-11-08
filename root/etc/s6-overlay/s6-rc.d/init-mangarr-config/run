@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+# /config holds the SQLite database. Give it to abc (PUID:PGID) on every start, so files
+# created by `docker exec` as root never lock the app out.
+if [[ -z ${LSIO_NON_ROOT_USER} ]]; then
+    lsiown -R abc:abc \
+        /config
+fi

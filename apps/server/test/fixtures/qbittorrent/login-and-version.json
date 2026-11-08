@@ -1,0 +1,47 @@
+{
+  "description": "Log in and read the version (the connection test)",
+  "recordedAt": "2026-11-07",
+  "qbittorrentVersion": "v5.3.0",
+  "context": {
+    "knownHash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+    "category": "mangarr",
+    "newCategory": "mangarr-recorder-test"
+  },
+  "outcome": {
+    "ok": "v5.3.0"
+  },
+  "calls": [
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/auth/login",
+        "query": [],
+        "body": {
+          "username": "REDACTED",
+          "password": "REDACTED"
+        }
+      },
+      "response": {
+        "status": 204,
+        "contentType": null,
+        "setCookie": [
+          "QBT_SID_8081=redacted"
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/app/version",
+        "query": []
+      },
+      "response": {
+        "status": 200,
+        "contentType": "text/plain; charset=UTF-8",
+        "body": "v5.3.0"
+      }
+    }
+  ]
+}

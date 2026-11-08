@@ -1,0 +1,33 @@
+{
+  "description": "No collections: the volume count falls back to final_volume.",
+  "recordedAt": "2026-11-07",
+  "request": {
+    "method": "GET",
+    "path": "/v1/series/1692/collections",
+    "query": [
+      [
+        "page",
+        "1"
+      ],
+      [
+        "limit",
+        "50"
+      ]
+    ]
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json",
+    "body": {
+      "status": 200,
+      "data": [],
+      "pagination": {
+        "count": 0,
+        "next": null,
+        "previous": null,
+        "page": 1,
+        "limit": 50
+      }
+    }
+  }
+}

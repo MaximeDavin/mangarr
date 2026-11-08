@@ -1,0 +1,110 @@
+{
+  "description": "List the libraries and read the key's user (the connection test and the Language picker)",
+  "recordedAt": "2026-11-07",
+  "komgaVersion": "1.30.0",
+  "context": {
+    "libraryId": "0S5G7X0VCN76R"
+  },
+  "outcome": {
+    "libraries": {
+      "ok": [
+        {
+          "id": "0S5G7X0VCN76R",
+          "name": "Manga",
+          "root": "/data"
+        }
+      ]
+    },
+    "me": {
+      "ok": {
+        "roles": [
+          "ADMIN",
+          "FILE_DOWNLOAD",
+          "KOBO_SYNC",
+          "KOREADER_SYNC",
+          "PAGE_STREAMING",
+          "USER"
+        ],
+        "isAdmin": true
+      }
+    }
+  },
+  "calls": [
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/libraries",
+        "query": []
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "id": "0S5G7X0VCN76R",
+            "name": "Manga",
+            "root": "/data",
+            "importComicInfoBook": true,
+            "importComicInfoSeries": true,
+            "importComicInfoCollection": true,
+            "importComicInfoReadList": true,
+            "importComicInfoSeriesAppendVolume": true,
+            "importEpubBook": true,
+            "importEpubSeries": true,
+            "importMylarSeries": true,
+            "importLocalArtwork": true,
+            "importBarcodeIsbn": false,
+            "scanForceModifiedTime": false,
+            "scanInterval": "EVERY_6H",
+            "scanOnStartup": false,
+            "scanCbx": true,
+            "scanPdf": true,
+            "scanEpub": true,
+            "scanDirectoryExclusions": [
+              "#recycle",
+              "@Recycle",
+              "@eaDir"
+            ],
+            "repairExtensions": false,
+            "convertToCbz": false,
+            "emptyTrashAfterScan": false,
+            "seriesCover": "FIRST",
+            "hashFiles": true,
+            "hashPages": false,
+            "hashKoreader": false,
+            "analyzeDimensions": true,
+            "oneshotsDirectory": null,
+            "unavailable": false
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/users/me",
+        "query": []
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": {
+          "id": "0S5G6Y1JMN5C2",
+          "email": "user@example.invalid",
+          "roles": [
+            "ADMIN",
+            "FILE_DOWNLOAD",
+            "KOBO_SYNC",
+            "KOREADER_SYNC",
+            "PAGE_STREAMING",
+            "USER"
+          ],
+          "sharedAllLibraries": true,
+          "sharedLibrariesIds": [],
+          "labelsAllow": [],
+          "labelsExclude": []
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+**/node_modules
+**/dist
+**/.env
+**/.env.*
+**/*.log
+**/*.db
+**/*.db-shm
+**/*.db-wal
+config
+apps/server/config
+coverage
+.git
+.claude
+.idea
+.vscode
+docs

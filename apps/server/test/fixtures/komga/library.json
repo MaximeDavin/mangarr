@@ -1,0 +1,91 @@
+{
+  "description": "Get a library Komga has, then one it doesn't (the check when a Language is saved)",
+  "recordedAt": "2026-11-07",
+  "komgaVersion": "1.30.0",
+  "context": {
+    "libraryId": "0S5G7X0VCN76R"
+  },
+  "outcome": {
+    "known": {
+      "ok": {
+        "id": "0S5G7X0VCN76R",
+        "name": "Manga",
+        "root": "/data"
+      }
+    },
+    "unknown": {
+      "error": {
+        "kind": "not_found",
+        "status": 404,
+        "message": "Komga has no library 0MANGARRNOLIBRARY"
+      }
+    }
+  },
+  "calls": [
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/libraries/0S5G7X0VCN76R",
+        "query": []
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": {
+          "id": "0S5G7X0VCN76R",
+          "name": "Manga",
+          "root": "/data",
+          "importComicInfoBook": true,
+          "importComicInfoSeries": true,
+          "importComicInfoCollection": true,
+          "importComicInfoReadList": true,
+          "importComicInfoSeriesAppendVolume": true,
+          "importEpubBook": true,
+          "importEpubSeries": true,
+          "importMylarSeries": true,
+          "importLocalArtwork": true,
+          "importBarcodeIsbn": false,
+          "scanForceModifiedTime": false,
+          "scanInterval": "EVERY_6H",
+          "scanOnStartup": false,
+          "scanCbx": true,
+          "scanPdf": true,
+          "scanEpub": true,
+          "scanDirectoryExclusions": [
+            "#recycle",
+            "@Recycle",
+            "@eaDir"
+          ],
+          "repairExtensions": false,
+          "convertToCbz": false,
+          "emptyTrashAfterScan": false,
+          "seriesCover": "FIRST",
+          "hashFiles": true,
+          "hashPages": false,
+          "hashKoreader": false,
+          "analyzeDimensions": true,
+          "oneshotsDirectory": null,
+          "unavailable": false
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/libraries/0MANGARRNOLIBRARY",
+        "query": []
+      },
+      "response": {
+        "status": 404,
+        "contentType": "application/json",
+        "body": {
+          "timestamp": "2026-11-07T15:07:00.064+00:00",
+          "status": 404,
+          "error": "Not Found",
+          "message": "404 NOT_FOUND",
+          "path": "/api/v1/libraries/0MANGARRNOLIBRARY"
+        }
+      }
+    }
+  ]
+}

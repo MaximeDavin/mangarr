@@ -1,0 +1,62 @@
+{
+  "description": "List the libraries and ask for a scan with a wrong API key",
+  "recordedAt": "2026-11-07",
+  "komgaVersion": "1.30.0",
+  "context": {
+    "libraryId": "0S5G7X0VCN76R"
+  },
+  "outcome": {
+    "libraries": {
+      "error": {
+        "kind": "unauthorized",
+        "status": 401,
+        "message": "Komga rejected the API key"
+      }
+    },
+    "scan": {
+      "error": {
+        "kind": "unauthorized",
+        "status": 401,
+        "message": "Komga rejected the API key"
+      }
+    }
+  },
+  "calls": [
+    {
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/libraries",
+        "query": []
+      },
+      "response": {
+        "status": 401,
+        "contentType": "application/json",
+        "body": {
+          "timestamp": "2026-11-07T15:07:00.116+00:00",
+          "status": 401,
+          "error": "Unauthorized",
+          "message": "Unauthorized",
+          "path": "/api/v1/libraries"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/libraries/0S5G7X0VCN76R/scan",
+        "query": []
+      },
+      "response": {
+        "status": 401,
+        "contentType": "application/json",
+        "body": {
+          "timestamp": "2026-11-07T15:07:00.121+00:00",
+          "status": 401,
+          "error": "Unauthorized",
+          "message": "Unauthorized",
+          "path": "/api/v1/libraries/0S5G7X0VCN76R/scan"
+        }
+      }
+    }
+  ]
+}

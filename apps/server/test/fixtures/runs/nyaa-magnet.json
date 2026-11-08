@@ -1,0 +1,1511 @@
+{
+  "description": "Search \"berserk\" on Nyaa.si, grab \"Berserk v42 (2025) (Digital) (LuCaZ)\", wait for qBittorrent, import",
+  "qbittorrentVersion": "v5.3.0",
+  "run": {
+    "query": "berserk",
+    "indexerIds": [
+      1
+    ],
+    "categories": [
+      7000
+    ],
+    "name": "Berserk",
+    "aliases": [],
+    "authors": [
+      "Kentaro Miura"
+    ],
+    "volumeCount": 42,
+    "qbittorrentCategory": "mangarr",
+    "release": "Berserk v42 (2025) (Digital) (LuCaZ)",
+    "match": "exact",
+    "infoHash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+    "status": "imported",
+    "importLog": [
+      {
+        "sourceFile": "Berserk v42 (2025) (Digital) (LuCaZ).cbz",
+        "action": "imported",
+        "volumeNumber": 42
+      }
+    ],
+    "libraryFiles": [
+      "Berserk v42.cbz"
+    ]
+  },
+  "recordedAt": "2026-11-07",
+  "calls": [
+    {
+      "service": "prowlarr",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/search",
+        "query": [
+          [
+            "query",
+            "berserk"
+          ],
+          [
+            "type",
+            "search"
+          ],
+          [
+            "indexerIds",
+            "1"
+          ],
+          [
+            "categories",
+            "7000"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json; charset=utf-8",
+        "body": [
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3Ac22cd1ce13e9b1750940c335dedf5742dc5d7bdd&dn=Berserk+of+Gluttony+v01-14+%282021-2026%29+%28Digital%29+%28danke-Empire%2C+DigitalMangaFan%2C+Ushi%29&tr=REDACTED",
+            "age": 95,
+            "ageHours": 2298.2670690348054,
+            "ageMinutes": 137896.02414209166,
+            "size": 3972844748,
+            "grabs": 1144,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk of Gluttony v01-14 (2021-2026) (Digital) (danke-Empire, DigitalMangaFan, Ushi)",
+            "sortTitle": "berserk gluttony v01 14 2021 2026 digital danke empire digitalmangafan ushi",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2026-08-03T19:48:00Z",
+            "infoUrl": "https://nyaa.si/view/2141516",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 156719,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v01-14+%282021-2026%29+%28Digital%29+%28danke-Empire%2C+DigitalMangaFan%2C+Ushi%29",
+            "infoHash": "c22cd1ce13e9b1750940c335dedf5742dc5d7bdd",
+            "seeders": 31,
+            "leechers": 5,
+            "protocol": "torrent",
+            "fileName": "Berserk of Gluttony v01-14 (2021-2026) (Digital) (danke-Empire, DigitalMangaFan, Ushi).torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3Ad177c2cae776b45e8dfc1a9e79d3ac44cdfb27e2&dn=Berserk+of+Gluttony+v01-13+%282021-2025%29+%28Digital%29+%28DigitalMangaFan%29&tr=REDACTED",
+            "age": 310,
+            "ageHours": 7462.183735729528,
+            "ageMinutes": 447731.024143775,
+            "size": 3865470566,
+            "grabs": 1301,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk of Gluttony v01-13 (2021-2025) (Digital) (DigitalMangaFan)",
+            "sortTitle": "berserk gluttony v01 13 2021 2025 digital digitalmangafan",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2025-12-31T15:53:00Z",
+            "infoUrl": "https://nyaa.si/view/2059415",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 156719,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v01-13+%282021-2025%29+%28Digital%29+%28DigitalMangaFan%29",
+            "infoHash": "d177c2cae776b45e8dfc1a9e79d3ac44cdfb27e2",
+            "seeders": 10,
+            "leechers": 2,
+            "protocol": "torrent",
+            "fileName": "Berserk of Gluttony v01-13 (2021-2025) (Digital) (DigitalMangaFan).torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3A74aee934d47c020aa436779adead18e80f8b590d&dn=Berserk+Maximum+01-03+%28Planet+Manga%29+%5Bdigital+Yfe%5D+%28Italian%29&tr=REDACTED",
+            "age": 592,
+            "ageHours": 14225.45040240725,
+            "ageMinutes": 853527.0241444383,
+            "size": 1003801804,
+            "grabs": 156,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk Maximum 01-03 (Planet Manga) [digital Yfe] (Italian)",
+            "sortTitle": "berserk maximum 01 03 planet manga digital yfe italian",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2025-03-24T20:37:00Z",
+            "infoUrl": "https://nyaa.si/view/1951891",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 111160,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+Maximum+01-03+%28Planet+Manga%29+%5Bdigital+Yfe%5D+%28Italian%29",
+            "infoHash": "74aee934d47c020aa436779adead18e80f8b590d",
+            "seeders": 1,
+            "leechers": 0,
+            "protocol": "torrent",
+            "fileName": "Berserk Maximum 01-03 (Planet Manga) [digital Yfe] (Italian).torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3A8247b1178fd004b08457ef62e851e12b1c85eba3&dn=Berserk+v42+%282025%29+%28Digital%29+%28LuCaZ%29&tr=REDACTED",
+            "age": 600,
+            "ageHours": 14400.567069083445,
+            "ageMinutes": 864034.02414501,
+            "size": 363541299,
+            "grabs": 12727,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "sortTitle": "berserk v42 2025 digital lucaz",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2025-03-17T13:30:00Z",
+            "infoUrl": "https://nyaa.si/view/1949016",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 156719,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+v42+%282025%29+%28Digital%29+%28LuCaZ%29",
+            "infoHash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "seeders": 118,
+            "leechers": 0,
+            "protocol": "torrent",
+            "fileName": "Berserk v42 (2025) (Digital) (LuCaZ).torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3Ad71e641ab7a260e01316a267f9c97473b39c6046&dn=Berserk+of+Gluttony+v08+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+            "age": 615,
+            "ageHours": 14768.500402425305,
+            "ageMinutes": 886110.02414552,
+            "size": 395942297,
+            "grabs": 547,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk of Gluttony v08 [Audiobook] [Seven Seas Siren] [Stick]",
+            "sortTitle": "berserk gluttony v08 audiobook seven seas siren stick",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2025-03-02T05:34:00Z",
+            "infoUrl": "https://nyaa.si/view/1942736",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 156719,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v08+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+            "infoHash": "d71e641ab7a260e01316a267f9c97473b39c6046",
+            "seeders": 4,
+            "leechers": 0,
+            "protocol": "torrent",
+            "fileName": "Berserk of Gluttony v08 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3Aa8c33945c1a5cd9d7e4bfdb34f1329b1d4c522aa&dn=Berserk+of+Gluttony+v07+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+            "age": 646,
+            "ageHours": 15517.65040243464,
+            "ageMinutes": 931059.02414608,
+            "size": 339948339,
+            "grabs": 574,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk of Gluttony v07 [Audiobook] [Seven Seas Siren] [Stick]",
+            "sortTitle": "berserk gluttony v07 audiobook seven seas siren stick",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2025-01-30T00:25:00Z",
+            "infoUrl": "https://nyaa.si/view/1928351",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 156719,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v07+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+            "infoHash": "a8c33945c1a5cd9d7e4bfdb34f1329b1d4c522aa",
+            "seeders": 5,
+            "leechers": 0,
+            "protocol": "torrent",
+            "fileName": "Berserk of Gluttony v07 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3A57c4df7e40d9567b34649517450deb97d1fb517b&dn=Berserk+of+Gluttony+v06+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+            "age": 664,
+            "ageHours": 15943.117069109972,
+            "ageMinutes": 956587.0241466,
+            "size": 320235110,
+            "grabs": 601,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk of Gluttony v06 [Audiobook] [Seven Seas Siren] [Stick]",
+            "sortTitle": "berserk gluttony v06 audiobook seven seas siren stick",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2025-01-12T06:57:00Z",
+            "infoUrl": "https://nyaa.si/view/1920605",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 156719,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v06+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+            "infoHash": "57c4df7e40d9567b34649517450deb97d1fb517b",
+            "seeders": 5,
+            "leechers": 0,
+            "protocol": "torrent",
+            "fileName": "Berserk of Gluttony v06 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3A1e641d688f83b273734003d6a8bef3b84bb25b2a&dn=Berserk+of+Gluttony+v05+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+            "age": 692,
+            "ageHours": 16620.96706911861,
+            "ageMinutes": 997258.0241471183,
+            "size": 386400256,
+            "grabs": 639,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk of Gluttony v05 [Audiobook] [Seven Seas Siren] [Stick]",
+            "sortTitle": "berserk gluttony v05 audiobook seven seas siren stick",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2024-12-15T01:06:00Z",
+            "infoUrl": "https://nyaa.si/view/1911806",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 156719,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v05+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+            "infoHash": "1e641d688f83b273734003d6a8bef3b84bb25b2a",
+            "seeders": 6,
+            "leechers": 0,
+            "protocol": "torrent",
+            "fileName": "Berserk of Gluttony v05 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3A3b95717201664c10a427c742761093a8627c5468&dn=Berserk+of+Gluttony+v04+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+            "age": 709,
+            "ageHours": 17027.350402460557,
+            "ageMinutes": 1021641.0241476367,
+            "size": 356410982,
+            "grabs": 631,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk of Gluttony v04 [Audiobook] [Seven Seas Siren] [Stick]",
+            "sortTitle": "berserk gluttony v04 audiobook seven seas siren stick",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2024-11-28T02:43:00Z",
+            "infoUrl": "https://nyaa.si/view/1905028",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 156719,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v04+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+            "infoHash": "3b95717201664c10a427c742761093a8627c5468",
+            "seeders": 6,
+            "leechers": 0,
+            "protocol": "torrent",
+            "fileName": "Berserk of Gluttony v04 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3A0a0fd93ba4590048ebd830c3f7127815f40600d6&dn=Berserk+of+Gluttony+v03+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D&tr=REDACTED",
+            "age": 718,
+            "ageHours": 17242.967069135582,
+            "ageMinutes": 1034578.0241481384,
+            "size": 433586176,
+            "grabs": 621,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk of Gluttony v03 [Audiobook] [Seven Seas Siren] [Stick]",
+            "sortTitle": "berserk gluttony v03 audiobook seven seas siren stick",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2024-11-19T03:06:00Z",
+            "infoUrl": "https://nyaa.si/view/1901379",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 156719,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+of+Gluttony+v03+%5BAudiobook%5D+%5BSeven+Seas+Siren%5D+%5BStick%5D",
+            "infoHash": "0a0fd93ba4590048ebd830c3f7127815f40600d6",
+            "seeders": 5,
+            "leechers": 0,
+            "protocol": "torrent",
+            "fileName": "Berserk of Gluttony v03 [Audiobook] [Seven Seas Siren] [Stick].torrent"
+          },
+          {
+            "guid": "magnet:?xt=urn%3Abtih%3A19c9a1d45f209d84eee602a0bcc2b1f3bdda291a&dn=Berserk+-+377+Arabic.cbz&tr=REDACTED",
+            "age": 736,
+            "ageHours": 17664.883735810472,
+            "ageMinutes": 1059893.0241486316,
+            "size": 113351065,
+            "grabs": 66,
+            "indexerId": 1,
+            "indexer": "Nyaa.si",
+            "title": "Berserk - 377 Arabic.cbz",
+            "sortTitle": "berserk 377 arabic cbz",
+            "imdbId": 0,
+            "tmdbId": 0,
+            "tvdbId": 0,
+            "tvMazeId": 0,
+            "publishDate": "2024-11-01T13:11:00Z",
+            "infoUrl": "https://nyaa.si/view/1893756",
+            "indexerFlags": [
+              "freeleech"
+            ],
+            "categories": [
+              {
+                "id": 7000,
+                "name": "Books",
+                "subCategories": [
+                  {
+                    "id": 7010,
+                    "name": "Books/Mags",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7020,
+                    "name": "Books/EBook",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7030,
+                    "name": "Books/Comics",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7040,
+                    "name": "Books/Technical",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7050,
+                    "name": "Books/Other",
+                    "subCategories": []
+                  },
+                  {
+                    "id": 7060,
+                    "name": "Books/Foreign",
+                    "subCategories": []
+                  }
+                ]
+              },
+              {
+                "id": 111160,
+                "subCategories": []
+              }
+            ],
+            "magnetUrl": "http://prowlarr:9696/1/download?apikey=REDACTED&link=REDACTED&file=Berserk+-+377+Arabic.cbz",
+            "infoHash": "19c9a1d45f209d84eee602a0bcc2b1f3bdda291a",
+            "seeders": 1,
+            "leechers": 0,
+            "protocol": "torrent",
+            "fileName": "Berserk - 377 Arabic.cbz.torrent"
+          }
+        ]
+      }
+    },
+    {
+      "service": "prowlarr",
+      "request": {
+        "method": "GET",
+        "path": "/1/download",
+        "query": [
+          [
+            "apikey",
+            "REDACTED"
+          ],
+          [
+            "link",
+            "REDACTED"
+          ],
+          [
+            "file",
+            "Berserk v42 (2025) (Digital) (LuCaZ)"
+          ]
+        ]
+      },
+      "response": {
+        "status": 301,
+        "contentType": null,
+        "location": "magnet:?xt=urn%3Abtih%3A8247b1178fd004b08457ef62e851e12b1c85eba3&dn=Berserk+v42+%282025%29+%28Digital%29+%28LuCaZ%29&tr=REDACTED"
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/auth/login",
+        "query": [],
+        "body": {
+          "username": "REDACTED",
+          "password": "REDACTED"
+        }
+      },
+      "response": {
+        "status": 204,
+        "contentType": null,
+        "setCookie": [
+          "QBT_SID_8081=redacted"
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/categories",
+        "query": []
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": {
+          "mangarr": {
+            "download_path": null,
+            "inactive_seeding_time_limit": -2,
+            "name": "mangarr",
+            "ratio_limit": -2,
+            "savePath": "",
+            "seeding_time_limit": -2,
+            "share_limit_action": "Default",
+            "share_limits_mode": "Default"
+          }
+        }
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": []
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "POST",
+        "path": "/api/v2/torrents/add",
+        "query": [],
+        "body": {
+          "urls": "magnet:?xt=urn%3Abtih%3A8247b1178fd004b08457ef62e851e12b1c85eba3&dn=Berserk+v42+%282025%29+%28Digital%29+%28LuCaZ%29&tr=REDACTED",
+          "category": "mangarr"
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": {
+          "added_torrent_ids": [
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ],
+          "failure_count": 0,
+          "pending_count": 0,
+          "success_count": 1
+        }
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "metaDL",
+            "progress": 0,
+            "amount_left": 0,
+            "size": 0,
+            "save_path": "/downloads",
+            "eta": 8640000,
+            "dlspeed": 0,
+            "num_seeds": 0,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "metaDL",
+            "progress": 0,
+            "amount_left": 0,
+            "size": 0,
+            "save_path": "/downloads",
+            "eta": 8640000,
+            "dlspeed": 0,
+            "num_seeds": 0,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.06907931347989885,
+            "amount_left": 338475129,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 343,
+            "dlspeed": 3943464,
+            "num_seeds": 15,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.06907931347989885,
+            "amount_left": 338475129,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 343,
+            "dlspeed": 3943464,
+            "num_seeds": 15,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.25121798607334384,
+            "amount_left": 272251001,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 61,
+            "dlspeed": 10316483,
+            "num_seeds": 25,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.25121798607334384,
+            "amount_left": 272251001,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 61,
+            "dlspeed": 10316483,
+            "num_seeds": 25,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.41537711132270555,
+            "amount_left": 212564089,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 32,
+            "dlspeed": 12019511,
+            "num_seeds": 28,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.41537711132270555,
+            "amount_left": 212564089,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 32,
+            "dlspeed": 12019511,
+            "num_seeds": 28,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.7920463751051416,
+            "amount_left": 75610233,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 8,
+            "dlspeed": 22539816,
+            "num_seeds": 27,
+            "num_leechs": 1
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.7920463751051416,
+            "amount_left": 75610233,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 8,
+            "dlspeed": 22539816,
+            "num_seeds": 27,
+            "num_leechs": 1
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.8968541757628907,
+            "amount_left": 37502976,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 3,
+            "dlspeed": 14445519,
+            "num_seeds": 28,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.8968541757628907,
+            "amount_left": 37502976,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 3,
+            "dlspeed": 14445519,
+            "num_seeds": 28,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.9514236791054592,
+            "amount_left": 17661952,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 1,
+            "dlspeed": 8025975,
+            "num_seeds": 28,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "downloading",
+            "progress": 0.9695384110160394,
+            "amount_left": 11075584,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 1,
+            "dlspeed": 8477700,
+            "num_seeds": 28,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "stalledUP",
+            "progress": 1,
+            "amount_left": 0,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 8640000,
+            "dlspeed": 5019396,
+            "num_seeds": 0,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/info",
+        "query": [
+          [
+            "hashes",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "hash": "8247b1178fd004b08457ef62e851e12b1c85eba3",
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ)",
+            "category": "mangarr",
+            "state": "stalledUP",
+            "progress": 1,
+            "amount_left": 0,
+            "size": 363591801,
+            "save_path": "/downloads",
+            "eta": 8640000,
+            "dlspeed": 5019396,
+            "num_seeds": 0,
+            "num_leechs": 0
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/torrents/files",
+        "query": [
+          [
+            "hash",
+            "8247b1178fd004b08457ef62e851e12b1c85eba3"
+          ]
+        ]
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "body": [
+          {
+            "availability": -1,
+            "index": 0,
+            "is_seed": true,
+            "name": "Berserk v42 (2025) (Digital) (LuCaZ).cbz",
+            "piece_range": [
+              0,
+              1386
+            ],
+            "priority": 1,
+            "progress": 1,
+            "size": 363591801
+          }
+        ]
+      }
+    },
+    {
+      "service": "qbittorrent",
+      "request": {
+        "method": "GET",
+        "path": "/api/v2/app/version",
+        "query": []
+      },
+      "response": {
+        "status": 200,
+        "contentType": "text/plain; charset=UTF-8",
+        "body": "v5.3.0"
+      }
+    }
+  ]
+}

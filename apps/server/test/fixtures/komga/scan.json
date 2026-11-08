@@ -1,0 +1,49 @@
+{
+  "description": "Ask for a scan of a library Komga has, then of one it doesn't",
+  "recordedAt": "2026-11-07",
+  "komgaVersion": "1.30.0",
+  "context": {
+    "libraryId": "0S5G7X0VCN76R"
+  },
+  "outcome": {
+    "known": {},
+    "unknown": {
+      "error": {
+        "kind": "not_found",
+        "status": 404,
+        "message": "Komga has no library 0MANGARRNOLIBRARY"
+      }
+    }
+  },
+  "calls": [
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/libraries/0S5G7X0VCN76R/scan",
+        "query": []
+      },
+      "response": {
+        "status": 202,
+        "contentType": null
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/libraries/0MANGARRNOLIBRARY/scan",
+        "query": []
+      },
+      "response": {
+        "status": 404,
+        "contentType": "application/json",
+        "body": {
+          "timestamp": "2026-11-07T15:07:00.111+00:00",
+          "status": 404,
+          "error": "Not Found",
+          "message": "404 NOT_FOUND",
+          "path": "/api/v1/libraries/0MANGARRNOLIBRARY/scan"
+        }
+      }
+    }
+  ]
+}
